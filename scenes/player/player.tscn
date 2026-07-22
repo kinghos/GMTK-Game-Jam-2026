@@ -2,18 +2,27 @@
 
 [ext_resource type="Texture2D" uid="uid://c7tuu8juyfgrl" path="res://cat smil.jpg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cd7i3gsqewy38" path="res://scenes/player/player.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://1q3m5v74w1gk" path="res://scenes/player/gun.gd" id="3_gmlin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(343, 264)
+size = Vector2(126, 125)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_126ht"]
+size = Vector2(25, 25)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=181589956]
 z_index = 1
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694806254]
-position = Vector2(-0.5, -1)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204378358]
-scale = Vector2(0.5375, 0.415625)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_3vyb7")
+
+[node name="Gun" type="Sprite2D" parent="." unique_id=185035677]
+texture = SubResource("PlaceholderTexture2D_126ht")
+offset = Vector2(150, 0)
+script = ExtResource("3_gmlin")
