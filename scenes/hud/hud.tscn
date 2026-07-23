@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dmlqu105ltwt4"]
 
 [ext_resource type="Script" uid="uid://cwrjmiycyral0" path="res://scenes/hud/charge_bar.gd" id="1_48c2t"]
-[ext_resource type="Shader" uid="uid://cnqaas4qrnorc" path="res://assets/shaders/crt.gdshader" id="1_cgeww"]
+[ext_resource type="FontFile" uid="uid://d0l0a1tva8g5b" path="res://assets/vertopal.com_GUNV2BM.ttf" id="1_c45xl"]
+[ext_resource type="Shader" uid="uid://cqhx0vrhkfegb" path="res://assets/shaders/crt.gdshader" id="1_cgeww"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c45xl"]
 shader = ExtResource("1_cgeww")
@@ -24,6 +25,116 @@ shader_parameter/pixel_strength = -2.0
 
 [sub_resource type="ImageTexture" id="ImageTexture_d2rsb"]
 
+[sub_resource type="Animation" id="Animation_0bx4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/PowerupScreen:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/PowerupScreen/SelectLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/PowerupScreen/PowerupsMenu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/PowerupScreen:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mgtrf"]
+resource_name = "powerups"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/PowerupScreen:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.2871746, 2.3784158),
+"update": 0,
+"values": [Vector2(640, 0), Vector2(640, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/PowerupScreen/SelectLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/PowerupScreen/PowerupsMenu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/PowerupScreen:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7mo4"]
+_data = {
+&"RESET": SubResource("Animation_0bx4p"),
+&"powerups": SubResource("Animation_mgtrf")
+}
+
 [node name="HUD" type="CanvasLayer" unique_id=350223319]
 
 [node name="Control" type="Control" parent="." unique_id=382430714]
@@ -33,6 +144,145 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PowerupScreen" type="ColorRect" parent="Control" unique_id=1762341908]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+
+[node name="SelectLabel" type="Label" parent="Control/PowerupScreen" unique_id=1080693099]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 19.0
+offset_right = 129.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_c45xl")
+theme_override_font_sizes/font_size = 25
+text = "SELECT A POWERUP"
+
+[node name="PowerupsMenu" type="VBoxContainer" parent="Control/PowerupScreen" unique_id=1439906686]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.80002
+offset_top = -108.0
+offset_right = 164.80002
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="HBoxContainer" parent="Control/PowerupScreen/PowerupsMenu" unique_id=49812511]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Option1" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Options" unique_id=1960263742]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_c45xl")
+text = "opt 1"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/powerup_type = 0
+
+[node name="Option2" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Options" unique_id=978272596]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_c45xl")
+text = "opt 2"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/powerup_type = 0
+
+[node name="Option3" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Options" unique_id=1609111966]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_c45xl")
+text = "opt 3"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/powerup_type = 0
+
+[node name="Descriptions" type="HBoxContainer" parent="Control/PowerupScreen/PowerupsMenu" unique_id=1852832032]
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Descriptions" unique_id=552898103]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_c45xl")
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Text"
+autowrap_mode = 3
+metadata/powerup_type = 0
+
+[node name="Option2" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Descriptions" unique_id=796304181]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_c45xl")
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Text"
+autowrap_mode = 3
+metadata/powerup_type = 0
+
+[node name="Option3" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Descriptions" unique_id=1059767735]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_c45xl")
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Text"
+autowrap_mode = 3
+metadata/powerup_type = 0
+
+[node name="ValueChanges" type="HBoxContainer" parent="Control/PowerupScreen/PowerupsMenu" unique_id=1883428354]
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="Control/PowerupScreen/PowerupsMenu/ValueChanges" unique_id=493254458]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_c45xl")
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "X -> X"
+metadata/powerup_type = 0
+
+[node name="Option2" type="Button" parent="Control/PowerupScreen/PowerupsMenu/ValueChanges" unique_id=2011251995]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_c45xl")
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "X -> X"
+metadata/powerup_type = 0
+
+[node name="Option3" type="Button" parent="Control/PowerupScreen/PowerupsMenu/ValueChanges" unique_id=1299695550]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_c45xl")
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "X -> X"
+metadata/powerup_type = 0
 
 [node name="ShaderBuffer" type="ColorRect" parent="Control" unique_id=1055399532]
 material = SubResource("ShaderMaterial_c45xl")
@@ -61,3 +311,6 @@ theme_override_icons/tick = SubResource("ImageTexture_d2rsb")
 editable = false
 scrollable = false
 script = ExtResource("1_48c2t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=150032251]
+libraries/ = SubResource("AnimationLibrary_v7mo4")

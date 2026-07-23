@@ -13,7 +13,7 @@ const SPRINT_SPEED = 400.0
 const MAX_CHARGE = 100
 
 @onready var gun: Sprite2D = $Gun
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 
 var charge = MAX_CHARGE
@@ -72,7 +72,8 @@ func _physics_process(delta: float) -> void:
 
 func spawn_sprint_trail_image():
 	var ghost = Sprite2D.new()
-	ghost.texture = sprite_2d.texture
+	var cur_texture = sprite_2d.sprite_frames.get_frame_texture("run", sprite_2d.frame)
+	ghost.texture = cur_texture
 	ghost.global_position = global_position
 	ghost.rotation = sprite_2d.rotation
 	ghost.scale = sprite_2d.scale

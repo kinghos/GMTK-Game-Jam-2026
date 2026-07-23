@@ -8,10 +8,11 @@ func _ready() -> void:
 
 
 func _on_explosion_area_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and not dead:
 		explosion_sprite.show()
 		explosion_sprite.play("kaboom")
 		asp.play()
+		sprite_2d.hide() 
 		body.use_charge(damage)
 		$CollisionShape2D.set_deferred("disabled", true)
 		await explosion_sprite.animation_finished
