@@ -4,6 +4,10 @@
 [ext_resource type="FontFile" uid="uid://d0l0a1tva8g5b" path="res://assets/vertopal.com_GUNV2BM.ttf" id="1_c45xl"]
 [ext_resource type="Shader" uid="uid://cqhx0vrhkfegb" path="res://assets/shaders/crt.gdshader" id="1_cgeww"]
 
+[sub_resource type="ImageTexture" id="ImageTexture_126ht"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_d2rsb"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c45xl"]
 shader = ExtResource("1_cgeww")
 shader_parameter/resolution = Vector2(640, 360)
@@ -20,10 +24,6 @@ shader_parameter/roll_line_amount = 0.0
 shader_parameter/roll_speed = 1.0
 shader_parameter/scan_line_strength = -8.0
 shader_parameter/pixel_strength = -2.0
-
-[sub_resource type="ImageTexture" id="ImageTexture_126ht"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_d2rsb"]
 
 [sub_resource type="Animation" id="Animation_0bx4p"]
 length = 0.001
@@ -284,15 +284,6 @@ disabled = true
 text = "X -> X"
 metadata/powerup_type = 0
 
-[node name="ShaderBuffer" type="ColorRect" parent="Control" unique_id=1055399532]
-material = SubResource("ShaderMaterial_c45xl")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="ChargeBar" type="HSlider" parent="Control" unique_id=1679705439]
 layout_mode = 1
 anchors_preset = 7
@@ -311,6 +302,44 @@ theme_override_icons/tick = SubResource("ImageTexture_d2rsb")
 editable = false
 scrollable = false
 script = ExtResource("1_48c2t")
+
+[node name="TopBar" type="ColorRect" parent="Control" unique_id=1409044298]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 34.0
+color = Color(0.13682577, 0.13682574, 0.13682571, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TopBar" unique_id=1552545101]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_right = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 258
+
+[node name="Label" type="Label" parent="Control/TopBar/HBoxContainer" unique_id=245234213]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_c45xl")
+text = "TIME:"
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/TopBar/HBoxContainer" unique_id=1178189131]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_c45xl")
+value = 79.38
+
+[node name="ShaderBuffer" type="ColorRect" parent="Control" unique_id=1055399532]
+material = SubResource("ShaderMaterial_c45xl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=150032251]
 libraries/ = SubResource("AnimationLibrary_v7mo4")
