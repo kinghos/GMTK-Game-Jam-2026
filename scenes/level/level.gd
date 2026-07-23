@@ -24,4 +24,3 @@ func spawn_wave():
 		fodder.global_position = player_pos + spawn_offset.rotated(randf_range(0, TAU))
 		$Enemies.add_child(fodder)
 	wave_complete = true
-		

@@ -4,11 +4,9 @@ extends Enemy
 
 func _ready() -> void:
 	enemy_type = "lightbomb"
-	
 
-
-func _on_explosion_area_body_entered(body: Node2D) -> void:
-	if body is Player:
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	if body is Player and not dead:
 		explosion_sprite.show()
 		explosion_sprite.play("kaboom")
 		asp.play()
