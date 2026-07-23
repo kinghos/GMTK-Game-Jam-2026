@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dmlqu105ltwt4"]
 
+[ext_resource type="Script" uid="uid://b1mwdx6ymgu1b" path="res://scenes/hud/hud.gd" id="1_0bx4p"]
 [ext_resource type="Script" uid="uid://cwrjmiycyral0" path="res://scenes/hud/charge_bar.gd" id="1_48c2t"]
 [ext_resource type="FontFile" uid="uid://d0l0a1tva8g5b" path="res://assets/vertopal.com_GUNV2BM.ttf" id="1_c45xl"]
 [ext_resource type="Shader" uid="uid://cqhx0vrhkfegb" path="res://assets/shaders/crt.gdshader" id="1_cgeww"]
@@ -136,6 +137,7 @@ _data = {
 }
 
 [node name="HUD" type="CanvasLayer" unique_id=350223319]
+script = ExtResource("1_0bx4p")
 
 [node name="Control" type="Control" parent="." unique_id=382430714]
 layout_mode = 3
@@ -320,7 +322,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 258
 
-[node name="Label" type="Label" parent="Control/TopBar/HBoxContainer" unique_id=245234213]
+[node name="Timer" type="Label" parent="Control/TopBar/HBoxContainer" unique_id=245234213]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_c45xl")
 text = "TIME:"
