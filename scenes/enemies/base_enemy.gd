@@ -42,14 +42,16 @@ func _process(delta: float) -> void:
 		die()
 
 func die():
-		animation_player.play("death")
-		dead = true
-		await animation_player.animation_finished
-		var drop = ENERGY_DROP.instantiate()
-		drop.global_position = global_position
-		Globals.level.get_node("Drops").add_child(drop)
-		await cpu_particles_2d.finished
-		queue_free()
+	Globals.enemy_kill_total += 1
+	Globals.current_kills_to_target += 1
+	animation_player.play("death")
+	dead = true
+	await animation_player.animation_finished
+	var drop = ENERGY_DROP.instantiate()
+	drop.global_position = global_position
+	Globals.level.get_node("Drops").add_child(drop)
+	await cpu_particles_2d.finished
+	queue_free()
 
 func take_damage(bullet_damage):
 	hp = move_toward(hp, 0, bullet_damage)

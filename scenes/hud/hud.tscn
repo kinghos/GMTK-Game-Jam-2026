@@ -332,7 +332,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("1_c45xl")
-value = 79.38
+max_value = 1.0
+value = 0.76
 
 [node name="ShaderBuffer" type="ColorRect" parent="Control" unique_id=1055399532]
 material = SubResource("ShaderMaterial_c45xl")
