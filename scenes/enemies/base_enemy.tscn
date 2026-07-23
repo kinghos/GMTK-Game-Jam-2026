@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://hqm0xru0ae3j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ghg"]
+[ext_resource type="Script" uid="uid://d3mr5m3v4gl00" path="res://scenes/enemies/base_enemy.gd" id="1_qf3h2"]
+[ext_resource type="Texture2D" uid="uid://c6inrvef0evkt" path="res://catthumbsdown.png" id="1_r5xb8"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k5ghg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ghg"]
+size = Vector2(32, 32)
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1193687902]
+script = ExtResource("1_qf3h2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1150660543]
 shape = SubResource("RectangleShape2D_k5ghg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=895660491]
-position = Vector2(-9.999999, -9.999999)
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_k5ghg")
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_r5xb8")
