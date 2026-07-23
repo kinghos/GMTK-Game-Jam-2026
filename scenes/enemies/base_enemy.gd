@@ -36,5 +36,5 @@ func death():
 		queue_free()
 	
 
-func take_damage():
-	hp = move_toward(hp, 0, damage)
+func take_damage(bullet_damage):
+	hp = move_toward(hp, 0, bullet_damage)
