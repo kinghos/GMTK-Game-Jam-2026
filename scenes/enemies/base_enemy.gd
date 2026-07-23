@@ -42,6 +42,8 @@ func _process(delta: float) -> void:
 		die()
 
 func die():
+	if self in Globals.player.enemies_in_blast_radius:
+		Globals.player.enemies_in_blast_radius.erase(self)
 	Globals.enemy_kill_total += 1
 	Globals.current_kills_to_target += 1
 	animation_player.play("death")

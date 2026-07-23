@@ -95,7 +95,7 @@ _data = {
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1193687902 groups=["Enemies"]]
 z_index = 1
 collision_layer = 2
-collision_mask = 62
+collision_mask = 190
 motion_mode = 1
 script = ExtResource("1_qf3h2")
 

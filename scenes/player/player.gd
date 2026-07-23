@@ -14,6 +14,8 @@ const MAX_CHARGE = 100
 
 @onready var gun: Sprite2D = $Gun
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var blast_particles: CPUParticles2D = $BlastParticles
+@onready var blast_timer: Timer = $BlastTimer
 
 
 var charge = MAX_CHARGE
@@ -26,6 +28,8 @@ const SPRINT_TRAIL_INTERVAL = 0.05
 const SPRINT_TRAIL_LIFETIME = 0.2
 var sprinting_trail_timer = 0.0
 
+var enemies_in_blast_radius = []
+
 func _ready():
 	Globals.player = self
 
@@ -37,6 +41,9 @@ func _physics_process(delta: float) -> void:
 		sprite_2d.flip_h = true
 	elif direction.x > 0:
 		sprite_2d.flip_h = false
+	
+	if Input.is_action_just_pressed("Blast"):
+		blast()
 	
 	var current_speed = WALK_SPEED if direction else 0
 	if sprinting:
@@ -105,3 +112,24 @@ func die():
 
 func energy_gain(energy_gained):
 	charge += energy_gained
+	
+func blast():
+	if blast_timer.is_stopped():
+		print("kablow!")
+		blast_timer.start()
+		blast_particles.emitting = true
+		for enemy in enemies_in_blast_radius:
+			enemy.attack_cooldown = 0.75
+			enemy.knockback_time = 0.5
+			enemy.knockback_velocity = global_position.direction_to(enemy.global_position) * 200
+		
+
+
+func _on_blast_radius_body_entered(body: Node2D) -> void:
+	if body is Enemy:
+		enemies_in_blast_radius.append(body)
+
+
+func _on_blast_radius_body_exited(body: Node2D) -> void:
+	if body is Enemy:
+		enemies_in_blast_radius.erase(body)

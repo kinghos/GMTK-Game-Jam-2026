@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cd7i3gsqewy38" path="res://scenes/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://kujom1wreabj" path="res://assets/sprites/player.png" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://1q3m5v74w1gk" path="res://scenes/player/gun.gd" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://c11w0uks0ab07" path="res://scenes/particles/lightning.png" id="4_lvxji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(31, 32)
@@ -46,6 +47,9 @@ animations = [{
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_126ht"]
 size = Vector2(12, 12)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5ghg"]
+radius = 69.115845
+
 [node name="Player" type="CharacterBody2D" unique_id=181589956]
 collision_mask = 76
 script = ExtResource("1_g2els")
@@ -58,7 +62,7 @@ shape = SubResource("RectangleShape2D_dqkch")
 sprite_frames = SubResource("SpriteFrames_k5ghg")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.874952
+frame_progress = 0.631933
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=185035677]
 texture = SubResource("PlaceholderTexture2D_126ht")
@@ -66,3 +70,39 @@ offset = Vector2(30, 0)
 script = ExtResource("3_gmlin")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1946561460]
+
+[node name="BlastParticles" type="CPUParticles2D" parent="." unique_id=890265202]
+emitting = false
+amount = 50
+texture = ExtResource("4_lvxji")
+lifetime = 0.75
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+use_fixed_seed = true
+seed = 8
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+linear_accel_min = -50.0
+linear_accel_max = -9.68
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.75
+scale_amount_max = 0.75
+
+[node name="BlastTimer" type="Timer" parent="." unique_id=2140747265]
+wait_time = 10.0
+one_shot = true
+
+[node name="BlastRadius" type="Area2D" parent="." unique_id=1695964441]
+collision_layer = 128
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlastRadius" unique_id=1336266813]
+shape = SubResource("CircleShape2D_k5ghg")
+
+[connection signal="body_entered" from="BlastRadius" to="." method="_on_blast_radius_body_entered"]
+[connection signal="body_exited" from="BlastRadius" to="." method="_on_blast_radius_body_exited"]
