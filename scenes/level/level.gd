@@ -22,6 +22,6 @@ func spawn_wave():
 		await get_tree().create_timer(0.5).timeout
 		var fodder: Enemy = FODDER.instantiate()
 		fodder.global_position = player_pos + spawn_offset.rotated(randf_range(0, TAU))
-		add_child(fodder)
+		$Enemies.add_child(fodder)
 	wave_complete = true
 		

@@ -76,6 +76,7 @@ Sprint={
 2d_physics/layer_4="Boundaries"
 2d_physics/layer_5="Player bullets"
 2d_physics/layer_6="Drops"
+2d_physics/layer_7="Explosion Area"
 
 [physics]
 

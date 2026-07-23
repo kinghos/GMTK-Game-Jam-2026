@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cc7gqs5oj7agq"]
 
 [ext_resource type="Script" uid="uid://bflra6x651531" path="res://scenes/level/level.gd" id="1_i166f"]
+[ext_resource type="PackedScene" uid="uid://ddets33eig4gx" path="res://scenes/enemies/lightbomb.tscn" id="2_hnne4"]
 [ext_resource type="PackedScene" uid="uid://b87hq2kmyp5ee" path="res://scenes/player/player.tscn" id="2_qkmgm"]
 [ext_resource type="PackedScene" uid="uid://dmlqu105ltwt4" path="res://scenes/hud/hud.tscn" id="3_hnne4"]
 
@@ -8,6 +9,11 @@
 script = ExtResource("1_i166f")
 
 [node name="Drops" type="Node" parent="." unique_id=392054925]
+
+[node name="Enemies" type="Node" parent="." unique_id=1218197294]
+
+[node name="BaseEnemy" parent="Enemies" unique_id=1193687902 instance=ExtResource("2_hnne4")]
+position = Vector2(976, 654)
 
 [node name="CharacterBody2D" parent="." unique_id=181589956 instance=ExtResource("2_qkmgm")]
 z_index = 1
