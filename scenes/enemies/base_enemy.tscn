@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://hqm0xru0ae3j"]
 
 [ext_resource type="Script" uid="uid://d3mr5m3v4gl00" path="res://scenes/enemies/base_enemy.gd" id="1_qf3h2"]
-[ext_resource type="Texture2D" uid="uid://c6inrvef0evkt" path="res://catthumbsdown.png" id="1_r5xb8"]
 [ext_resource type="Texture2D" uid="uid://c11w0uks0ab07" path="res://scenes/particles/lightning.png" id="3_lkvl6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ghg"]
@@ -115,9 +114,7 @@ script = ExtResource("1_qf3h2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1150660543]
 shape = SubResource("RectangleShape2D_k5ghg")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=895660491]
-scale = Vector2(0.16, 0.16)
-texture = ExtResource("1_r5xb8")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=162748549]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=721897490]
 emitting = false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kujom1wreabj"
-path="res://.godot/imported/Sprite_mc_final.png-7106a0c93bf762ff03b62177601af645.ctex"
+uid="uid://b76lr6jve3whm"
+path="res://.godot/imported/lightbulb.png-fdaa36a9a56d4741ef6913e27d552f2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprite_mc_final.png"
-dest_files=["res://.godot/imported/Sprite_mc_final.png-7106a0c93bf762ff03b62177601af645.ctex"]
+source_file="res://assets/sprites/lightbulb.png"
+dest_files=["res://.godot/imported/lightbulb.png-fdaa36a9a56d4741ef6913e27d552f2c.ctex"]
 
 [params]
 
