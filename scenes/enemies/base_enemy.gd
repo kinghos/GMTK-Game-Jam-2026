@@ -11,4 +11,5 @@ func attack_player():
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	attack_player()
+	if not Globals.game_over:
+		attack_player()

@@ -2,6 +2,7 @@ extends Node
 
 
 var player: Player
+var game_over = false
 enum ENEMY_TYPES {FODDER, CHARGELESS, PARASITE, RANGED}
 
 

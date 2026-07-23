@@ -64,3 +64,4 @@ func expend_charge():
 func die():
 	var death_anim = DEATH_ANIMATION.instantiate()
 	add_child(death_anim)
+	Globals.game_over = true
