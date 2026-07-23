@@ -27,6 +27,10 @@ window/size/borderless=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Enemies=""
+
 [input]
 
 Up={

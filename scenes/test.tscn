@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://cc7gqs5oj7agq"]
 
+[ext_resource type="Script" uid="uid://bflra6x651531" path="res://scenes/test.gd" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://b87hq2kmyp5ee" path="res://scenes/player/player.tscn" id="1_errlg"]
 
 [node name="Test" type="Node2D" unique_id=1894181403]
+script = ExtResource("1_bl13t")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=736795770]
-offset_left = 70.0
-offset_top = 57.0
-offset_right = 502.0
-offset_bottom = 331.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.25565878, 0.25565878, 0.25565878, 1)
 
 [node name="CharacterBody2D" parent="." unique_id=181589956 instance=ExtResource("1_errlg")]
 position = Vector2(848, 693)
