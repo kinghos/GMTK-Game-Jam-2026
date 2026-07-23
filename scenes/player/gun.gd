@@ -18,4 +18,4 @@ func shoot():
 	bullet.direction = mouse_direction
 	
 	get_tree().current_scene.get_node("Bullets").add_child(bullet, true)
-	Globals.player.charge -= charge_cost
+	Globals.player.use_charge(charge_cost)

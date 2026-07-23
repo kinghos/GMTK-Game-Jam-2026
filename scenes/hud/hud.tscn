@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dmlqu105ltwt4"]
 
 [ext_resource type="Script" uid="uid://cwrjmiycyral0" path="res://scenes/hud/charge_bar.gd" id="1_48c2t"]
-[ext_resource type="Shader" uid="uid://cqhx0vrhkfegb" path="res://assets/shaders/crt.gdshader" id="1_cgeww"]
+[ext_resource type="Shader" uid="uid://cnqaas4qrnorc" path="res://assets/shaders/crt.gdshader" id="1_cgeww"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c45xl"]
 shader = ExtResource("1_cgeww")
@@ -26,27 +26,36 @@ shader_parameter/pixel_strength = -2.0
 
 [node name="HUD" type="CanvasLayer" unique_id=350223319]
 
-[node name="ShaderBuffer" type="ColorRect" parent="." unique_id=1055399532]
-material = SubResource("ShaderMaterial_c45xl")
+[node name="Control" type="Control" parent="." unique_id=382430714]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ChargeBar" type="HSlider" parent="." unique_id=1679705439]
+[node name="ShaderBuffer" type="ColorRect" parent="Control" unique_id=1055399532]
+material = SubResource("ShaderMaterial_c45xl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChargeBar" type="HSlider" parent="Control" unique_id=1679705439]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -200.0
-offset_top = -16.0
+offset_top = -35.0
 offset_right = 200.0
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(2, 2)
-pivot_offset = Vector2(200, 50)
 theme_override_icons/grabber_disabled = SubResource("ImageTexture_126ht")
 theme_override_icons/tick = SubResource("ImageTexture_d2rsb")
 editable = false
