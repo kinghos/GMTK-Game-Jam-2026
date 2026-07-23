@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bu0tbkvjdl8a6" path="res://catbadjob.png" id="1_1mvow"]
 [ext_resource type="Script" uid="uid://ddo80kb0nhhvg" path="res://scenes/player/death_animation.gd" id="2_ckcgh"]
-[ext_resource type="AudioStream" uid="uid://c6nn8ak803wuf" path="res://scenes/player/soundreality-explosion-fx-343683.mp3" id="3_nw878"]
+[ext_resource type="AudioStream" uid="uid://c6nn8ak803wuf" path="res://assets/audio/soundreality-explosion-fx-343683.mp3" id="3_nw878"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8f4dh"]
 particle_flag_disable_z = true

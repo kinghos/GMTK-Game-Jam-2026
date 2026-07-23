@@ -2,8 +2,8 @@ extends CharacterBody2D
 class_name Enemy
 
 var enemy_type
-var hp
-var damage
+@export var hp = 0
+@export var damage = 0
 @export var speed = 0
 
 func attack_player():

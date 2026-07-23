@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cc7gqs5oj7agq"]
+
+[ext_resource type="Script" uid="uid://bflra6x651531" path="res://scenes/level/level.gd" id="1_w8frs"]
+[ext_resource type="PackedScene" uid="uid://b87hq2kmyp5ee" path="res://scenes/player/player.tscn" id="2_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://dmlqu105ltwt4" path="res://scenes/hud/hud.tscn" id="3_ppgk2"]
+
+[node name="Test" type="Node2D" unique_id=1894181403]
+script = ExtResource("1_w8frs")
+
+[node name="CharacterBody2D" parent="." unique_id=181589956 instance=ExtResource("2_mx8sn")]
+position = Vector2(848, 693)
+
+[node name="Bullets" type="Node2D" parent="." unique_id=920392833]
+
+[node name="HUD" parent="." unique_id=350223319 instance=ExtResource("3_ppgk2")]
