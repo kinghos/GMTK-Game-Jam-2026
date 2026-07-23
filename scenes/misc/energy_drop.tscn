@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://hsjp7wxc6x1v"]
+
+[ext_resource type="Script" uid="uid://c5424ol7fe00c" path="res://scenes/misc/energy_drop.gd" id="1_moigf"]
+[ext_resource type="Texture2D" uid="uid://c11w0uks0ab07" path="res://scenes/particles/lightning.png" id="1_rt2x3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ghg"]
+size = Vector2(13, 15)
+
+[node name="EnergyDrop" type="Area2D" unique_id=867742181]
+collision_layer = 32
+script = ExtResource("1_moigf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1849676986]
+texture = ExtResource("1_rt2x3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1164148158]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_k5ghg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

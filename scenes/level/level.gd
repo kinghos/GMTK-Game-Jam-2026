@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name Level
 const FODDER = preload("uid://cyaef5g41qd5j")
 
 var wave_number = 1
@@ -7,6 +7,9 @@ var spawn_num = 10
 var spawn_offset_radius = 500
 var wave_complete = false
 var spawn_offset: Vector2 = Vector2(spawn_offset_radius, spawn_offset_radius)
+
+func _ready() -> void:
+	Globals.level = self
 
 func _process(delta: float) -> void:
 	if get_tree().get_nodes_in_group("Enemies").is_empty() and not wave_complete:

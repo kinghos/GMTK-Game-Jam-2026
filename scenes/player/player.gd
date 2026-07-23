@@ -65,3 +65,6 @@ func die():
 	var death_anim = DEATH_ANIMATION.instantiate()
 	add_child(death_anim)
 	Globals.game_over = true
+
+func energy_gain(energy_gained):
+	charge += energy_gained
