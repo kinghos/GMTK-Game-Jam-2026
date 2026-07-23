@@ -4,7 +4,7 @@ class_name Player
 const DEATH_ANIMATION = preload("res://scenes/player/death_animation.tscn")
 
 const IDLE_DRAIN = 1.0
-const MOVING_DRAIN = 6.0
+const MOVING_DRAIN = 12.0
 const CHARGE_PER_EXPEND = 2.0
 
 const WALK_SPEED = 150.0

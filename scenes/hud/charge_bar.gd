@@ -36,6 +36,8 @@ func _process(delta: float) -> void:
 	
 	if low_charge_ratio < 0.25:
 		flash_red()
+	else:
+		reset_red()
 
 	smat.set_shader_parameter("noise_amount", remap(low_charge_ratio, 0.0, 0.25, 0.12, 0.03))
 	smat.set_shader_parameter("vignette_intensity", remap(low_charge_ratio, 0.0, 0.25, 1.0, 0.4))
@@ -43,10 +45,13 @@ func _process(delta: float) -> void:
 func flash_red():
 	if flash_timer > 0.5:
 		if has_theme_stylebox_override("grabber_area"):
-			remove_theme_stylebox_override("grabber_area")
+			reset_red()
 		else:
 			add_theme_stylebox_override("grabber_area", red_stylebox)
 		flash_timer = 0.0
+
+func reset_red():
+	remove_theme_stylebox_override("grabber_area")
 
 func get_grabber_position() -> Vector2:
 	var slider_width = size.x

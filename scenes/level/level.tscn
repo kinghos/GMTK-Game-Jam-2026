@@ -22,3 +22,9 @@ position = Vector2(848, 693)
 [node name="Bullets" type="Node2D" parent="." unique_id=920392833]
 
 [node name="HUD" parent="." unique_id=350223319 instance=ExtResource("3_hnne4")]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=2062280826]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
