@@ -76,6 +76,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/TopBar:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_mgtrf"]
 resource_name = "powerups"
@@ -128,6 +140,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/TopBar:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v7mo4"]
@@ -316,14 +340,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 9.0
-offset_right = -9.0
+offset_left = 20.0
+offset_right = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 258
+theme_override_constants/separation = 100
 
 [node name="Timer" type="Label" parent="Control/TopBar/HBoxContainer" unique_id=245234213]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("1_c45xl")
 text = "TIME:"
 

@@ -14,5 +14,5 @@ func _process(delta: float) -> void:
 	timer.text = "TIME: %02d:%02d" % [mins, secs]
 	
 	var perc = Globals.current_kills_to_target / Globals.current_kill_target
-	progress_bar.value = perc
+	progress_bar.value = lerpf(progress_bar.value, perc, delta * 15)
 	
