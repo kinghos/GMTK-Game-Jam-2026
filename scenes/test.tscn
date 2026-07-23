@@ -12,3 +12,5 @@ offset_bottom = 331.0
 
 [node name="CharacterBody2D" parent="." unique_id=181589956 instance=ExtResource("1_errlg")]
 position = Vector2(848, 693)
+
+[node name="Bullets" type="Node2D" parent="." unique_id=920392833]

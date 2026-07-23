@@ -1,5 +1,19 @@
 extends Sprite2D
 
+const BULLET = preload("res://scenes/bullet.tscn")
+
+@export var fire_rate = 0.25 # Seconds between shots
+
+var mouse_direction
+
 func _process(delta: float) -> void:
-	var mouse_direction = get_parent().global_position.direction_to(get_global_mouse_position())
+	mouse_direction = Globals.player.global_position.direction_to(get_global_mouse_position())
 	rotation = mouse_direction.angle()
+
+func shoot():
+	var bullet = BULLET.instantiate()
+	bullet.global_position = global_position + offset.rotated(rotation)
+	bullet.rotation = rotation
+	bullet.direction = mouse_direction
+	
+	get_tree().current_scene.get_node("Bullets").add_child(bullet, true)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b04818ds8iyp5"]
 
-[ext_resource type="Script" uid="uid://ddo80kb0nhhvg" path="res://scenes/player/he_fucking_explodes_noooooooo.gd" id="1_ddswr"]
+[ext_resource type="Script" uid="uid://ddo80kb0nhhvg" path="res://scenes/player/death_animation.gd" id="1_ddswr"]
 [ext_resource type="Texture2D" uid="uid://bu0tbkvjdl8a6" path="res://catbadjob.png" id="1_n84a4"]
 [ext_resource type="AudioStream" uid="uid://c6nn8ak803wuf" path="res://scenes/player/soundreality-explosion-fx-343683.mp3" id="2_e3m0r"]
 
