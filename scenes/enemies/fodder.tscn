@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://cyaef5g41qd5j"]
 
 [ext_resource type="PackedScene" uid="uid://hqm0xru0ae3j" path="res://scenes/enemies/base_enemy.tscn" id="1_2nr0v"]
+[ext_resource type="Script" uid="uid://c8y8ny6agevnm" path="res://scenes/enemies/fodder.gd" id="2_cll0f"]
 
 [node name="BaseEnemy" unique_id=1193687902 instance=ExtResource("1_2nr0v")]
+script = ExtResource("2_cll0f")
+speed = 50
