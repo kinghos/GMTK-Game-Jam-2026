@@ -5,4 +5,4 @@
 
 [node name="BaseEnemy" unique_id=1193687902 instance=ExtResource("1_2nr0v")]
 script = ExtResource("2_cll0f")
-speed = 50
+speed = 100
