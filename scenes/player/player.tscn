@@ -1,31 +1,29 @@
 [gd_scene format=3 uid="uid://b87hq2kmyp5ee"]
 
-[ext_resource type="Texture2D" uid="uid://c7tuu8juyfgrl" path="res://cat smil.jpg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cd7i3gsqewy38" path="res://scenes/player/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://kujom1wreabj" path="res://assets/Sprite_mc_final.png" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://1q3m5v74w1gk" path="res://scenes/player/gun.gd" id="3_gmlin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(126, 125)
+size = Vector2(31, 32)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_126ht"]
-size = Vector2(25, 25)
+size = Vector2(12, 12)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=181589956]
-z_index = 1
+[node name="Player" type="CharacterBody2D" unique_id=181589956]
 collision_mask = 12
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694806254]
-position = Vector2(0, 0.5)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=204378358]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_3vyb7")
+texture = ExtResource("2_gmlin")
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=185035677]
 texture = SubResource("PlaceholderTexture2D_126ht")
-offset = Vector2(150, 0)
+offset = Vector2(50, 0)
 script = ExtResource("3_gmlin")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1946561460]

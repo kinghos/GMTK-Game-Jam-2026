@@ -1,6 +1,6 @@
 extends HSlider
 
-@onready var shader_buffer: ColorRect = $"../../ShaderBuffer"
+@onready var shader_buffer: ColorRect = $"../ShaderBuffer"
 @onready var smat = shader_buffer.material as ShaderMaterial
 
 func _process(delta: float) -> void:
