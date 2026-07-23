@@ -1,6 +1,6 @@
 extends Sprite2D
 
-const BULLET = preload("res://scenes/bullet.tscn")
+const BULLET = preload("res://scenes/player/bullet.tscn")
 
 @export var fire_rate = 0.25 # Seconds between shots
 
