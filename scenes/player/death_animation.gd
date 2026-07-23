@@ -6,4 +6,4 @@ func _ready():
 	emitting = true
 	audio_stream_player_2d.play()
 	await get_tree().create_timer(lifetime).timeout
-	queue_free()
+	get_parent().queue_free()

@@ -1,7 +1,7 @@
 extends Sprite2D
 class_name Charge
 
-const MAX_LIFETIME = 1
+const MAX_LIFETIME = 1 # seconds
 var lifetime = MAX_LIFETIME
 
 static func create(player_position) -> Charge:

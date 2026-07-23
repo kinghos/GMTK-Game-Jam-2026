@@ -2,24 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bflra6x651531" path="res://scenes/test.gd" id="1_bl13t"]
 [ext_resource type="PackedScene" uid="uid://b87hq2kmyp5ee" path="res://scenes/player/player.tscn" id="1_errlg"]
-[ext_resource type="Shader" uid="uid://cqhx0vrhkfegb" path="res://assets/shaders/crt.gdshader" id="3_iyx0m"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k5ghg"]
-shader = ExtResource("3_iyx0m")
-shader_parameter/resolution = Vector2(320, 180)
-shader_parameter/scan_line_amount = 0.0
-shader_parameter/warp_amount = 0.1
-shader_parameter/noise_amount = 0.03
-shader_parameter/interference_amount = 0.0
-shader_parameter/grille_amount = 0.1
-shader_parameter/grille_size = 1.0
-shader_parameter/vignette_amount = 0.6
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/aberation_amount = 0.5
-shader_parameter/roll_line_amount = 0.0
-shader_parameter/roll_speed = 1.0
-shader_parameter/scan_line_strength = -8.0
-shader_parameter/pixel_strength = -2.0
+[ext_resource type="PackedScene" uid="uid://dmlqu105ltwt4" path="res://scenes/hud/hud.tscn" id="2_bl13t"]
 
 [node name="Test" type="Node2D" unique_id=1894181403]
 script = ExtResource("1_bl13t")
@@ -34,12 +17,4 @@ position = Vector2(848, 693)
 
 [node name="Bullets" type="Node2D" parent="." unique_id=920392833]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=683207885]
-
-[node name="ShaderBuffer" type="ColorRect" parent="CanvasLayer" unique_id=2085574511]
-material = SubResource("ShaderMaterial_k5ghg")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HUD" parent="." unique_id=350223319 instance=ExtResource("2_bl13t")]

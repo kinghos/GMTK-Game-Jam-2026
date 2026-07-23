@@ -27,3 +27,5 @@ texture = ExtResource("1_3vyb7")
 texture = SubResource("PlaceholderTexture2D_126ht")
 offset = Vector2(150, 0)
 script = ExtResource("3_gmlin")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1946561460]
