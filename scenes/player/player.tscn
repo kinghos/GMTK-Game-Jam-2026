@@ -23,7 +23,7 @@ texture = ExtResource("2_gmlin")
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=185035677]
 texture = SubResource("PlaceholderTexture2D_126ht")
-offset = Vector2(50, 0)
+offset = Vector2(30, 0)
 script = ExtResource("3_gmlin")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1946561460]
