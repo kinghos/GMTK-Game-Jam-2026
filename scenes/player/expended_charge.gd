@@ -6,7 +6,6 @@ var lifetime = MAX_LIFETIME
 var velocity = Vector2.ZERO
 
 static func create(spawn_position) -> Charge:
-	print(spawn_position)
 	var charge_scene: PackedScene = load("res://scenes/player/expended_charge.tscn")
 	var new_charge: Charge = charge_scene.instantiate()
 	

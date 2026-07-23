@@ -91,9 +91,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k5ghg"]
-radius = 29.15476
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_faxbh"]
 atlas = ExtResource("4_kbc8m")
 region = Rect2(0, 0, 96, 96)
@@ -214,6 +211,9 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rpfdf"]
+radius = 29.15476
+
 [node name="Lightbomb" unique_id=1193687902 instance=ExtResource("1_n8o0g")]
 script = ExtResource("2_c2wah")
 hp = 10
@@ -226,20 +226,15 @@ animation = &"run"
 autoplay = "run"
 frame_progress = 0.76641977
 
-[node name="ExplosionArea" type="Area2D" parent="." index="4" unique_id=105444748]
-collision_layer = 64
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea" index="0" unique_id=1569346037]
-shape = SubResource("CircleShape2D_k5ghg")
-
-[node name="ExplosionSprite" type="AnimatedSprite2D" parent="." index="5" unique_id=875309463]
+[node name="ExplosionSprite" type="AnimatedSprite2D" parent="." index="4" unique_id=875309463]
 visible = false
 sprite_frames = SubResource("SpriteFrames_k5ghg")
 animation = &"kaboom"
 autoplay = "kaboom"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6" unique_id=473423202]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5" unique_id=473423202]
 stream = ExtResource("5_rpfdf")
 volume_db = -1.93
 
-[connection signal="body_entered" from="ExplosionArea" to="." method="_on_explosion_area_body_entered"]
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(737481144) index="0" unique_id=841296864]
+shape = SubResource("CircleShape2D_rpfdf")
