@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ghg"]
 size = Vector2(13, 15)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k5ghg"]
+radius = 74.0
+
 [node name="EnergyDrop" type="Area2D" unique_id=867742181]
 collision_layer = 32
 script = ExtResource("1_moigf")
@@ -17,4 +20,11 @@ texture = ExtResource("1_rt2x3")
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_k5ghg")
 
+[node name="PullRadius" type="Area2D" parent="." unique_id=1366384482]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PullRadius" unique_id=1244670668]
+shape = SubResource("CircleShape2D_k5ghg")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="PullRadius" to="." method="_on_pull_radius_body_entered"]
+[connection signal="body_exited" from="PullRadius" to="." method="_on_pull_radius_body_exited"]
