@@ -11,6 +11,8 @@ var current_kills_to_target = 0.0
 var current_kill_target = 12.0
 var wave = 1
 var start_time
+var bullet_damage: int = 50
+var bullet_speed: float = 800.0
 enum ENEMY_TYPES {FODDER, CHARGELESS, PARASITE, RANGED}
 
 enum POWERUPS {ATTACKSPEED, BULLETDMG, BULLETSPEED, ENERGYPACK, BLAST, MOVESPEED}
@@ -52,6 +54,15 @@ var powerup_names = {
 	POWERUPS.MOVESPEED: "MOVE SPEED"
 }
 
+var powerup_increases = {
+	POWERUPS.ATTACKSPEED: 0.05,
+	POWERUPS.BULLETDMG: 5,
+	POWERUPS.BULLETSPEED: 50,
+	POWERUPS.ENERGYPACK: 10,
+	POWERUPS.BLAST: 0.1,
+	POWERUPS.MOVESPEED: 20
+}
+
 func _ready() -> void:
 	game_over = false
 	enemy_kill_total = 0
@@ -85,3 +96,29 @@ func update_targets() -> void:
 		wave += 1.0
 		current_kill_target =  next_target(wave)
 		current_kills_to_target = 0.0
+		
+func apply_powerup(powerup: int):
+	var increase = powerup_increases[powerup]
+	match powerup:
+		POWERUPS.ATTACKSPEED:
+			player.gun.fire_rate += increase
+		POWERUPS.BULLETDMG:
+			bullet_damage += increase
+		POWERUPS.BULLETSPEED:
+			bullet_speed += increase
+		POWERUPS.ENERGYPACK:
+			player.MAX_CHARGE += increase
+		POWERUPS.BLAST:
+			pass
+		POWERUPS.MOVESPEED:
+			player.WALK_SPEED += increase
+			player.SPRINT_SPEED += increase
+
+func print_powerup_values(): # for debugging
+	print("Powerup values:")
+	print("ATTACK SPEED ", player.gun.fire_rate)
+	print("BULLET DAMAGE ",bullet_damage)
+	print("BULLET SPEED ", bullet_speed)
+	print("ENERGY PACK ", player.MAX_CHARGE)
+	print("KNOCKBACK BLAST", "NOT IMPLEMENTED")
+	print("WALK SPEED ", player.WALK_SPEED, " SPRINT SPEED:", player.SPRINT_SPEED)

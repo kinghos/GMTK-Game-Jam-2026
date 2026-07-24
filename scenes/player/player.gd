@@ -7,10 +7,9 @@ const IDLE_DRAIN = 1.0
 const MOVING_DRAIN = 12.0
 const CHARGE_PER_EXPEND = 2.0
 
-const WALK_SPEED = 150.0
-const SPRINT_SPEED = 400.0
-
-const MAX_CHARGE = 100
+var WALK_SPEED = 150.0
+var SPRINT_SPEED = 400.0
+var MAX_CHARGE = 100
 
 @onready var gun: Sprite2D = $Gun
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
