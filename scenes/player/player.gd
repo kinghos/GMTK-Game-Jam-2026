@@ -4,12 +4,12 @@ class_name Player
 const DEATH_ANIMATION = preload("res://scenes/player/death_animation.tscn")
 
 const IDLE_DRAIN = 1.0
-const MOVING_DRAIN = 12.0
+const MOVING_DRAIN = 10.0
 const CHARGE_PER_EXPEND = 2.0
 
 var WALK_SPEED = 150.0
 var SPRINT_SPEED = 400.0
-var MAX_CHARGE = 100
+var MAX_CHARGE = 150
 
 @onready var gun: Sprite2D = $Gun
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
@@ -62,10 +62,7 @@ func _physics_process(delta: float) -> void:
 	
 	shoot_cooldown -= delta
 	var fire_rate_reduction = Globals.calc_powerup_effect(Globals.POWERUPS.ATTACKSPEED)
-	if Input.is_action_just_pressed("Shoot"):
-		gun.shoot()
-		shoot_cooldown = gun.fire_rate - fire_rate_reduction
-	elif Input.is_action_pressed("Shoot") and shoot_cooldown <= 0:
+	if Input.is_action_pressed("Shoot") and shoot_cooldown <= 0:
 		gun.shoot()
 		shoot_cooldown = gun.fire_rate - fire_rate_reduction
 	
