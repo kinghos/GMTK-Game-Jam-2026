@@ -2,82 +2,27 @@
 
 [ext_resource type="PackedScene" uid="uid://hqm0xru0ae3j" path="res://scenes/enemies/base_enemy.tscn" id="1_2nr0v"]
 [ext_resource type="Script" uid="uid://c8y8ny6agevnm" path="res://scenes/enemies/fodder.gd" id="2_cll0f"]
-[ext_resource type="Texture2D" uid="uid://b76lr6jve3whm" path="res://assets/sprites/lightbulb.png" id="3_fimud"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fimud"]
-atlas = ExtResource("3_fimud")
-region = Rect2(0, 0, 32, 32)
+[ext_resource type="Texture2D" uid="uid://13045l2jrm4u" path="res://assets/sprites/fodder.png" id="3_fimud"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jraaw"]
 atlas = ExtResource("3_fimud")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_56uar"]
 atlas = ExtResource("3_fimud")
-region = Rect2(64, 0, 32, 32)
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4fww3"]
 atlas = ExtResource("3_fimud")
-region = Rect2(96, 0, 32, 32)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hpp2"]
 atlas = ExtResource("3_fimud")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxnhe"]
-atlas = ExtResource("3_fimud")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iugps"]
-atlas = ExtResource("3_fimud")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dpbp0"]
-atlas = ExtResource("3_fimud")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c75dc"]
-atlas = ExtResource("3_fimud")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujro3"]
-atlas = ExtResource("3_fimud")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ay7wb"]
-atlas = ExtResource("3_fimud")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_00kcx"]
-atlas = ExtResource("3_fimud")
-region = Rect2(352, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bufv7"]
-atlas = ExtResource("3_fimud")
-region = Rect2(384, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3we6s"]
-atlas = ExtResource("3_fimud")
-region = Rect2(416, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2m0in"]
-atlas = ExtResource("3_fimud")
-region = Rect2(448, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e1q08"]
-atlas = ExtResource("3_fimud")
-region = Rect2(480, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8dbjp"]
-atlas = ExtResource("3_fimud")
-region = Rect2(512, 0, 32, 32)
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qf3h2"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fimud")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jraaw")
 }, {
@@ -89,46 +34,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7hpp2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sxnhe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iugps")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dpbp0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c75dc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ujro3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ay7wb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_00kcx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bufv7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3we6s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2m0in")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e1q08")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8dbjp")
 }],
 "loop": 1,
 "name": &"run",
-"speed": 12.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fimud"]
@@ -144,7 +53,6 @@ speed = 100
 sprite_frames = SubResource("SpriteFrames_qf3h2")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.047311384
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(737481144) index="0" unique_id=841296864]
 shape = SubResource("CircleShape2D_fimud")
