@@ -6,59 +6,77 @@
 [ext_resource type="Texture2D" uid="uid://cw3kebnpb8n63" path="res://assets/sprites/explosion.png" id="4_kbc8m"]
 [ext_resource type="AudioStream" uid="uid://ec7i0m11focs" path="res://assets/audio/deltarune-explosion.mp3" id="5_rpfdf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2wah"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpfdf"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbc8m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvpq2"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rpfdf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3w7u"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jvpq2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1058s"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p3w7u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yir1u"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1058s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl2sq"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yir1u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_enqrq"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(192, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bl2sq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_su82a"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_enqrq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyeri"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(256, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_su82a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtkyv"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(288, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tyeri"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_siunu"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyxfe"]
+atlas = ExtResource("2_w7kay")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1v5k"]
+atlas = ExtResource("2_w7kay")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puqvy"]
+atlas = ExtResource("2_w7kay")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_weplb"]
+atlas = ExtResource("2_w7kay")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykuxw"]
+atlas = ExtResource("2_w7kay")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6o2g4"]
+atlas = ExtResource("2_w7kay")
+region = Rect2(512, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c2wah"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c2wah")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kbc8m")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rpfdf")
 }, {
@@ -85,6 +103,30 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tyeri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtkyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siunu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyxfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1v5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puqvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_weplb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykuxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6o2g4")
 }],
 "loop": 1,
 "name": &"run",
@@ -224,7 +266,7 @@ speed = 100
 sprite_frames = SubResource("SpriteFrames_c2wah")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.76641977
+frame_progress = 0.23285523
 
 [node name="ExplosionSprite" type="AnimatedSprite2D" parent="." index="4" unique_id=875309463]
 visible = false
