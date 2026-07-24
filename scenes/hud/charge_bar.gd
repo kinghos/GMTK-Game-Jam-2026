@@ -26,7 +26,8 @@ func _process(delta: float) -> void:
 		if displayed_charge == -1:
 			displayed_charge = target_charge
 		
-		displayed_charge = lerp(displayed_charge, target_charge, delta * 15)
+		var speed = 15.0 + (1.0 - ratio) * 30.0
+		displayed_charge = lerp(displayed_charge, target_charge, delta * speed)
 		value = displayed_charge
 	
 	var low_charge_ratio = clampf(ratio, 0.0, 0.25)
