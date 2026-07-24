@@ -39,6 +39,7 @@ var spawn_queue = []
 
 func _ready() -> void:
 	Globals.level = self
+	Music.play_music(Music.MAIN_THEME)
 	start_wave()
 
 func _process(delta: float) -> void:

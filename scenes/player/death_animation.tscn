@@ -3,11 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://bqsvm5rxyem6j" path="res://assets/sprites/warning.png" id="1_1mvow"]
 [ext_resource type="Script" uid="uid://ddo80kb0nhhvg" path="res://scenes/player/death_animation.gd" id="2_ckcgh"]
 [ext_resource type="AudioStream" uid="uid://cadys7lqhlvqe" path="res://assets/audio/player_death.ogg" id="3_1mvow"]
+[ext_resource type="Texture2D" uid="uid://ba7na4p3b21c3" path="res://assets/sprites/warning2.png" id="4_nw878"]
+[ext_resource type="Texture2D" uid="uid://m3a4ukw8bffo" path="res://assets/sprites/caution.png" id="5_rj502"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_moigf"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [node name="HeFuckingExplodesNoooooooo" type="CPUParticles2D" unique_id=695713194]
 z_index = 4
+material = SubResource("CanvasItemMaterial_moigf")
 emitting = false
-amount = 100
+amount = 33
 texture = ExtResource("1_1mvow")
 lifetime = 0.5
 one_shot = true
@@ -17,7 +26,7 @@ draw_order = 1
 emission_shape = 3
 emission_rect_extents = Vector2(320, 180)
 spread = 180.0
-gravity = Vector2(0, 98)
+gravity = Vector2(0, 0)
 damping_min = 30.000002
 damping_max = 60.000004
 script = ExtResource("2_ckcgh")
@@ -25,3 +34,31 @@ script = ExtResource("2_ckcgh")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1254666714]
 stream = ExtResource("3_1mvow")
 bus = &"SFX"
+
+[node name="Warning2" type="CPUParticles2D" parent="." unique_id=617965983]
+emitting = false
+amount = 33
+texture = ExtResource("4_nw878")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.56
+fixed_fps = 30
+emission_shape = 3
+emission_rect_extents = Vector2(320, 180)
+gravity = Vector2(0, 0)
+damping_min = 30.000002
+damping_max = 60.000004
+
+[node name="Caution" type="CPUParticles2D" parent="." unique_id=1606875400]
+emitting = false
+amount = 33
+texture = ExtResource("5_rj502")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.56
+fixed_fps = 30
+emission_shape = 3
+emission_rect_extents = Vector2(320, 180)
+gravity = Vector2(0, 0)
+damping_min = 30.000002
+damping_max = 60.000004

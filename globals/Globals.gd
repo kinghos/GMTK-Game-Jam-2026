@@ -42,7 +42,7 @@ var weapon_sprites = {
 	WEAPONS.PISTOL: preload("uid://ctjxjn85mk3tr"),
 	WEAPONS.SHOTGUN: preload("uid://bu2dxuikimkg"),
 	WEAPONS.RIFLE: preload("uid://ym68aq313xlq"),
-	WEAPONS.SMG: preload("uid://ym68aq313xlq")
+	WEAPONS.SMG: preload("uid://br1xjya22rtki")
 }
 var blast_kb: float = 0.5
 var shotgun_bullets = 4
@@ -81,8 +81,8 @@ var powerup_icons = {
 var weapon_icons = {
 	WEAPONS.PISTOL: preload("uid://ctjxjn85mk3tr"),
 	WEAPONS.SHOTGUN: preload("uid://bu2dxuikimkg"),
-	WEAPONS.RIFLE: preload("uid://ym68aq313xlq"),
-	WEAPONS.SMG: preload("uid://ym68aq313xlq")
+	WEAPONS.RIFLE: preload("uid://bc321hcosv7nw"),
+	WEAPONS.SMG: preload("uid://br1xjya22rtki")
 }
 
 var weapon_names = {
@@ -167,7 +167,7 @@ func _ready() -> void: # reset variables on reload of scene
 	game_over = false
 	enemy_kill_total = 0
 	current_kills_to_target = 0.0
-	current_kill_target = 12
+	current_kill_target = next_target(1)
 	wave = 1
 	start_time = Time.get_ticks_msec()
 	powerup_counts = {
@@ -187,6 +187,7 @@ func _ready() -> void: # reset variables on reload of scene
 		WEAPON_UPGRADES.SMGKB: 0
 	}
 	
+	powerups_gained = 0
 	bullet_damage = 10
 	bullet_speed = 800.0
 	blast_kb = 0.5

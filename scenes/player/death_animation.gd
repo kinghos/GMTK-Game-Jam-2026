@@ -4,6 +4,8 @@ extends CPUParticles2D
 
 func _ready():
 	emitting = true
+	$Warning2.emitting = true
+	$Caution.emitting = true
 	audio_stream_player_2d.play()
 	await get_tree().create_timer(lifetime).timeout
 	get_tree().change_scene_to_file("res://scenes/hud/game_over.tscn")
