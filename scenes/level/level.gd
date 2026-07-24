@@ -1,48 +1,124 @@
 extends Node2D
 class_name Level
-const FODDER = preload("uid://cyaef5g41qd5j")
 
 @onready var spawn_timer: Timer = $SpawnTimer
-var spawn_num = 10
-var spawning_wave = false
-var spawn_offset: Vector2 = Vector2(400, 400)
 
-var enemy_count = 0.0
-var last_amount_spawned = 0.0
+var spawn_group_size = 3
+var spawn_radius_min = 350
+var spawn_radius_max = 550
 
-# on new spawn: decrease fodder, increase everything else
-# use enemytypes in global
-var weights = {
-	# Fodder: 0.9
-	#
+const ENEMIES = {
+	"fodder": {
+		"scene": preload("res://scenes/enemies/fodder.tscn"),
+		"cost": 1,
+		"base_weight": 100,
+		"decay": 5
+	},
+	"lightbomb": {
+		"scene": preload("res://scenes/enemies/lightbomb.tscn"),
+		"cost": 3,
+		"base_weight": 0,
+		"growth": 5,
+		"start_wave": 2
+	},
+	"toaster": {
+		"scene": preload("res://scenes/enemies/toaster.tscn"),
+		"cost": 5,
+		"base_weight": 0,
+		"growth": 4,
+		"start_wave": 4
+	}
 }
+
+var spawning_wave = false
+var wave_number = 0
+var enemy_count = 0
+var last_amount_spawned = 0
+
+var spawn_queue = []
 
 func _ready() -> void:
 	Globals.level = self
-	spawn_wave()
+	start_wave()
 
 func _process(delta: float) -> void:
 	enemy_count = get_tree().get_nodes_in_group("Enemies").size()
-	if not spawning_wave and not Globals.game_over:
-		if enemy_count / last_amount_spawned <= 0.25:
-			spawn_wave()
-			spawn_timer.start()
+	
+	if spawning_wave: return
+	if Globals.game_over: return
+	
+	if enemy_count <= max(5, int(last_amount_spawned * 0.25)):
+		start_wave()
 
-func spawn_wave():
+func start_wave():
+	print("starting wave")
+	wave_number += 1
 	spawning_wave = true
+	build_wave()
+	print("spawning this number: %d" % spawn_queue.size())
+	last_amount_spawned = spawn_queue.size()
+	_on_spawn_timer_timeout()
+	spawn_timer.start()
+
+func build_wave():
+	spawn_queue.clear()
 	
-	var player_pos
-	if Globals.player:
-		player_pos = Globals.player.global_position
+	var budget = get_wave_budget()
+	while budget > 0:
+		var enemy = choose_enemy()
+		if enemy.cost <= budget:
+			spawn_queue.append(enemy.scene)
+			budget -= enemy.cost
+
+func get_wave_budget():
+	return 9 + (wave_number - 1) * 10 #i dunno yet
+
+func choose_enemy():
+	var total_weight = 0.0
+	var current_weights = {}
 	
-	for i in spawn_num:
-		var fodder: Enemy = FODDER.instantiate()
-		fodder.global_position = player_pos + spawn_offset.rotated(randf_range(0, TAU))
-		$Enemies.add_child(fodder)
+	for key in ENEMIES.keys():
+		var enemy = ENEMIES[key]
+		var weight = enemy.base_weight
+		
+		if enemy.has("growth"):
+			if wave_number >= enemy.start_wave:
+				weight += (wave_number - enemy.start_wave + 1) * enemy.growth
+		
+		if enemy.has("decay"):
+			weight = max(10, weight - wave_number * enemy.decay)
+		
+		current_weights[key] = weight
+		total_weight += weight
 	
-	spawning_wave = false
-	last_amount_spawned = spawn_num
-	spawn_num = spawn_num * 1.5
+	var pick = randi_range(1, total_weight)
+	
+	for key in ENEMIES.keys():
+		pick -= current_weights[key]
+		
+		if pick <= 0:
+			return ENEMIES[key]
+	
+	return ENEMIES["fodder"]
+
+func spawn_enemy(scene: PackedScene):
+	if not Globals.player: return
+	
+	var enemy = scene.instantiate()
+	
+	var angle = randf() * TAU
+	var distance = randf_range(spawn_radius_min, spawn_radius_max)
+	
+	enemy.global_position = Globals.player.global_position + Vector2.RIGHT.rotated(angle) * distance
+
+	$Enemies.add_child(enemy)
 
 func _on_spawn_timer_timeout() -> void:
-	spawn_wave()
+	for i in spawn_group_size:
+		if spawn_queue.is_empty():
+			spawning_wave = false
+			spawn_timer.stop()
+			return
+		var scene = spawn_queue.pop_front()
+		spawn_enemy(scene)
+		await get_tree().create_timer(0.35).timeout
