@@ -3,6 +3,7 @@ extends Node
 
 var player: Player
 var slider: ChargeBar
+var shader_buffer_material: ShaderMaterial
 var level: Level
 var game_over = false
 var enemy_kill_total = 0

@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://bcbqmimxm08ek"]
+
+[ext_resource type="FontFile" uid="uid://d0l0a1tva8g5b" path="res://assets/vertopal.com_GUNV2BM.ttf" id="1_iqofa"]
+[ext_resource type="Script" uid="uid://b1o1s2j7ds6jr" path="res://scenes/hud/overlay.gd" id="1_vhxij"]
+
+[sub_resource type="Animation" id="Animation_0bx4p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerupsMenu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SelectLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mgtrf"]
+resource_name = "powerups"
+length = 1.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.2679432, 3.9999967),
+"update": 0,
+"values": [Vector2(640, 0), Vector2(640, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PowerupsMenu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SelectLabel:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vhxij"]
+_data = {
+&"RESET": SubResource("Animation_0bx4p"),
+&"powerups": SubResource("Animation_mgtrf")
+}
+
+[node name="Overlay" type="CanvasLayer" unique_id=270833940]
+process_mode = 3
+script = ExtResource("1_vhxij")
+
+[node name="PowerupScreen" type="ColorRect" parent="." unique_id=736822408]
+visible = false
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+
+[node name="SelectLabel" type="Label" parent="PowerupScreen" unique_id=291988021]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 19.0
+offset_right = 129.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_iqofa")
+theme_override_font_sizes/font_size = 25
+text = "SELECT A POWERUP"
+
+[node name="PowerupsMenu" type="VBoxContainer" parent="PowerupScreen" unique_id=238369957]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.80002
+offset_top = -108.0
+offset_right = 164.80002
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="HBoxContainer" parent="PowerupScreen/PowerupsMenu" unique_id=152197282]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Option1" type="Button" parent="PowerupScreen/PowerupsMenu/Options" unique_id=1789494528]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_iqofa")
+text = "opt 1"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/powerup_type = 0
+
+[node name="Option2" type="Button" parent="PowerupScreen/PowerupsMenu/Options" unique_id=740317390]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_iqofa")
+text = "opt 2"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/powerup_type = 0
+
+[node name="Option3" type="Button" parent="PowerupScreen/PowerupsMenu/Options" unique_id=1814512951]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_iqofa")
+text = "opt 3"
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+metadata/powerup_type = 0
+
+[node name="Descriptions" type="HBoxContainer" parent="PowerupScreen/PowerupsMenu" unique_id=1425085465]
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="PowerupScreen/PowerupsMenu/Descriptions" unique_id=1967257279]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_iqofa")
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Text"
+autowrap_mode = 3
+metadata/powerup_type = 0
+
+[node name="Option2" type="Button" parent="PowerupScreen/PowerupsMenu/Descriptions" unique_id=2012686289]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_iqofa")
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Text"
+autowrap_mode = 3
+metadata/powerup_type = 0
+
+[node name="Option3" type="Button" parent="PowerupScreen/PowerupsMenu/Descriptions" unique_id=1845904323]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_iqofa")
+theme_override_font_sizes/font_size = 18
+disabled = true
+text = "Text"
+autowrap_mode = 3
+metadata/powerup_type = 0
+
+[node name="ValueChanges" type="HBoxContainer" parent="PowerupScreen/PowerupsMenu" unique_id=1145176082]
+layout_mode = 2
+
+[node name="Option1" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=1124201878]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_iqofa")
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "X -> X"
+metadata/powerup_type = 0
+
+[node name="Option2" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=1477063536]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_iqofa")
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "X -> X"
+metadata/powerup_type = 0
+
+[node name="Option3" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=751693931]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("1_iqofa")
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "X -> X"
+metadata/powerup_type = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PowerupScreen" unique_id=2062139556]
+libraries/ = SubResource("AnimationLibrary_vhxij")

@@ -3,189 +3,13 @@
 [ext_resource type="Script" uid="uid://b1mwdx6ymgu1b" path="res://scenes/hud/hud.gd" id="1_0bx4p"]
 [ext_resource type="Script" uid="uid://cwrjmiycyral0" path="res://scenes/hud/charge_bar.gd" id="1_48c2t"]
 [ext_resource type="FontFile" uid="uid://d0l0a1tva8g5b" path="res://assets/vertopal.com_GUNV2BM.ttf" id="1_c45xl"]
-[ext_resource type="Shader" uid="uid://cqhx0vrhkfegb" path="res://assets/shaders/crt.gdshader" id="1_cgeww"]
+[ext_resource type="Texture2D" uid="uid://cosotffptsqhn" path="res://icon.svg" id="4_mgtrf"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_126ht"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_d2rsb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c45xl"]
-shader = ExtResource("1_cgeww")
-shader_parameter/resolution = Vector2(640, 360)
-shader_parameter/scan_line_amount = 0.0
-shader_parameter/warp_amount = 0.162000007695
-shader_parameter/noise_amount = 0.03
-shader_parameter/interference_amount = 0.0
-shader_parameter/grille_amount = 0.1
-shader_parameter/grille_size = 1.0
-shader_parameter/vignette_amount = 0.6
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/aberation_amount = 0.5
-shader_parameter/roll_line_amount = 0.0
-shader_parameter/roll_speed = 1.0
-shader_parameter/scan_line_strength = -8.0
-shader_parameter/pixel_strength = -2.0
-
-[sub_resource type="Animation" id="Animation_0bx4p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/PowerupScreen:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(640, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/PowerupScreen/SelectLabel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/PowerupScreen/PowerupsMenu:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/PowerupScreen:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/TopBar:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Control/ChargeBar:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_mgtrf"]
-resource_name = "powerups"
-length = 1.2
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/PowerupScreen:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.2871746, 2.3784158),
-"update": 0,
-"values": [Vector2(640, 0), Vector2(640, 360)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/PowerupScreen/SelectLabel:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/PowerupScreen/PowerupsMenu:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/PowerupScreen:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/TopBar:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Control/ChargeBar:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7mo4"]
-_data = {
-&"RESET": SubResource("Animation_0bx4p"),
-&"powerups": SubResource("Animation_mgtrf")
-}
-
 [node name="HUD" type="CanvasLayer" unique_id=350223319]
-process_mode = 3
 script = ExtResource("1_0bx4p")
 
 [node name="Control" type="Control" parent="." unique_id=382430714]
@@ -195,145 +19,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="PowerupScreen" type="ColorRect" parent="Control" unique_id=1762341908]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-color = Color(0.3403393, 0.34033933, 0.3403393, 1)
-
-[node name="SelectLabel" type="Label" parent="Control/PowerupScreen" unique_id=1080693099]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -129.0
-offset_top = 19.0
-offset_right = 129.0
-offset_bottom = 56.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_c45xl")
-theme_override_font_sizes/font_size = 25
-text = "SELECT A POWERUP"
-
-[node name="PowerupsMenu" type="VBoxContainer" parent="Control/PowerupScreen" unique_id=1439906686]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -164.80002
-offset_top = -108.0
-offset_right = 164.80002
-offset_bottom = 108.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Options" type="HBoxContainer" parent="Control/PowerupScreen/PowerupsMenu" unique_id=49812511]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Option1" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Options" unique_id=1960263742]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_c45xl")
-text = "opt 1"
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-metadata/powerup_type = 0
-
-[node name="Option2" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Options" unique_id=978272596]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_c45xl")
-text = "opt 2"
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-metadata/powerup_type = 0
-
-[node name="Option3" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Options" unique_id=1609111966]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_c45xl")
-text = "opt 3"
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-metadata/powerup_type = 0
-
-[node name="Descriptions" type="HBoxContainer" parent="Control/PowerupScreen/PowerupsMenu" unique_id=1852832032]
-layout_mode = 2
-
-[node name="Option1" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Descriptions" unique_id=552898103]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_fonts/font = ExtResource("1_c45xl")
-theme_override_font_sizes/font_size = 18
-disabled = true
-text = "Text"
-autowrap_mode = 3
-metadata/powerup_type = 0
-
-[node name="Option2" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Descriptions" unique_id=796304181]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_fonts/font = ExtResource("1_c45xl")
-theme_override_font_sizes/font_size = 18
-disabled = true
-text = "Text"
-autowrap_mode = 3
-metadata/powerup_type = 0
-
-[node name="Option3" type="Button" parent="Control/PowerupScreen/PowerupsMenu/Descriptions" unique_id=1059767735]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_fonts/font = ExtResource("1_c45xl")
-theme_override_font_sizes/font_size = 18
-disabled = true
-text = "Text"
-autowrap_mode = 3
-metadata/powerup_type = 0
-
-[node name="ValueChanges" type="HBoxContainer" parent="Control/PowerupScreen/PowerupsMenu" unique_id=1883428354]
-layout_mode = 2
-
-[node name="Option1" type="Button" parent="Control/PowerupScreen/PowerupsMenu/ValueChanges" unique_id=493254458]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_fonts/font = ExtResource("1_c45xl")
-theme_override_font_sizes/font_size = 22
-disabled = true
-text = "X -> X"
-metadata/powerup_type = 0
-
-[node name="Option2" type="Button" parent="Control/PowerupScreen/PowerupsMenu/ValueChanges" unique_id=2011251995]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_fonts/font = ExtResource("1_c45xl")
-theme_override_font_sizes/font_size = 22
-disabled = true
-text = "X -> X"
-metadata/powerup_type = 0
-
-[node name="Option3" type="Button" parent="Control/PowerupScreen/PowerupsMenu/ValueChanges" unique_id=1299695550]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_fonts/font = ExtResource("1_c45xl")
-theme_override_font_sizes/font_size = 22
-disabled = true
-text = "X -> X"
-metadata/powerup_type = 0
 
 [node name="ChargeBar" type="HSlider" parent="Control" unique_id=1679705439]
 layout_mode = 1
@@ -369,7 +54,7 @@ offset_left = 20.0
 offset_right = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 112
 
 [node name="Timer" type="Label" parent="Control/TopBar/HBoxContainer" unique_id=245234213]
 layout_mode = 2
@@ -385,14 +70,97 @@ theme_override_fonts/font = ExtResource("1_c45xl")
 max_value = 1.0
 value = 0.76
 
-[node name="ShaderBuffer" type="ColorRect" parent="Control" unique_id=1055399532]
-material = SubResource("ShaderMaterial_c45xl")
+[node name="GridContainer" type="GridContainer" parent="Control/TopBar" unique_id=335338544]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.0
+offset_right = -46.0
+offset_bottom = 34.0
 grow_horizontal = 2
-grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/h_separation = -31
+theme_override_constants/v_separation = 0
+columns = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=150032251]
-libraries/ = SubResource("AnimationLibrary_v7mo4")
+[node name="TextureRect" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=998759038]
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_mgtrf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=1610502301]
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_mgtrf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=329911506]
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_mgtrf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=939877676]
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_mgtrf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=2127261978]
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_mgtrf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=650847081]
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_mgtrf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect7" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=1343340675]
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_mgtrf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect8" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=756940483]
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_mgtrf")
+expand_mode = 1
+stretch_mode = 5

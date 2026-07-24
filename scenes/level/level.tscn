@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ddets33eig4gx" path="res://scenes/enemies/lightbomb.tscn" id="2_hnne4"]
 [ext_resource type="PackedScene" uid="uid://b87hq2kmyp5ee" path="res://scenes/player/player.tscn" id="2_qkmgm"]
 [ext_resource type="PackedScene" uid="uid://dmlqu105ltwt4" path="res://scenes/hud/hud.tscn" id="3_hnne4"]
+[ext_resource type="PackedScene" uid="uid://bcbqmimxm08ek" path="res://scenes/hud/overlay.tscn" id="5_hnne4"]
+[ext_resource type="PackedScene" uid="uid://ced6s87tl4ckg" path="res://scenes/hud/shader_layer.tscn" id="6_vpf64"]
 
 [node name="Level" type="Node2D" unique_id=1894181403]
 script = ExtResource("1_i166f")
@@ -23,8 +25,13 @@ position = Vector2(848, 693)
 
 [node name="HUD" parent="." unique_id=350223319 instance=ExtResource("3_hnne4")]
 
+[node name="Overlay" parent="." unique_id=270833940 instance=ExtResource("5_hnne4")]
+
+[node name="ShaderLayer" parent="." unique_id=2126238738 instance=ExtResource("6_vpf64")]
+
 [node name="SpawnTimer" type="Timer" parent="." unique_id=2062280826]
 wait_time = 30.0
 autostart = true
 
+[connection signal="show_powerups" from="HUD" to="Overlay" method="_on_hud_show_powerups"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

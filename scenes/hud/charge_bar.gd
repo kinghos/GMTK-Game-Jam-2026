@@ -1,9 +1,6 @@
 extends HSlider
 class_name ChargeBar
 
-@onready var shader_buffer: ColorRect = $"../ShaderBuffer"
-@onready var smat = shader_buffer.material as ShaderMaterial
-
 var red_stylebox = StyleBoxFlat.new()
 var flash_timer = 0.0
 
@@ -38,7 +35,8 @@ func _process(delta: float) -> void:
 		flash_red()
 	else:
 		reset_red()
-
+		
+	var smat = Globals.shader_buffer_material
 	smat.set_shader_parameter("noise_amount", remap(low_charge_ratio, 0.0, 0.25, 0.12, 0.03))
 	smat.set_shader_parameter("vignette_intensity", remap(low_charge_ratio, 0.0, 0.25, 1.0, 0.4))
 
