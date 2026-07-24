@@ -101,6 +101,19 @@ var powerup_names = {
 	POWERUPS.MOVESPEED: "MOVE\nSPEED"
 }
 
+var powerup_descriptions = {
+	POWERUPS.ATTACKSPEED: "INCREASES THE FIRE RATE OF YOUR WEAPON",
+	POWERUPS.BULLETDMG: "INCREASES BULLET DAMAGE",
+	POWERUPS.BULLETSPEED: "INCREASE BULLET SPEED",
+	POWERUPS.ENERGYPACK: "INCREASE THE MAXIMUM AMOUNT OF CHARGE YOU CAN HOLD",
+	POWERUPS.BLAST: "INCREASES HOW FAR ENEMIES ARE KNOCKED BACK BY YOUR BLAST ABILITY",
+	POWERUPS.MOVESPEED: "INCREASES MOVEMENT SPEED"
+}
+
+var powerup_first_descriptions = {
+	POWERUPS.BLAST: "UNLOCKS ABILITY TO KNOCK BACK ENEMIES"
+}
+
 var powerup_increases = {
 	POWERUPS.ATTACKSPEED: 0.05,
 	POWERUPS.BULLETDMG: 5,
@@ -170,6 +183,22 @@ func apply_powerup(powerup: int):
 
 func calc_powerup_effect(powerup: int):
 	return powerup_counts[powerup] * powerup_increases[powerup]
+
+func get_powerup_current_value(powerup: int) -> float:
+	match powerup:
+		POWERUPS.ATTACKSPEED:
+			return player.gun.fire_rate
+		POWERUPS.BULLETDMG:
+			return float(bullet_damage)
+		POWERUPS.BULLETSPEED:
+			return bullet_speed
+		POWERUPS.ENERGYPACK:
+			return player.MAX_CHARGE
+		POWERUPS.BLAST:
+			return blast_kb
+		POWERUPS.MOVESPEED:
+			return player.WALK_SPEED
+	return 0.0
 
 func print_powerup_values(): # for debugging
 	print("Powerup values:")

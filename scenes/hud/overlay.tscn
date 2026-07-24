@@ -240,7 +240,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 12
 disabled = true
 text = "Text"
 autowrap_mode = 3
@@ -250,7 +250,7 @@ metadata/powerup_type = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 12
 disabled = true
 text = "Text"
 autowrap_mode = 3
@@ -260,7 +260,7 @@ metadata/powerup_type = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 12
 disabled = true
 text = "Text"
 autowrap_mode = 3
@@ -273,7 +273,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 14
 disabled = true
 text = "X -> X"
 metadata/powerup_type = 0
@@ -282,7 +282,7 @@ metadata/powerup_type = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 14
 disabled = true
 text = "X -> X"
 metadata/powerup_type = 0
@@ -291,14 +291,10 @@ metadata/powerup_type = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 14
 disabled = true
 text = "X -> X"
 metadata/powerup_type = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PowerupScreen" unique_id=2062139556]
 libraries/ = SubResource("AnimationLibrary_vhxij")
-
-[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option1" to="." method="_on_powerup_pressed" binds= [0]]
-[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option2" to="." method="_on_powerup_pressed" binds= [1]]
-[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option3" to="." method="_on_powerup_pressed" binds= [2]]

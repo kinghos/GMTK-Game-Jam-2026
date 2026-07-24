@@ -3,21 +3,39 @@ extends CanvasLayer
 @onready var animation_player: AnimationPlayer = $PowerupScreen/AnimationPlayer
 @onready var options_container: HBoxContainer = $PowerupScreen/PowerupsMenu/Options
 @onready var options = options_container.get_children()
+@onready var descriptions_container: HBoxContainer = $PowerupScreen/PowerupsMenu/Descriptions
+@onready var descriptions = descriptions_container.get_children()
+@onready var value_changes_container: HBoxContainer = $PowerupScreen/PowerupsMenu/ValueChanges
+@onready var value_changes = value_changes_container.get_children()
+
 @onready var paused_time_ms = 0
 @onready var weapon_select = false
 
 func _on_hud_show_powerups() -> void:
 	paused_time_ms = 0
+
 	var selection
 	if Globals.powerups_gained != 2:
 		selection = Globals.POWERUPS.values()
 		selection.shuffle()
 		selection = selection.slice(0, 3)
-		for i in range(3):
-			options[i].set_meta("powerup_type", selection[i])
-			options[i].icon = Globals.powerup_icons[selection[i]]
-			options[i].text = Globals.powerup_names[selection[i]]
-		animation_player.play("powerups")
+		
+		for i in range(selection.size()):
+			var p_type = selection[i]
+			
+			options[i].set_meta("powerup_type", p_type)
+			options[i].icon = Globals.powerup_icons[p_type]
+			options[i].text = Globals.powerup_names[p_type]
+			
+			var description = Globals.powerup_descriptions[p_type]
+			if Globals.powerup_counts[p_type] == 0 and Globals.powerup_first_descriptions.has(p_type):
+				description = Globals.powerup_first_descriptions[p_type]
+			descriptions[i].text = description
+			
+			var current_val = Globals.get_powerup_current_value(p_type)
+			var increase_val = Globals.powerup_increases[p_type]
+			
+			value_changes[i].text = "%d -> %d" % [current_val, current_val + increase_val]
 	else:
 		weapon_select = true
 		selection = Globals.WEAPONS.values()
@@ -26,8 +44,8 @@ func _on_hud_show_powerups() -> void:
 			options[i].set_meta("powerup_type", selection[i])
 			options[i].icon = Globals.weapon_icons[selection[i]]
 			options[i].text = Globals.weapons_names[selection[i]]
-		animation_player.play("powerups")
-
+	
+	animation_player.play("powerups")
 
 func _process(delta: float) -> void:
 	paused_time_ms += delta*1000

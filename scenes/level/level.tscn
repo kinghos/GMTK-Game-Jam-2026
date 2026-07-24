@@ -60,7 +60,7 @@ tile_set = SubResource("TileSet_vpf64")
 
 [node name="CharacterBody2D" parent="." unique_id=181589956 instance=ExtResource("2_qkmgm")]
 z_index = 1
-position = Vector2(848, 693)
+position = Vector2(1856, 1086)
 
 [node name="Bullets" type="Node2D" parent="." unique_id=920392833]
 
