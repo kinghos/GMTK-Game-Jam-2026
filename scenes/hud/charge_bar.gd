@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 		displayed_charge = lerp(displayed_charge, target_charge, delta * speed)
 		value = displayed_charge
 	
-	var low_charge_ratio = clampf(ratio, 0.0, 0.25)
+	var low_charge_ratio = clampf(ratio, 0.0, 0.5)
 	
 	if low_charge_ratio < 0.25:
 		flash_red()
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		reset_red()
 		
 	var smat = Globals.shader_buffer_material
-	smat.set_shader_parameter("noise_amount", remap(low_charge_ratio, 0.0, 0.25, 0.12, 0.03))
+	smat.set_shader_parameter("noise_amount", remap(low_charge_ratio, 0.0, 0.25, 0.2, 0.03))
 	smat.set_shader_parameter("vignette_intensity", remap(low_charge_ratio, 0.0, 0.25, 1.0, 0.4))
 
 func flash_red():

@@ -104,6 +104,7 @@ func _on_powerup_pressed(button_num: int) -> void:
 	else:
 		var weapon_selected = options[button_num].get_meta("powerup_type")
 		Globals.chosen_weapon = weapon_selected
+		weapon_select = false
 	animation_player.play("fade")
 	await animation_player.animation_finished
 	get_tree().paused = false

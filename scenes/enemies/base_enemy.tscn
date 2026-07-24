@@ -155,3 +155,4 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=841296864]
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

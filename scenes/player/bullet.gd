@@ -1,7 +1,6 @@
 extends Area2D
 class_name Bullet
 
-
 var direction = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
