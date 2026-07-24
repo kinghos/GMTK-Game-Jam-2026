@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cd7i3gsqewy38" path="res://scenes/player/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://kujom1wreabj" path="res://assets/sprites/player.png" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://1q3m5v74w1gk" path="res://scenes/player/gun.gd" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://ctjxjn85mk3tr" path="res://assets/sprites/gun.png" id="3_p47bc"]
 [ext_resource type="Texture2D" uid="uid://c11w0uks0ab07" path="res://scenes/particles/lightning.png" id="4_lvxji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
@@ -44,9 +45,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_126ht"]
-size = Vector2(12, 12)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5ghg"]
 radius = 69.115845
 
@@ -65,7 +63,7 @@ autoplay = "run"
 frame_progress = 0.631933
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=185035677]
-texture = SubResource("PlaceholderTexture2D_126ht")
+texture = ExtResource("3_p47bc")
 offset = Vector2(30, 0)
 script = ExtResource("3_gmlin")
 

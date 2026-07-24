@@ -10,6 +10,7 @@ var mouse_direction
 func _process(delta: float) -> void:
 	mouse_direction = Globals.player.global_position.direction_to(get_global_mouse_position())
 	rotation = mouse_direction.angle()
+	flip_v = rotation > PI/2 and rotation < (3 * PI / 2)
 
 func shoot():
 	var bullet = BULLET.instantiate()
