@@ -10,6 +10,7 @@ var enemy_kill_total = 0
 var current_kills_to_target = 0.0
 var current_kill_target = 12.0
 var wave = 1
+var powerups_gained = 0
 var start_time: int
 var bullet_damage: int = 10
 var weapon_damages = {
@@ -50,7 +51,7 @@ enum ENEMY_TYPES {FODDER, CHARGELESS, PARASITE, RANGED}
 enum POWERUPS {ATTACKSPEED, BULLETDMG, BULLETSPEED, ENERGYPACK, BLAST, MOVESPEED}
 enum WEAPON_UPGRADES {SHOTGUNSPREAD, SHOTGUNBULLETS, RIFLEPIERCE, RIFLESIZE, SMGHOME, SMGKB}
 enum WEAPONS {PISTOL, SHOTGUN, RIFLE, SMG}
-var chosen_weapon = WEAPONS.RIFLE
+var chosen_weapon = WEAPONS.PISTOL
 var powerup_counts = {
 	POWERUPS.ATTACKSPEED: 0,
 	POWERUPS.BULLETDMG: 0,
@@ -75,6 +76,20 @@ var powerup_icons = {
 	POWERUPS.ENERGYPACK: preload("uid://bl1ntkwsaqreq"),
 	POWERUPS.BLAST: preload("uid://7kr1m1x5mr8p"),
 	POWERUPS.MOVESPEED: preload("uid://csxwbbisxkkt3")
+}
+
+var weapon_icons = {
+	WEAPONS.PISTOL: preload("uid://ctjxjn85mk3tr"),
+	WEAPONS.SHOTGUN: preload("uid://bu2dxuikimkg"),
+	WEAPONS.RIFLE: preload("uid://ym68aq313xlq"),
+	WEAPONS.SMG: preload("uid://ym68aq313xlq")
+}
+
+var weapon_names = {
+	WEAPONS.PISTOL: "PISTOL",
+	WEAPONS.SHOTGUN: "SHOTGUN",
+	WEAPONS.RIFLE: "RIFLE",
+	WEAPONS.SMG: "SMG"
 }
 
 var powerup_names = {
@@ -123,20 +138,21 @@ func _ready() -> void:
 	bullet_speed = 800.0
 	blast_kb = 0.5
 	shotgun_bullets = 4
-	#chosen_weapon = WEAPONS.PISTOL
+	chosen_weapon = WEAPONS.PISTOL
 
 func next_target(num):
 	# uses the quadratic sequence 5x^2 + 4x + 3 to generate the next target
 	return 5 * num * num + 4 * num + 3
 
 func update_targets() -> void:
-	if current_kills_to_target == current_kill_target:
+	if current_kills_to_target >= current_kill_target:
 		wave += 1.0
 		current_kill_target =  next_target(wave)
 		current_kills_to_target = 0.0
 		
 func apply_powerup(powerup: int):
 	var increase = powerup_increases[powerup]
+	powerups_gained += 1
 	match powerup:
 		POWERUPS.ATTACKSPEED:
 			pass
