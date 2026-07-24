@@ -57,7 +57,7 @@ func next_target(num):
 	# uses the quadratic sequence 5x^2 + 4x + 3 to generate the next target
 	return 5 * num * num + 4 * num + 3
 
-func _process(delta: float) -> void:
+func update_targets() -> void:
 	if current_kills_to_target == current_kill_target:
 		wave += 1.0
 		current_kill_target =  next_target(wave)

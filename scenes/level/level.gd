@@ -31,7 +31,9 @@ func _process(delta: float) -> void:
 func spawn_wave():
 	spawning_wave = true
 	
-	var player_pos = Globals.player.global_position
+	var player_pos
+	if Globals.player:
+		player_pos = Globals.player.global_position
 	
 	for i in spawn_num:
 		var fodder: Enemy = FODDER.instantiate()
