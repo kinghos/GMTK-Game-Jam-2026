@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var ms = Time.get_ticks_msec() - Globals.start_time
-	var secs = (ms / 1000) % 60 
+	var secs = ms / 1000 % 60 
 	var mins = floor((ms / 1000) / 60) 
 	timer.text = "TIME: %02d:%02d" % [mins, secs]
 	

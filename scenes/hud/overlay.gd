@@ -4,7 +4,10 @@ extends CanvasLayer
 @onready var options_container: HBoxContainer = $PowerupScreen/PowerupsMenu/Options
 @onready var options = options_container.get_children()
 
+@onready var paused_time_ms = 0
+
 func _on_hud_show_powerups() -> void:
+	paused_time_ms = 0
 	var selection = Globals.POWERUPS.keys()
 	selection.shuffle()
 	selection = selection.slice(0, 3)
@@ -17,6 +20,9 @@ func _on_hud_show_powerups() -> void:
 	animation_player.play("powerups")
 
 
+func _process(delta: float) -> void:
+	paused_time_ms += delta*1000
+
 func _on_powerup_pressed(button_num: int) -> void:
 	Globals.print_powerup_values()
 	var powerup_selected = options[button_num].get_meta("powerup_type")
@@ -26,5 +32,6 @@ func _on_powerup_pressed(button_num: int) -> void:
 	Globals.update_targets()
 	Globals.apply_powerup(powerup_selected)
 	get_tree().paused = false
+	Globals.start_time += floori(paused_time_ms)
 	Globals.print_powerup_values()
 	

@@ -157,7 +157,7 @@ _data = {
 }
 
 [node name="Overlay" type="CanvasLayer" unique_id=270833940]
-process_mode = 3
+process_mode = 2
 script = ExtResource("1_vhxij")
 
 [node name="PowerupScreen" type="TextureRect" parent="." unique_id=2085774948]

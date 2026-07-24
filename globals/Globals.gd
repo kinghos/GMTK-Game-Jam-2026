@@ -10,9 +10,10 @@ var enemy_kill_total = 0
 var current_kills_to_target = 0.0
 var current_kill_target = 12.0
 var wave = 1
-var start_time
+var start_time: int
 var bullet_damage: int = 50
 var bullet_speed: float = 800.0
+var blast_kb: float = 0.5
 enum ENEMY_TYPES {FODDER, CHARGELESS, PARASITE, RANGED}
 
 enum POWERUPS {ATTACKSPEED, BULLETDMG, BULLETSPEED, ENERGYPACK, BLAST, MOVESPEED}
@@ -70,7 +71,7 @@ func _ready() -> void:
 	current_kill_target = 12
 	wave = 1
 	start_time = Time.get_ticks_msec()
-	var powerup_counts = {
+	powerup_counts = {
 		POWERUPS.ATTACKSPEED: 0,
 		POWERUPS.BULLETDMG: 0,
 		POWERUPS.BULLETSPEED: 0,
@@ -78,7 +79,7 @@ func _ready() -> void:
 		POWERUPS.BLAST: 0,
 		POWERUPS.MOVESPEED: 0,
 	}
-	var weapon_upgrade_counts = {
+	weapon_upgrade_counts = {
 	WEAPON_UPGRADES.SHOTGUNSPREAD: 0,
 	WEAPON_UPGRADES.SHOTGUNBULLETS: 0,
 	WEAPON_UPGRADES.RIFLEPIERCE: 0,
@@ -86,6 +87,10 @@ func _ready() -> void:
 	WEAPON_UPGRADES.SMGHOME: 0,
 	WEAPON_UPGRADES.SMGKB: 0
 	}
+	
+	bullet_damage = 50
+	bullet_speed = 800.0
+	blast_kb = 0.5
 
 func next_target(num):
 	# uses the quadratic sequence 5x^2 + 4x + 3 to generate the next target
@@ -109,7 +114,7 @@ func apply_powerup(powerup: int):
 		POWERUPS.ENERGYPACK:
 			player.MAX_CHARGE += increase
 		POWERUPS.BLAST:
-			pass
+			blast_kb += increase
 		POWERUPS.MOVESPEED:
 			player.WALK_SPEED += increase
 			player.SPRINT_SPEED += increase
@@ -120,5 +125,5 @@ func print_powerup_values(): # for debugging
 	print("BULLET DAMAGE ",bullet_damage)
 	print("BULLET SPEED ", bullet_speed)
 	print("ENERGY PACK ", player.MAX_CHARGE)
-	print("KNOCKBACK BLAST", "NOT IMPLEMENTED")
+	print("KNOCKBACK BLAST ", blast_kb)
 	print("WALK SPEED ", player.WALK_SPEED, " SPRINT SPEED:", player.SPRINT_SPEED)

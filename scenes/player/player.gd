@@ -119,7 +119,7 @@ func blast():
 		blast_particles.emitting = true
 		for enemy in enemies_in_blast_radius:
 			enemy.attack_cooldown = 0.75
-			enemy.knockback_time = 0.5
+			enemy.knockback_time = Globals.blast_kb
 			enemy.knockback_velocity = global_position.direction_to(enemy.global_position) * 200
 		
 
