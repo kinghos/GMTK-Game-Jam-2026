@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://bcbqmimxm08ek"]
+[gd_scene format=3 uid="uid://lj2s8pyk40lv"]
 
-[ext_resource type="Script" uid="uid://b1o1s2j7ds6jr" path="res://scenes/hud/overlay.gd" id="1_vhxij"]
-[ext_resource type="Texture2D" uid="uid://d201qxoogeq6y" path="res://assets/sprites/SMPTE_Color_Bars.svg" id="2_bm4bk"]
-[ext_resource type="Theme" uid="uid://cp83ak2e8i8he" path="res://assets/themes/theme.tres" id="2_e7264"]
+[ext_resource type="Texture2D" uid="uid://d201qxoogeq6y" path="res://assets/sprites/SMPTE_Color_Bars.svg" id="1_kko1k"]
+[ext_resource type="FontFile" uid="uid://d0l0a1tva8g5b" path="res://assets/themes/vertopal.com_GUNV2BM.ttf" id="2_mavwu"]
 
 [sub_resource type="Animation" id="Animation_0bx4p"]
 length = 0.001
@@ -156,11 +155,7 @@ _data = {
 &"powerups": SubResource("Animation_mgtrf")
 }
 
-[node name="Overlay" type="CanvasLayer" unique_id=270833940]
-process_mode = 3
-script = ExtResource("1_vhxij")
-
-[node name="PowerupScreen" type="TextureRect" parent="." unique_id=2085774948]
+[node name="PowerupScreen" type="TextureRect" unique_id=451681116]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -168,11 +163,10 @@ anchor_bottom = 1.0
 offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_e7264")
-texture = ExtResource("2_bm4bk")
+texture = ExtResource("1_kko1k")
 expand_mode = 2
 
-[node name="SelectLabel" type="Label" parent="PowerupScreen" unique_id=291988021]
+[node name="SelectLabel" type="Label" parent="." unique_id=633482884]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -182,10 +176,11 @@ offset_top = 19.0
 offset_right = 129.0
 offset_bottom = 56.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_mavwu")
 theme_override_font_sizes/font_size = 25
 text = "SELECT A POWERUP"
 
-[node name="PowerupsMenu" type="VBoxContainer" parent="PowerupScreen" unique_id=238369957]
+[node name="PowerupsMenu" type="VBoxContainer" parent="." unique_id=2082102399]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -199,103 +194,108 @@ offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Options" type="HBoxContainer" parent="PowerupScreen/PowerupsMenu" unique_id=152197282]
+[node name="Options" type="HBoxContainer" parent="PowerupsMenu" unique_id=61310030]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Option1" type="Button" parent="PowerupScreen/PowerupsMenu/Options" unique_id=1789494528]
+[node name="Option1" type="Button" parent="PowerupsMenu/Options" unique_id=579676546]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mavwu")
 text = "opt 1"
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 metadata/powerup_type = 0
 
-[node name="Option2" type="Button" parent="PowerupScreen/PowerupsMenu/Options" unique_id=740317390]
+[node name="Option2" type="Button" parent="PowerupsMenu/Options" unique_id=936282253]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mavwu")
 text = "opt 2"
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 metadata/powerup_type = 0
 
-[node name="Option3" type="Button" parent="PowerupScreen/PowerupsMenu/Options" unique_id=1814512951]
+[node name="Option3" type="Button" parent="PowerupsMenu/Options" unique_id=1130580533]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_mavwu")
 text = "opt 3"
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 metadata/powerup_type = 0
 
-[node name="Descriptions" type="HBoxContainer" parent="PowerupScreen/PowerupsMenu" unique_id=1425085465]
+[node name="Descriptions" type="HBoxContainer" parent="PowerupsMenu" unique_id=877416362]
 layout_mode = 2
 
-[node name="Option1" type="Button" parent="PowerupScreen/PowerupsMenu/Descriptions" unique_id=1967257279]
+[node name="Option1" type="Button" parent="PowerupsMenu/Descriptions" unique_id=127050109]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("2_mavwu")
 theme_override_font_sizes/font_size = 18
 disabled = true
 text = "Text"
 autowrap_mode = 3
 metadata/powerup_type = 0
 
-[node name="Option2" type="Button" parent="PowerupScreen/PowerupsMenu/Descriptions" unique_id=2012686289]
+[node name="Option2" type="Button" parent="PowerupsMenu/Descriptions" unique_id=802338421]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("2_mavwu")
 theme_override_font_sizes/font_size = 18
 disabled = true
 text = "Text"
 autowrap_mode = 3
 metadata/powerup_type = 0
 
-[node name="Option3" type="Button" parent="PowerupScreen/PowerupsMenu/Descriptions" unique_id=1845904323]
+[node name="Option3" type="Button" parent="PowerupsMenu/Descriptions" unique_id=1816393989]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("2_mavwu")
 theme_override_font_sizes/font_size = 18
 disabled = true
 text = "Text"
 autowrap_mode = 3
 metadata/powerup_type = 0
 
-[node name="ValueChanges" type="HBoxContainer" parent="PowerupScreen/PowerupsMenu" unique_id=1145176082]
+[node name="ValueChanges" type="HBoxContainer" parent="PowerupsMenu" unique_id=830402816]
 layout_mode = 2
 
-[node name="Option1" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=1124201878]
+[node name="Option1" type="Button" parent="PowerupsMenu/ValueChanges" unique_id=1400039334]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("2_mavwu")
 theme_override_font_sizes/font_size = 22
 disabled = true
 text = "X -> X"
 metadata/powerup_type = 0
 
-[node name="Option2" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=1477063536]
+[node name="Option2" type="Button" parent="PowerupsMenu/ValueChanges" unique_id=1362097550]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("2_mavwu")
 theme_override_font_sizes/font_size = 22
 disabled = true
 text = "X -> X"
 metadata/powerup_type = 0
 
-[node name="Option3" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=751693931]
+[node name="Option3" type="Button" parent="PowerupsMenu/ValueChanges" unique_id=88930656]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_fonts/font = ExtResource("2_mavwu")
 theme_override_font_sizes/font_size = 22
 disabled = true
 text = "X -> X"
 metadata/powerup_type = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PowerupScreen" unique_id=2062139556]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2067887217]
 libraries/ = SubResource("AnimationLibrary_vhxij")
-
-[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option1" to="." method="_on_powerup_pressed" binds= [0]]
-[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option2" to="." method="_on_powerup_pressed" binds= [1]]
-[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option3" to="." method="_on_powerup_pressed" binds= [2]]

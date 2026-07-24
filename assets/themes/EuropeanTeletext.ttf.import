@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d0l0a1tva8g5b"
-path="res://.godot/imported/vertopal.com_GUNV2BM.ttf-56330686a737a560924e92a827f3b664.fontdata"
+uid="uid://bd37xjgrl4rdm"
+path="res://.godot/imported/EuropeanTeletext.ttf-98a208ca138eea47e4b9a024915ea3c7.fontdata"
 
 [deps]
 
-source_file="res://assets/vertopal.com_GUNV2BM.ttf"
-dest_files=["res://.godot/imported/vertopal.com_GUNV2BM.ttf-56330686a737a560924e92a827f3b664.fontdata"]
+source_file="res://assets/themes/EuropeanTeletext.ttf"
+dest_files=["res://.godot/imported/EuropeanTeletext.ttf-98a208ca138eea47e4b9a024915ea3c7.fontdata"]
 
 [params]
 

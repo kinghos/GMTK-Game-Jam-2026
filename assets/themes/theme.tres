@@ -1,0 +1,94 @@
+[gd_resource type="Theme" format=3 uid="uid://cp83ak2e8i8he"]
+
+[ext_resource type="FontFile" uid="uid://bd37xjgrl4rdm" path="res://assets/themes/EuropeanTeletext.ttf" id="1_7egdk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdjgs"]
+bg_color = Color(0.023529412, 0.03137255, 0.09411765, 0.5372549)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.06605817, 0.32672632, 0.589619, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0u25"]
+bg_color = Color(0.04694707, 0.08100966, 0.16241944, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.06605817, 0.32672632, 0.589619, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7egdk"]
+bg_color = Color(0.02199186, 0.03298193, 0.09573481, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.06605817, 0.32672632, 0.589619, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_51ufp"]
+bg_color = Color(0.0063474686, 0.009521385, 0.034996323, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.06605817, 0.32672632, 0.589619, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7mo4"]
+bg_color = Color(0.023529412, 0.03137255, 0.09411765, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgtrf"]
+bg_color = Color(0.071234904, 0.103164084, 0.22421551, 1)
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_7egdk")
+Button/styles/disabled = SubResource("StyleBoxFlat_pdjgs")
+Button/styles/hover = SubResource("StyleBoxFlat_p0u25")
+Button/styles/normal = SubResource("StyleBoxFlat_7egdk")
+Button/styles/pressed = SubResource("StyleBoxFlat_51ufp")
+Label/fonts/font = ExtResource("1_7egdk")
+ProgressBar/fonts/font = ExtResource("1_7egdk")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_v7mo4")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_mgtrf")

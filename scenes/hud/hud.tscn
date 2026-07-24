@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1mwdx6ymgu1b" path="res://scenes/hud/hud.gd" id="1_0bx4p"]
 [ext_resource type="Script" uid="uid://cwrjmiycyral0" path="res://scenes/hud/charge_bar.gd" id="1_48c2t"]
-[ext_resource type="FontFile" uid="uid://d0l0a1tva8g5b" path="res://assets/vertopal.com_GUNV2BM.ttf" id="1_c45xl"]
+[ext_resource type="Theme" uid="uid://cp83ak2e8i8he" path="res://assets/themes/theme.tres" id="2_mgtrf"]
 [ext_resource type="Texture2D" uid="uid://cosotffptsqhn" path="res://icon.svg" id="4_mgtrf"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_126ht"]
@@ -19,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_mgtrf")
 
 [node name="ChargeBar" type="HSlider" parent="Control" unique_id=1679705439]
 layout_mode = 1
@@ -59,14 +60,12 @@ theme_override_constants/separation = 112
 [node name="Timer" type="Label" parent="Control/TopBar/HBoxContainer" unique_id=245234213]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("1_c45xl")
 text = "TIME:"
 
 [node name="ProgressBar" type="ProgressBar" parent="Control/TopBar/HBoxContainer" unique_id=1178189131]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_c45xl")
 max_value = 1.0
 value = 0.76
 
