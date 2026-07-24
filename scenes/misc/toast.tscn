@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dafocwk1p0q1u"]
+
+[ext_resource type="Texture2D" uid="uid://8a8y18saeyhw" path="res://assets/sprites/toast.png" id="1_1v83c"]
+[ext_resource type="Script" uid="uid://dvj6nvks3q5sn" path="res://scenes/misc/toast.gd" id="1_dgkhn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ghg"]
+size = Vector2(21, 22)
+
+[node name="Toast" type="Area2D" unique_id=309614652]
+collision_layer = 256
+collision_mask = 13
+script = ExtResource("1_dgkhn")
+speed = 400
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1905560675]
+texture = ExtResource("1_1v83c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=658214671]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_k5ghg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

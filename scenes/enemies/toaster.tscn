@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c16paxm48g7dc"]
+
+[ext_resource type="PackedScene" uid="uid://hqm0xru0ae3j" path="res://scenes/enemies/base_enemy.tscn" id="1_ww1mm"]
+[ext_resource type="Script" uid="uid://chs8kc530yhvk" path="res://scenes/enemies/toaster.gd" id="2_dq6hp"]
+[ext_resource type="Texture2D" uid="uid://ceucltdirwhmc" path="res://assets/sprites/toaster.png" id="2_gxi2f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dq6hp"]
+atlas = ExtResource("2_gxi2f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xty35"]
+atlas = ExtResource("2_gxi2f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naf3k"]
+atlas = ExtResource("2_gxi2f")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wruwn"]
+atlas = ExtResource("2_gxi2f")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng5sb"]
+atlas = ExtResource("2_gxi2f")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrig5"]
+atlas = ExtResource("2_gxi2f")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl51w"]
+atlas = ExtResource("2_gxi2f")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vhxij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dq6hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xty35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naf3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wruwn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng5sb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrig5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl51w")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpfdf"]
+size = Vector2(28, 30)
+
+[node name="Toaster" unique_id=1193687902 instance=ExtResource("1_ww1mm")]
+script = ExtResource("2_dq6hp")
+hp = 50
+damage = 20
+speed = 80
+
+[node name="Sprite2D" parent="." index="1" unique_id=162748549]
+sprite_frames = SubResource("SpriteFrames_vhxij")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.94711953
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(737481144) index="0" unique_id=841296864]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_rpfdf")
+
+[node name="ToastCooldown" type="Timer" parent="." index="5" unique_id=644694101]
+wait_time = 1.5
+one_shot = true

@@ -51,7 +51,7 @@ size = Vector2(12, 12)
 radius = 69.115845
 
 [node name="Player" type="CharacterBody2D" unique_id=181589956]
-collision_mask = 76
+collision_mask = 332
 script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694806254]

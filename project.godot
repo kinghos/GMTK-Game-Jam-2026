@@ -83,6 +83,7 @@ Blast={
 2d_physics/layer_6="Drops"
 2d_physics/layer_7="Explosion Area"
 2d_physics/layer_8="Blast Area"
+2d_physics/layer_9="Enemy projectiles"
 
 [physics]
 
