@@ -11,20 +11,20 @@ const ENEMIES = {
 	"fodder": {
 		"scene": preload("res://scenes/enemies/fodder.tscn"),
 		"cost": 1,
-		"base_weight": 100,
+		"base_weight": 80,
 		"decay": 5
 	},
 	"lightbomb": {
 		"scene": preload("res://scenes/enemies/lightbomb.tscn"),
 		"cost": 3,
-		"base_weight": 0,
+		"base_weight": 10,
 		"growth": 5,
 		"start_wave": 2
 	},
 	"toaster": {
 		"scene": preload("res://scenes/enemies/toaster.tscn"),
 		"cost": 5,
-		"base_weight": 0,
+		"base_weight": 10,
 		"growth": 4,
 		"start_wave": 4
 	}
