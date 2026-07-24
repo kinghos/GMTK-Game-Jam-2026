@@ -60,7 +60,7 @@ var powerup_counts = {
 	POWERUPS.BLAST: 0,
 	POWERUPS.MOVESPEED: 0
 }
-var weapon_upgrade_counts = {
+var upgrade_counts = {
 	WEAPON_UPGRADES.SHOTGUNSPREAD: 0,
 	WEAPON_UPGRADES.SHOTGUNBULLETS: 0,
 	WEAPON_UPGRADES.RIFLEPIERCE: 0,
@@ -92,6 +92,31 @@ var weapon_names = {
 	WEAPONS.SMG: "SMG"
 }
 
+var upgrade_icons = {
+	WEAPON_UPGRADES.SHOTGUNSPREAD: preload("uid://bu27wn30rgpkk"),
+	WEAPON_UPGRADES.SHOTGUNBULLETS: preload("uid://bu27wn30rgpkk"),
+	WEAPON_UPGRADES.RIFLEPIERCE: preload("uid://bu27wn30rgpkk"),
+	WEAPON_UPGRADES.RIFLESIZE: preload("uid://bu27wn30rgpkk"),
+	WEAPON_UPGRADES.SMGHOME: preload("uid://bu27wn30rgpkk"),
+	WEAPON_UPGRADES.SMGKB: preload("uid://bu27wn30rgpkk")
+}
+var upgrade_names = {
+	WEAPON_UPGRADES.SHOTGUNSPREAD: "SHOTGUN\nSPREAD",
+	WEAPON_UPGRADES.SHOTGUNBULLETS: "SHOTGUN\nBULLETS",
+	WEAPON_UPGRADES.RIFLEPIERCE: "RIFLE\nPIERCE",
+	WEAPON_UPGRADES.RIFLESIZE: "RIFLE\nSIZE",
+	WEAPON_UPGRADES.SMGHOME: "SMG\nHOME",
+	WEAPON_UPGRADES.SMGKB: "SMG\nKB"
+}
+var upgrade_descriptions = {
+	WEAPON_UPGRADES.SHOTGUNSPREAD: "INCREASES SPREAD ANGLE WHEN FIRING",
+	WEAPON_UPGRADES.SHOTGUNBULLETS: "INCREASES NUMBER OF BULLETS FIRED",
+	WEAPON_UPGRADES.RIFLEPIERCE: "INCREASES PIERCING OF BULLETS",
+	WEAPON_UPGRADES.RIFLESIZE: "INCREASES SIZE OF BULLETS",
+	WEAPON_UPGRADES.SMGHOME: "INCREASES HOMING OF BULLETS",
+	WEAPON_UPGRADES.SMGKB: "INCREASES KNOCKBACK OF BULLETS"
+}
+
 var powerup_names = {
 	POWERUPS.ATTACKSPEED: "ATTACK\nSPEED",
 	POWERUPS.BULLETDMG: "BULLET\nDAMAGE",
@@ -110,6 +135,12 @@ var powerup_descriptions = {
 	POWERUPS.MOVESPEED: "INCREASES MOVEMENT SPEED"
 }
 
+var weapon_descriptions = {
+	WEAPONS.SHOTGUN: "FIRES BULLETS IN A SPREAD. USES MORE ENERGY",
+	WEAPONS.RIFLE: "FIRES SLOW, POWERFUL BULLETS. USES MORE ENERGY",
+	WEAPONS.SMG: "RAPIDLY FIRES SMALL, FASTER BULLETS"
+}
+
 var powerup_first_descriptions = {
 	POWERUPS.BLAST: "UNLOCKS ABILITY TO KNOCK BACK ENEMIES"
 }
@@ -123,7 +154,16 @@ var powerup_increases = {
 	POWERUPS.MOVESPEED: 20
 }
 
-func _ready() -> void:
+var upgrade_increases = {
+	WEAPON_UPGRADES.SHOTGUNSPREAD: 5,
+	WEAPON_UPGRADES.SHOTGUNBULLETS: 1,
+	WEAPON_UPGRADES.RIFLEPIERCE: 1,
+	WEAPON_UPGRADES.RIFLESIZE: 0.2,
+	WEAPON_UPGRADES.SMGHOME: 5,
+	WEAPON_UPGRADES.SMGKB: 0.1,
+}
+
+func _ready() -> void: # reset variables on reload of scene
 	game_over = false
 	enemy_kill_total = 0
 	current_kills_to_target = 0.0
@@ -138,7 +178,7 @@ func _ready() -> void:
 		POWERUPS.BLAST: 0,
 		POWERUPS.MOVESPEED: 0,
 	}
-	weapon_upgrade_counts = {
+	upgrade_counts = {
 		WEAPON_UPGRADES.SHOTGUNSPREAD: 0,
 		WEAPON_UPGRADES.SHOTGUNBULLETS: 0,
 		WEAPON_UPGRADES.RIFLEPIERCE: 0,
@@ -181,6 +221,23 @@ func apply_powerup(powerup: int):
 			player.WALK_SPEED += increase
 			player.SPRINT_SPEED += increase
 
+func apply_upgrade(upgrade: int):
+	var increase = upgrade_increases[upgrade]
+	powerups_gained += 1
+	match upgrade:
+		WEAPON_UPGRADES.SHOTGUNSPREAD:
+			pass
+		WEAPON_UPGRADES.SHOTGUNBULLETS:
+			pass
+		WEAPON_UPGRADES.RIFLEPIERCE:
+			pass
+		WEAPON_UPGRADES.RIFLESIZE:
+			pass
+		WEAPON_UPGRADES.SMGHOME:
+			pass
+		WEAPON_UPGRADES.SMGKB:
+			pass
+
 func calc_powerup_effect(powerup: int):
 	return powerup_counts[powerup] * powerup_increases[powerup]
 
@@ -200,6 +257,22 @@ func get_powerup_current_value(powerup: int) -> float:
 			return player.WALK_SPEED
 	return 0.0
 
+func get_upgrade_current_value(powerup: int) -> float:
+	match powerup:
+		WEAPON_UPGRADES.SHOTGUNSPREAD:
+			pass
+		WEAPON_UPGRADES.SHOTGUNBULLETS:
+			pass
+		WEAPON_UPGRADES.RIFLEPIERCE:
+			pass
+		WEAPON_UPGRADES.RIFLESIZE:
+			pass
+		WEAPON_UPGRADES.SMGHOME:
+			pass
+		WEAPON_UPGRADES.SMGKB:
+			pass
+	return 0.0
+
 func print_powerup_values(): # for debugging
 	print("Powerup values:")
 	print("ATTACK SPEED ", player.gun.fire_rate)
@@ -208,3 +281,14 @@ func print_powerup_values(): # for debugging
 	print("ENERGY PACK ", player.MAX_CHARGE)
 	print("KNOCKBACK BLAST ", blast_kb)
 	print("WALK SPEED ", player.WALK_SPEED, " SPRINT SPEED:", player.SPRINT_SPEED)
+
+func get_associated_upgrades(weapon: int):
+	var selection
+	match weapon:
+		Globals.WEAPONS.SHOTGUN:
+			selection = [0, 1]
+		Globals.WEAPONS.RIFLE:
+			selection = [2, 3]
+		Globals.WEAPONS.SMG:
+			selection = [4, 5]
+	return selection
