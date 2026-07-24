@@ -59,7 +59,7 @@ func _on_powerup_pressed(button_num: int) -> void:
 		Globals.apply_powerup(powerup_selected)
 	else:
 		var weapon_selected = options[button_num].get_meta("powerup_type")
-		Globals.chosen_weapon = weapon_select
+		Globals.chosen_weapon = weapon_selected
 	animation_player.play("fade")
 	await animation_player.animation_finished
 	Globals.update_targets()
