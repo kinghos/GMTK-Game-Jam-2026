@@ -44,11 +44,11 @@ func _process(delta: float) -> void:
 func die():
 	if Globals.player and self in Globals.player.enemies_in_blast_radius:
 		Globals.player.enemies_in_blast_radius.erase(self)
+	dead = true
+	animation_player.play("death")
+	await animation_player.animation_finished
 	Globals.enemy_kill_total += 1
 	Globals.current_kills_to_target += 1
-	animation_player.play("death")
-	dead = true
-	await animation_player.animation_finished
 	var drop = ENERGY_DROP.instantiate()
 	drop.global_position = global_position
 	Globals.level.get_node("Drops").add_child(drop)

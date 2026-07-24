@@ -11,6 +11,8 @@ extends CanvasLayer
 @onready var paused_time_ms = 0
 @onready var weapon_select = false
 
+signal powerups_gone
+
 func _on_hud_show_powerups() -> void:
 	paused_time_ms = 0
 
@@ -43,8 +45,8 @@ func _on_hud_show_powerups() -> void:
 		for i in range(3):
 			options[i].set_meta("powerup_type", selection[i])
 			options[i].icon = Globals.weapon_icons[selection[i]]
-			options[i].text = Globals.weapons_names[selection[i]]
-	
+			options[i].text = Globals.weapon_names[selection[i]]
+	$PowerupScreen.show()
 	animation_player.play("powerups")
 
 func _process(delta: float) -> void:
@@ -62,7 +64,8 @@ func _on_powerup_pressed(button_num: int) -> void:
 		Globals.chosen_weapon = weapon_selected
 	animation_player.play("fade")
 	await animation_player.animation_finished
-	Globals.update_targets()
 	get_tree().paused = false
+	powerups_gone.emit()
+	Globals.update_targets()
 	Globals.start_time += floori(paused_time_ms)
 	Globals.print_powerup_values()

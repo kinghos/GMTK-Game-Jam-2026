@@ -158,7 +158,7 @@ func next_target(num):
 	return 4 * num * num + 4 * num + 3
 
 func update_targets() -> void:
-	if current_kills_to_target >= current_kill_target:
+	if enemy_kill_total >= current_kill_target:
 		wave += 1.0
 		current_kill_target =  next_target(wave)
 		current_kills_to_target = 0.0

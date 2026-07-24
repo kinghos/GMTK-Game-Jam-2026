@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	timer.text = "TIME: %02d:%02d" % [mins, secs]
 	update_powerup_hud()
 	
-	if Globals.current_kills_to_target >= Globals.current_kill_target and not on_powerups:
+	if Globals.enemy_kill_total >= Globals.current_kill_target and not on_powerups:
 		on_powerups = true
 		show_powerups.emit()
 		get_tree().paused = true
@@ -45,3 +45,7 @@ func update_powerup_hud():
 		else:
 			icon.get_child(0).text = str(Globals.powerup_counts[powerup])
 			smat.set_shader_parameter("enabled", false)
+
+
+func _on_overlay_powerups_gone() -> void:
+	on_powerups = false

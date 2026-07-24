@@ -69,10 +69,12 @@ position = Vector2(1856, 1086)
 [node name="Overlay" parent="." unique_id=270833940 instance=ExtResource("5_hnne4")]
 
 [node name="ShaderLayer" parent="." unique_id=2126238738 instance=ExtResource("6_vpf64")]
+process_mode = 3
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=2062280826]
 wait_time = 5.0
 autostart = true
 
 [connection signal="show_powerups" from="HUD" to="Overlay" method="_on_hud_show_powerups"]
+[connection signal="powerups_gone" from="Overlay" to="HUD" method="_on_overlay_powerups_gone"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
