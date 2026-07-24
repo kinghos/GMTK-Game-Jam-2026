@@ -13,4 +13,5 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.use_charge(bullet_damage)
+		body.animation_player.play("damage")
 		queue_free()

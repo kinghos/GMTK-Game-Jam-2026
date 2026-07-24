@@ -48,6 +48,68 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5ghg"]
 radius = 69.115845
 
+[sub_resource type="Animation" id="Animation_p47bc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_75vfm"]
+resource_name = "damage"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1667, 0.3333, 0.5),
+"transitions": PackedFloat32Array(0.39229208, 1.3195078, 1.2311442, 0.43527535),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.17453292519943295, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0owmy"]
+_data = {
+&"RESET": SubResource("Animation_p47bc"),
+&"damage": SubResource("Animation_75vfm")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=181589956]
 collision_mask = 332
 script = ExtResource("1_g2els")
@@ -101,6 +163,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BlastRadius" unique_id=1336266813]
 shape = SubResource("CircleShape2D_k5ghg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=610981516]
+libraries/ = SubResource("AnimationLibrary_0owmy")
 
 [connection signal="body_entered" from="BlastRadius" to="." method="_on_blast_radius_body_entered"]
 [connection signal="body_exited" from="BlastRadius" to="." method="_on_blast_radius_body_exited"]

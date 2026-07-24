@@ -67,6 +67,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		return
 	
 	body.use_charge(damage)
+	body.animation_player.play("damage")
 	attack_cooldown = 0.5
 	knockback_time = 0.2
 	knockback_velocity = body.global_position.direction_to(global_position) * 200

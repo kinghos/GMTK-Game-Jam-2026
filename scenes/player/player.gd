@@ -15,6 +15,7 @@ var MAX_CHARGE = 150
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 @onready var blast_particles: CPUParticles2D = $BlastParticles
 @onready var blast_timer: Timer = $BlastTimer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 var charge = MAX_CHARGE
