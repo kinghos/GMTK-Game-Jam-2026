@@ -1,30 +1,27 @@
 [gd_scene format=3 uid="uid://b04818ds8iyp5"]
 
-[ext_resource type="Texture2D" uid="uid://bu0tbkvjdl8a6" path="res://catbadjob.png" id="1_1mvow"]
+[ext_resource type="Texture2D" uid="uid://bqsvm5rxyem6j" path="res://assets/sprites/warning.png" id="1_1mvow"]
 [ext_resource type="Script" uid="uid://ddo80kb0nhhvg" path="res://scenes/player/death_animation.gd" id="2_ckcgh"]
-[ext_resource type="AudioStream" uid="uid://c6nn8ak803wuf" path="res://assets/audio/soundreality-explosion-fx-343683.mp3" id="3_nw878"]
+[ext_resource type="AudioStream" uid="uid://cadys7lqhlvqe" path="res://assets/audio/player_death.ogg" id="3_1mvow"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8f4dh"]
-particle_flag_disable_z = true
-spread = 180.0
-initial_velocity_min = 500.0
-initial_velocity_max = 900.0
-gravity = Vector3(0, 98, 0)
-damping_min = 30.000002
-damping_max = 60.000004
-scale_min = 3.0
-scale_max = 4.0
-
-[node name="HeFuckingExplodesNoooooooo" type="GPUParticles2D" unique_id=955138348]
+[node name="HeFuckingExplodesNoooooooo" type="CPUParticles2D" unique_id=695713194]
+z_index = 4
 emitting = false
-amount = 200
+amount = 100
 texture = ExtResource("1_1mvow")
 lifetime = 0.5
 one_shot = true
-explosiveness = 1.0
-collision_base_size = 5.0
-process_material = SubResource("ParticleProcessMaterial_8f4dh")
+explosiveness = 0.56
+fixed_fps = 30
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(320, 180)
+spread = 180.0
+gravity = Vector2(0, 98)
+damping_min = 30.000002
+damping_max = 60.000004
 script = ExtResource("2_ckcgh")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1148927701]
-stream = ExtResource("3_nw878")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1254666714]
+stream = ExtResource("3_1mvow")
+bus = &"SFX"
