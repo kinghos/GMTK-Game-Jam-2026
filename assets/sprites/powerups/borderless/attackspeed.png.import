@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bl1ntkwsaqreq"
-path="res://.godot/imported/energypack.png-db78a3a60491f2b92e8aa4bedf7683bc.ctex"
+uid="uid://c48rt14572q2o"
+path="res://.godot/imported/attackspeed.png-6733c79774d224195a083dd12bc123df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/powerups/energypack.png"
-dest_files=["res://.godot/imported/energypack.png-db78a3a60491f2b92e8aa4bedf7683bc.ctex"]
+source_file="res://assets/sprites/powerups/borderless/attackspeed.png"
+dest_files=["res://.godot/imported/attackspeed.png-6733c79774d224195a083dd12bc123df.ctex"]
 
 [params]
 

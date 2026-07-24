@@ -4,10 +4,57 @@
 [ext_resource type="Script" uid="uid://cwrjmiycyral0" path="res://scenes/hud/charge_bar.gd" id="1_48c2t"]
 [ext_resource type="Theme" uid="uid://cp83ak2e8i8he" path="res://assets/themes/theme.tres" id="2_mgtrf"]
 [ext_resource type="Texture2D" uid="uid://cosotffptsqhn" path="res://icon.svg" id="4_mgtrf"]
+[ext_resource type="Texture2D" uid="uid://ccn14e26jv8tq" path="res://assets/sprites/powerups/bordered/attackspeed.png" id="4_nhd55"]
+[ext_resource type="Shader" uid="uid://dy3er2is0b1tl" path="res://assets/shaders/grayscale.gdshader" id="4_q6mn5"]
+[ext_resource type="Texture2D" uid="uid://bfod8ir5qexb7" path="res://assets/sprites/powerups/bordered/bulletdmg.png" id="5_q6mn5"]
+[ext_resource type="Texture2D" uid="uid://de8ejrejusrg7" path="res://assets/sprites/powerups/bordered/bulletspeed.png" id="6_8nkf1"]
+[ext_resource type="Texture2D" uid="uid://x7ie23aovfp8" path="res://assets/sprites/powerups/bordered/energypack.png" id="8_558d4"]
+[ext_resource type="Texture2D" uid="uid://dhjasdo7j0gaw" path="res://assets/sprites/powerups/bordered/blast.png" id="9_4m1a1"]
+[ext_resource type="Texture2D" uid="uid://cbq2a6m2lo2ms" path="res://assets/sprites/powerups/bordered/movespeed.png" id="10_iioc1"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_126ht"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_d2rsb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6mn5"]
+shader = ExtResource("4_q6mn5")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8nkf1"]
+shader = ExtResource("4_q6mn5")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_558d4"]
+shader = ExtResource("4_q6mn5")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4m1a1"]
+shader = ExtResource("4_q6mn5")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iioc1"]
+shader = ExtResource("4_q6mn5")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_567j1"]
+shader = ExtResource("4_q6mn5")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsgyl"]
+shader = ExtResource("4_q6mn5")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjjd2"]
+shader = ExtResource("4_q6mn5")
+shader_parameter/weighted = true
+shader_parameter/enabled = true
 
 [node name="HUD" type="CanvasLayer" unique_id=350223319]
 script = ExtResource("1_0bx4p")
@@ -51,16 +98,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
+offset_left = 12.0
 offset_right = -20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 112
+theme_override_constants/separation = 197
 
 [node name="Timer" type="Label" parent="Control/TopBar/HBoxContainer" unique_id=245234213]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "TIME:"
+text = "TIME: 00:00"
 
 [node name="ProgressBar" type="ProgressBar" parent="Control/TopBar/HBoxContainer" unique_id=1178189131]
 layout_mode = 2
@@ -69,22 +116,190 @@ size_flags_vertical = 4
 max_value = 1.0
 value = 0.76
 
-[node name="GridContainer" type="GridContainer" parent="Control/TopBar" unique_id=335338544]
+[node name="PowerupIcons" type="HBoxContainer" parent="Control/TopBar" unique_id=493433350]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -164.0
-offset_right = -46.0
-offset_bottom = 34.0
+offset_left = -175.0
+offset_top = 5.0
+offset_right = 101.0
+offset_bottom = 28.0
 grow_horizontal = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_constants/h_separation = -31
-theme_override_constants/v_separation = 0
-columns = 4
+theme_override_constants/separation = -20
 
-[node name="TextureRect" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=998759038]
+[node name="ATTACK SPEED" type="TextureRect" parent="Control/TopBar/PowerupIcons" unique_id=998759038]
+material = SubResource("ShaderMaterial_q6mn5")
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_nhd55")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/TopBar/PowerupIcons/ATTACK SPEED" unique_id=990948787]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -10.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+
+[node name="BULLET DAMAGE" type="TextureRect" parent="Control/TopBar/PowerupIcons" unique_id=1610502301]
+material = SubResource("ShaderMaterial_8nkf1")
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_q6mn5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/TopBar/PowerupIcons/BULLET DAMAGE" unique_id=1150995901]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -10.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+
+[node name="BULLET SPEED" type="TextureRect" parent="Control/TopBar/PowerupIcons" unique_id=329911506]
+material = SubResource("ShaderMaterial_558d4")
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("6_8nkf1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/TopBar/PowerupIcons/BULLET SPEED" unique_id=383819802]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -10.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+
+[node name="ENERGY UP" type="TextureRect" parent="Control/TopBar/PowerupIcons" unique_id=939877676]
+material = SubResource("ShaderMaterial_4m1a1")
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("8_558d4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/TopBar/PowerupIcons/ENERGY UP" unique_id=1984654722]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -10.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+
+[node name="KNOCKBACK BLAST" type="TextureRect" parent="Control/TopBar/PowerupIcons" unique_id=2127261978]
+material = SubResource("ShaderMaterial_iioc1")
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("9_4m1a1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/TopBar/PowerupIcons/KNOCKBACK BLAST" unique_id=768509965]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -11.0
+offset_right = -3.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+
+[node name="MOVE SPEED" type="TextureRect" parent="Control/TopBar/PowerupIcons" unique_id=650847081]
+material = SubResource("ShaderMaterial_567j1")
+custom_minimum_size = Vector2(10, 10)
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("10_iioc1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/TopBar/PowerupIcons/MOVE SPEED" unique_id=1813946914]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -10.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+
+[node name="WeaponUpgrade1" type="TextureRect" parent="Control/TopBar/PowerupIcons" unique_id=1343340675]
+material = SubResource("ShaderMaterial_nsgyl")
 custom_minimum_size = Vector2(10, 10)
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
@@ -94,7 +309,25 @@ texture = ExtResource("4_mgtrf")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=1610502301]
+[node name="Label" type="Label" parent="Control/TopBar/PowerupIcons/WeaponUpgrade1" unique_id=1627106704]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -10.0
+offset_right = 2.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+
+[node name="WeaponUpgrade2" type="TextureRect" parent="Control/TopBar/PowerupIcons" unique_id=756940483]
+material = SubResource("ShaderMaterial_jjjd2")
 custom_minimum_size = Vector2(10, 10)
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
@@ -104,62 +337,19 @@ texture = ExtResource("4_mgtrf")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=329911506]
-custom_minimum_size = Vector2(10, 10)
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("4_mgtrf")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect4" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=939877676]
-custom_minimum_size = Vector2(10, 10)
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("4_mgtrf")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect5" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=2127261978]
-custom_minimum_size = Vector2(10, 10)
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("4_mgtrf")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect6" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=650847081]
-custom_minimum_size = Vector2(10, 10)
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("4_mgtrf")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect7" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=1343340675]
-custom_minimum_size = Vector2(10, 10)
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("4_mgtrf")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TextureRect8" type="TextureRect" parent="Control/TopBar/GridContainer" unique_id=756940483]
-custom_minimum_size = Vector2(10, 10)
-custom_maximum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource("4_mgtrf")
-expand_mode = 1
-stretch_mode = 5
+[node name="Label" type="Label" parent="Control/TopBar/PowerupIcons/WeaponUpgrade2" unique_id=1422937855]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -39.0
+offset_top = -10.0
+offset_right = 2.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1

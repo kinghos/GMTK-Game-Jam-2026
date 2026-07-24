@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d141muxcqgbr8"
-path="res://.godot/imported/bulletspeed.png-cf8704c7d834ef60df9cd8e06ab233fe.ctex"
+uid="uid://dhjasdo7j0gaw"
+path="res://.godot/imported/blast.png-f0cb241eb0a3597d71e7e8cf91dd42e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/powerups/bulletspeed.png"
-dest_files=["res://.godot/imported/bulletspeed.png-cf8704c7d834ef60df9cd8e06ab233fe.ctex"]
+source_file="res://assets/sprites/powerups/bordered/blast.png"
+dest_files=["res://.godot/imported/blast.png-f0cb241eb0a3597d71e7e8cf91dd42e8.ctex"]
 
 [params]
 

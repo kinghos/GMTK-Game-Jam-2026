@@ -11,7 +11,7 @@ var current_kills_to_target = 0.0
 var current_kill_target = 12.0
 var wave = 1
 var start_time: int
-var bullet_damage: int = 50
+var bullet_damage: int = 10
 var bullet_speed: float = 800.0
 var blast_kb: float = 0.5
 enum ENEMY_TYPES {FODDER, CHARGELESS, PARASITE, RANGED}
@@ -88,7 +88,7 @@ func _ready() -> void:
 	WEAPON_UPGRADES.SMGKB: 0
 	}
 	
-	bullet_damage = 50
+	bullet_damage = 10
 	bullet_speed = 800.0
 	blast_kb = 0.5
 

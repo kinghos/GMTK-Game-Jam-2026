@@ -258,9 +258,9 @@ radius = 29.15476
 
 [node name="Lightbomb" unique_id=1193687902 instance=ExtResource("1_n8o0g")]
 script = ExtResource("2_c2wah")
-hp = 10
+hp = 15
 damage = 30
-speed = 100
+speed = 150
 
 [node name="Sprite2D" parent="." index="1" unique_id=162748549]
 sprite_frames = SubResource("SpriteFrames_c2wah")

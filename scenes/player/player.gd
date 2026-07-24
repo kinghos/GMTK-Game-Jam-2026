@@ -110,7 +110,7 @@ func die():
 	Globals.game_over = true
 
 func energy_gain(energy_gained):
-	charge += energy_gained
+	charge = move_toward(charge, MAX_CHARGE, energy_gained)
 	
 func blast():
 	if blast_timer.is_stopped() and Globals.powerup_counts[Globals.POWERUPS.BLAST] > 0:

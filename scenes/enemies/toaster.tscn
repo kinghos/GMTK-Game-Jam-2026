@@ -66,8 +66,8 @@ size = Vector2(28, 30)
 
 [node name="Toaster" unique_id=1193687902 instance=ExtResource("1_ww1mm")]
 script = ExtResource("2_dq6hp")
-hp = 50
-damage = 20
+hp = 25
+damage = 15
 speed = 80
 
 [node name="Sprite2D" parent="." index="1" unique_id=162748549]

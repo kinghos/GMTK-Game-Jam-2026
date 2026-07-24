@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c48rt14572q2o"
-path="res://.godot/imported/attackspeed.png-adb11be3b2b8576ad8a38336a88883b7.ctex"
+uid="uid://ccn14e26jv8tq"
+path="res://.godot/imported/attackspeed.png-8cf6803b770e471f316060f2f461771c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/powerups/attackspeed.png"
-dest_files=["res://.godot/imported/attackspeed.png-adb11be3b2b8576ad8a38336a88883b7.ctex"]
+source_file="res://assets/sprites/powerups/bordered/attackspeed.png"
+dest_files=["res://.godot/imported/attackspeed.png-8cf6803b770e471f316060f2f461771c.ctex"]
 
 [params]
 
