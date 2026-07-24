@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://d3n56tkfivk54"]
 
 [ext_resource type="Script" uid="uid://ccmqkh61i5adv" path="res://scenes/player/bullet.gd" id="1_2as5g"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mkf8s"]
-size = Vector2(10, 10)
+[ext_resource type="Texture2D" uid="uid://bu27wn30rgpkk" path="res://assets/sprites/bullet.png" id="2_j5eos"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkf8s"]
 size = Vector2(1, 1)
@@ -14,7 +12,7 @@ collision_mask = 14
 script = ExtResource("1_2as5g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1930138195]
-texture = SubResource("PlaceholderTexture2D_mkf8s")
+texture = ExtResource("2_j5eos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1462314444]
 shape = SubResource("RectangleShape2D_mkf8s")

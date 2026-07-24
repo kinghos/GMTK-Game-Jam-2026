@@ -56,6 +56,7 @@ func die():
 	queue_free()
 
 func take_damage(bullet_damage):
+	var bullet_damage_increase = Globals.calc_powerup_effect(Globals.POWERUPS.BULLETDMG)
 	hp = move_toward(hp, 0, bullet_damage)
 
 

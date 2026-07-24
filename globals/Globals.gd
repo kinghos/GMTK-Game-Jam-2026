@@ -12,7 +12,37 @@ var current_kill_target = 12.0
 var wave = 1
 var start_time: int
 var bullet_damage: int = 10
+var weapon_damages = {
+	WEAPONS.PISTOL: 10,
+	WEAPONS.SHOTGUN: 7,
+	WEAPONS.RIFLE: 15,
+	WEAPONS.SMG: 5
+}
 var bullet_speed: float = 800.0
+var weapon_bullet_speeds = {
+	WEAPONS.PISTOL: 800,
+	WEAPONS.SHOTGUN: 700,
+	WEAPONS.RIFLE: 1100,
+	WEAPONS.SMG: 900
+}
+var weapon_attack_speeds = {
+	WEAPONS.PISTOL: 0.6,
+	WEAPONS.SHOTGUN: 0.65,
+	WEAPONS.RIFLE: 1.0,
+	WEAPONS.SMG: 0.2
+}
+var weapon_bullet_sizes = {
+	WEAPONS.PISTOL: 1.0,
+	WEAPONS.SHOTGUN: 0.8,
+	WEAPONS.RIFLE: 1.3,
+	WEAPONS.SMG: 0.5
+}
+var weapon_sprites = {
+	WEAPONS.PISTOL: preload("uid://ctjxjn85mk3tr"),
+	WEAPONS.SHOTGUN: preload("uid://bu2dxuikimkg"),
+	WEAPONS.RIFLE: preload("uid://ym68aq313xlq"),
+	WEAPONS.SMG: preload("uid://ym68aq313xlq")
+}
 var blast_kb: float = 0.5
 var shotgun_bullets = 4
 enum ENEMY_TYPES {FODDER, CHARGELESS, PARASITE, RANGED}
@@ -20,7 +50,7 @@ enum ENEMY_TYPES {FODDER, CHARGELESS, PARASITE, RANGED}
 enum POWERUPS {ATTACKSPEED, BULLETDMG, BULLETSPEED, ENERGYPACK, BLAST, MOVESPEED}
 enum WEAPON_UPGRADES {SHOTGUNSPREAD, SHOTGUNBULLETS, RIFLEPIERCE, RIFLESIZE, SMGHOME, SMGKB}
 enum WEAPONS {PISTOL, SHOTGUN, RIFLE, SMG}
-var chosen_weapon = WEAPONS.SHOTGUN
+var chosen_weapon = WEAPONS.RIFLE
 var powerup_counts = {
 	POWERUPS.ATTACKSPEED: 0,
 	POWERUPS.BULLETDMG: 0,
@@ -93,6 +123,7 @@ func _ready() -> void:
 	bullet_speed = 800.0
 	blast_kb = 0.5
 	shotgun_bullets = 4
+	#chosen_weapon = WEAPONS.PISTOL
 
 func next_target(num):
 	# uses the quadratic sequence 5x^2 + 4x + 3 to generate the next target
@@ -108,11 +139,11 @@ func apply_powerup(powerup: int):
 	var increase = powerup_increases[powerup]
 	match powerup:
 		POWERUPS.ATTACKSPEED:
-			player.gun.fire_rate += increase
+			pass
 		POWERUPS.BULLETDMG:
-			bullet_damage += increase
+			pass
 		POWERUPS.BULLETSPEED:
-			bullet_speed += increase
+			pass
 		POWERUPS.ENERGYPACK:
 			player.MAX_CHARGE += increase
 		POWERUPS.BLAST:
@@ -120,6 +151,9 @@ func apply_powerup(powerup: int):
 		POWERUPS.MOVESPEED:
 			player.WALK_SPEED += increase
 			player.SPRINT_SPEED += increase
+
+func calc_powerup_effect(powerup: int):
+	return powerup_counts[powerup] * powerup_increases[powerup]
 
 func print_powerup_values(): # for debugging
 	print("Powerup values:")
