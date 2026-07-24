@@ -14,12 +14,13 @@ var start_time: int
 var bullet_damage: int = 10
 var bullet_speed: float = 800.0
 var blast_kb: float = 0.5
+var shotgun_bullets = 4
 enum ENEMY_TYPES {FODDER, CHARGELESS, PARASITE, RANGED}
 
 enum POWERUPS {ATTACKSPEED, BULLETDMG, BULLETSPEED, ENERGYPACK, BLAST, MOVESPEED}
 enum WEAPON_UPGRADES {SHOTGUNSPREAD, SHOTGUNBULLETS, RIFLEPIERCE, RIFLESIZE, SMGHOME, SMGKB}
 enum WEAPONS {PISTOL, SHOTGUN, RIFLE, SMG}
-var chosen_weapon = WEAPONS.PISTOL
+var chosen_weapon = WEAPONS.SHOTGUN
 var powerup_counts = {
 	POWERUPS.ATTACKSPEED: 0,
 	POWERUPS.BULLETDMG: 0,
@@ -91,6 +92,7 @@ func _ready() -> void:
 	bullet_damage = 10
 	bullet_speed = 800.0
 	blast_kb = 0.5
+	shotgun_bullets = 4
 
 func next_target(num):
 	# uses the quadratic sequence 5x^2 + 4x + 3 to generate the next target
