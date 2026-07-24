@@ -17,16 +17,28 @@ func _process(delta: float) -> void:
 	timer.text = "TIME: %02d:%02d" % [mins, secs]
 	update_powerup_hud()
 	
-	if Globals.current_kills_to_target == Globals.current_kill_target and not on_powerups:
+	if Globals.current_kills_to_target >= Globals.current_kill_target and not on_powerups:
 		on_powerups = true
 		show_powerups.emit()
 		get_tree().paused = true
 	var perc = Globals.current_kills_to_target / Globals.current_kill_target
 	progress_bar.value = lerpf(progress_bar.value, perc, delta * 15)
-	
+
+func all_values_zero(dict: Dictionary) -> bool:
+	for value in dict.values():
+		if value != 0:
+			return false
+	return true
+
 func update_powerup_hud():
-	for powerup in Globals.POWERUPS.values():
-		var icon = powerup_icons.get_node(Globals.powerup_names[powerup])
+	if all_values_zero(Globals.powerup_counts) and all_values_zero(Globals.weapon_upgrade_counts):
+		powerup_icons.hide()
+	else:
+		powerup_icons.show()
+	
+	for powerup_name in Globals.POWERUPS.keys():
+		var powerup = Globals.POWERUPS[powerup_name]
+		var icon = powerup_icons.get_node(powerup_name)
 		var smat = icon.material as ShaderMaterial
 		if Globals.powerup_counts[powerup] == 0:
 			smat.set_shader_parameter("enabled", true)

@@ -206,6 +206,7 @@ size_flags_vertical = 3
 [node name="Option1" type="Button" parent="PowerupScreen/PowerupsMenu/Options" unique_id=1789494528]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
 text = "opt 1"
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -215,6 +216,7 @@ metadata/powerup_type = 0
 [node name="Option2" type="Button" parent="PowerupScreen/PowerupsMenu/Options" unique_id=740317390]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
 text = "opt 2"
 icon_alignment = 1
 vertical_icon_alignment = 0
@@ -224,6 +226,7 @@ metadata/powerup_type = 0
 [node name="Option3" type="Button" parent="PowerupScreen/PowerupsMenu/Options" unique_id=1814512951]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 15
 text = "opt 3"
 icon_alignment = 1
 vertical_icon_alignment = 0
