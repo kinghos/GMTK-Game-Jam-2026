@@ -298,3 +298,7 @@ metadata/powerup_type = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PowerupScreen" unique_id=2062139556]
 libraries/ = SubResource("AnimationLibrary_vhxij")
+
+[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option1" to="." method="_on_powerup_pressed" binds= [0]]
+[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option2" to="." method="_on_powerup_pressed" binds= [1]]
+[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option3" to="." method="_on_powerup_pressed" binds= [2]]
