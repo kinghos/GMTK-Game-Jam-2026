@@ -44,14 +44,14 @@ func shoot():
 			
 			get_tree().current_scene.get_node("Bullets").add_child(bullet)
 		Globals.player.use_charge(charge_cost * Globals.shotgun_bullets / 2)
-	if weapon == Globals.WEAPONS.SMG:
+	elif weapon == Globals.WEAPONS.SMG:
 		bullet.global_position = global_position + offset.rotated(rotation)
 		bullet.rotation = rotation
 		bullet.direction = mouse_direction
 		
 		get_tree().current_scene.get_node("Bullets").add_child(bullet)
 		Globals.player.use_charge(charge_cost / 2)
-	if weapon == Globals.WEAPONS.RIFLE:
+	elif weapon == Globals.WEAPONS.RIFLE:
 		bullet.global_position = global_position + offset.rotated(rotation)
 		bullet.rotation = rotation
 		bullet.direction = mouse_direction

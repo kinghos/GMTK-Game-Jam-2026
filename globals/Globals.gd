@@ -8,7 +8,7 @@ var level: Level
 var game_over = false
 var enemy_kill_total = 0
 var current_kills_to_target = 0.0
-var current_kill_target = 12.0
+var current_kill_target = 11.0
 var wave = 1
 var powerups_gained = 0
 var start_time: int
@@ -154,8 +154,8 @@ func _ready() -> void:
 	chosen_weapon = WEAPONS.PISTOL
 
 func next_target(num):
-	# uses the quadratic sequence 5x^2 + 4x + 3 to generate the next target
-	return 5 * num * num + 4 * num + 3
+	# uses the quadratic sequence 4x^2 + 4x + 3 to generate the next target
+	return 4 * num * num + 4 * num + 3
 
 func update_targets() -> void:
 	if current_kills_to_target >= current_kill_target:
