@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c5in4s255ygj"]
+
+[ext_resource type="Script" uid="uid://c75nfobtdlime" path="res://scenes/ui/menus/pause_menu.gd" id="1_xceqw"]
+[ext_resource type="Shader" uid="uid://da6h20lckkv14" path="res://scenes/ui/menus/background_blur.gdshader" id="2_dd7lr"]
+[ext_resource type="PackedScene" uid="uid://d2t8a2b7vt822" path="res://scenes/ui/menus/settings.tscn" id="4_idy5m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dd7lr"]
+shader = ExtResource("2_dd7lr")
+shader_parameter/amount = 2.000000095
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1887671173]
+process_mode = 2
+script = ExtResource("1_xceqw")
+
+[node name="Control" type="Control" parent="." unique_id=1325064404]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=62968733]
+material = SubResource("ShaderMaterial_dd7lr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Control" unique_id=1784958284]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -136.0
+offset_right = -67.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme_override_constants/separation = 20
+
+[node name="ResumeButton" type="Button" parent="Control/ButtonContainer" unique_id=474458132]
+layout_mode = 2
+text = "RESUME	"
+
+[node name="SettingsButton" type="Button" parent="Control/ButtonContainer" unique_id=1485787471]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="MenuButton" type="Button" parent="Control/ButtonContainer" unique_id=1975107510]
+layout_mode = 2
+text = "MAIN MENU"
+
+[node name="Settings" parent="Control" unique_id=1477212670 instance=ExtResource("4_idy5m")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Control/ButtonContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/ButtonContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/ButtonContainer/MenuButton" to="." method="_on_menu_button_pressed"]
+
+[editable path="Control/Settings"]

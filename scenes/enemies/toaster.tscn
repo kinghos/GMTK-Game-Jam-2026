@@ -71,8 +71,10 @@ size = Vector2(28, 30)
 script = ExtResource("2_dq6hp")
 intro_name = "Toaster
 Turret"
-intro_name_font_size = 70
-intro_tagline = "Stops and shoots toast at you."
+intro_name_font_size = 60
+intro_tagline = "Shoots toast at you.
+Also, he's on a 
+skateboard???"
 hp = 25
 damage = 15
 speed = 80

@@ -48,8 +48,13 @@ var spawn_queue = []
 
 func _ready() -> void:
 	Globals.level = self
+	Globals.pause_menu = $PauseMenu
+	Globals.prevent_pause = false
 	Music.play_music(Music.MAIN_THEME)
 	start_wave()
+
+func _exit_tree() -> void:
+	Globals.prevent_pause = true
 
 func _process(delta: float) -> void:
 	enemy_count = get_tree().get_nodes_in_group("Enemies").size()

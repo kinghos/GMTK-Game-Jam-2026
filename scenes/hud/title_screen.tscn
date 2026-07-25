@@ -35,11 +35,11 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "PLAY"
 
-[node name="Options" type="Button" parent="VBoxContainer" unique_id=316401229]
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=316401229]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
-text = "OPTIONS"
+text = "SETTINGS"
 
 [node name="Credits" type="Button" parent="VBoxContainer" unique_id=2052331876]
 layout_mode = 2
@@ -54,5 +54,6 @@ theme_override_font_sizes/font_size = 20
 text = "QUIT"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

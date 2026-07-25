@@ -18,6 +18,7 @@ func _ready() -> void:
 	tagline.modulate.a = 0.0
 
 func play_intro(enemy: Node2D, enemy_name: String, tagline_text: String) -> void:
+	Globals.prevent_pause = true
 	in_progress = true
 	target_enemy = enemy
 	title.text = enemy_name
@@ -131,3 +132,4 @@ func finish_intro() -> void:
 	player_cam.enabled = true
 	cinematic_cam.enabled = false
 	in_progress = false
+	Globals.prevent_pause = false

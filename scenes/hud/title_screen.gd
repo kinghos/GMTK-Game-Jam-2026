@@ -6,6 +6,8 @@ func _ready() -> void:
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/ui/menus/opening_cutscene.tscn")
 
+func _on_settings_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/ui/menus/settings.tscn")
 
 func _on_credits_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/hud/credits.tscn")

@@ -19,6 +19,7 @@ extends CanvasLayer
 signal powerups_gone
 
 func _on_hud_show_powerups() -> void:
+	Globals.prevent_pause = true
 	paused_time_ms = 0
 
 	var selection
@@ -113,6 +114,7 @@ func _on_powerup_pressed(button_num: int) -> void:
 	Globals.update_targets()
 	Globals.start_time += floori(paused_time_ms)
 	Globals.print_powerup_values()
+	Globals.prevent_pause = true
 	
 func play_bob():
 	animation_player.play("bob")

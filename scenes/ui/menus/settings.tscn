@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://d2t8a2b7vt822"]
+
+[ext_resource type="Texture2D" uid="uid://crv0lrsnos3ng" path="res://assets/sprites/title_screen.png" id="1_2wrqq"]
+[ext_resource type="Script" uid="uid://1y1gsiykwc74" path="res://scenes/ui/menus/settings.gd" id="1_8bbdq"]
+
+[node name="Settings" type="Control" unique_id=1477212670]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8bbdq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1750214727]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2wrqq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=331652024]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 183.0
+offset_right = 345.0
+offset_bottom = 355.0
+color = Color(0.047058824, 0.08235294, 0.16078432, 0.69803923)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1913374228]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 189.0
+offset_right = 327.0
+offset_bottom = 350.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1493733885]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer" unique_id=1826355163]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1688592781]
+layout_mode = 2
+text = "Music"
+
+[node name="HSlider2" type="HSlider" parent="VBoxContainer" unique_id=381294304]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=1843062761]
+layout_mode = 2
+text = "Sound Effects"
+
+[node name="HSlider3" type="HSlider" parent="VBoxContainer" unique_id=814965806]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="." unique_id=1126791117]
+process_mode = 3
+layout_mode = 0
+offset_left = 360.0
+offset_top = 309.0
+offset_right = 429.0
+offset_bottom = 349.0
+text = "BACK"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

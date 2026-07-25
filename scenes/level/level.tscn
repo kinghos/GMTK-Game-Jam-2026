@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bcbqmimxm08ek" path="res://scenes/hud/overlay.tscn" id="5_hnne4"]
 [ext_resource type="PackedScene" uid="uid://ced6s87tl4ckg" path="res://scenes/hud/shader_layer.tscn" id="6_vpf64"]
 [ext_resource type="PackedScene" uid="uid://bji0klwyigxau" path="res://scenes/hud/enemy_intro.tscn" id="7_wcngd"]
+[ext_resource type="PackedScene" uid="uid://c5in4s255ygj" path="res://scenes/ui/menus/pause_menu.tscn" id="8_xv074"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wcngd"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -126,6 +127,9 @@ wait_time = 5.0
 autostart = true
 
 [node name="EnemyIntro" parent="." unique_id=1907050126 instance=ExtResource("7_wcngd")]
+visible = false
+
+[node name="PauseMenu" parent="." unique_id=1887671173 instance=ExtResource("8_xv074")]
 visible = false
 
 [connection signal="show_powerups" from="HUD" to="Overlay" method="_on_hud_show_powerups"]

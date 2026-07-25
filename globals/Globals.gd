@@ -182,6 +182,9 @@ var upgrade_increases = {
 
 var seen_enemies = {}
 
+var pause_menu: CanvasLayer = null
+var prevent_pause: bool = true
+
 func has_seen(enemy_type) -> bool:
 	return seen_enemies.has(enemy_type)
 
@@ -189,6 +192,8 @@ func mark_seen(enemy_type):
 	seen_enemies[enemy_type] = true
 
 func _ready() -> void: # reset variables on reload of scene
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	game_over = false
 	enemy_kill_total = 0.0
 	prev_target = 0.0
@@ -235,6 +240,16 @@ func _ready() -> void: # reset variables on reload of scene
 		WEAPONS.SMG: 0.5,
 		WEAPONS.RIFLE: 2
 	}
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Pause") and not prevent_pause:
+		toggle_pause_menu()
+
+func toggle_pause_menu():
+	if pause_menu:
+		var is_visible = pause_menu.visible
+		pause_menu.visible = not is_visible
+		get_tree().paused = not is_visible
 
 func next_target(num):
 	# uses the quadratic sequence 4x^2 + 4x + 3 to generate the next target
