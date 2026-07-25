@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Battery Blitz"
-run/main_scene="uid://cc7gqs5oj7agq"
+run/main_scene="uid://df0ntvsqg4llv"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

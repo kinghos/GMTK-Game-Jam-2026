@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://vqd6kvnqmjbi"]
+
+[ext_resource type="Script" uid="uid://bnbr2wop73udl" path="res://scenes/hud/credits.gd" id="1_3v576"]
+[ext_resource type="Texture2D" uid="uid://crv0lrsnos3ng" path="res://assets/sprites/title_screen.png" id="2_f1hd7"]
+
+[node name="Credits" type="Control" unique_id=1390976931]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3v576")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1919247663]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_f1hd7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=793761550]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 183.0
+offset_right = 345.0
+offset_bottom = 355.0
+color = Color(0.047058824, 0.08235294, 0.16078432, 0.69803923)
+
+[node name="Programming" type="Label" parent="ColorRect" unique_id=54362502]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 137.0
+offset_bottom = 17.0
+theme_override_colors/font_color = Color(0.2519047, 0.4889198, 0.7714914, 1)
+theme_override_font_sizes/font_size = 17
+text = "PROGRAMMING"
+
+[node name="Programmers" type="Label" parent="ColorRect" unique_id=1519591871]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 19.0
+offset_right = 139.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 17
+text = "MTONLINE
+PEEPSCHILLI"
+
+[node name="Art" type="Label" parent="ColorRect" unique_id=1739046804]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 115.0
+offset_right = 140.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0.2509804, 0.49019608, 0.77254903, 1)
+theme_override_font_sizes/font_size = 17
+text = "ART"
+
+[node name="Artists" type="Label" parent="ColorRect" unique_id=1497274227]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 130.0
+offset_right = 187.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 17
+text = "FISHMOMMY
+THECURRYDEALER
+"
+
+[node name="Music" type="Label" parent="ColorRect" unique_id=1177009385]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 59.0
+offset_right = 198.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.2509804, 0.49019608, 0.77254903, 1)
+theme_override_font_sizes/font_size = 17
+text = "MUSIC"
+
+[node name="Musicians" type="Label" parent="ColorRect" unique_id=673933594]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 76.0
+offset_right = 312.0
+offset_bottom = 111.0
+theme_override_font_sizes/font_size = 17
+text = "PEEPSCHILLI
+LOUISMILLER738"
+
+[node name="Back" type="Button" parent="." unique_id=1981640128]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 309.0
+offset_right = 334.0
+offset_bottom = 349.0
+text = "BACK"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

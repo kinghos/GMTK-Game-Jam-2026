@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://df0ntvsqg4llv"]
+
+[ext_resource type="Texture2D" uid="uid://crv0lrsnos3ng" path="res://assets/sprites/title_screen.png" id="1_47bpt"]
+[ext_resource type="Script" uid="uid://cohrjhkwaj7l1" path="res://scenes/hud/title_screen.gd" id="1_vodrh"]
+
+[node name="TitleScreen" type="Control" unique_id=1390976931]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vodrh")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1919247663]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_47bpt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=954715446]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 184.0
+offset_right = 298.0
+offset_bottom = 351.0
+theme_override_constants/separation = 27
+
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=750007479]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "PLAY"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=316401229]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "OPTIONS"
+
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=2052331876]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "CREDITS"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=245739415]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
+text = "QUIT"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
