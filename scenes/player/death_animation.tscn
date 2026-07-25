@@ -12,6 +12,18 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
+[sub_resource type="Curve" id="Curve_rj502"]
+_data = [Vector2(0, 0), 0.0, 3.2054791, 0, 1, Vector2(0.31196585, 1), 0.0, 0.0, 0, 0, Vector2(0.49572656, 1), 0.0, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_nw878"]
+_data = [Vector2(0, 0), 0.0, 3.2054791, 0, 1, Vector2(0.31196585, 1), 0.0, 0.0, 0, 0, Vector2(0.49572656, 1), 0.0, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_q2s4p"]
+_data = [Vector2(0, 0), 0.0, 3.2054791, 0, 1, Vector2(0.31196585, 1), 0.0, 0.0, 0, 0, Vector2(0.49572656, 1), 0.0, 0.0, 1, 0]
+point_count = 3
+
 [node name="HeFuckingExplodesNoooooooo" type="CPUParticles2D" unique_id=695713194]
 z_index = 4
 material = SubResource("CanvasItemMaterial_moigf")
@@ -29,6 +41,9 @@ spread = 180.0
 gravity = Vector2(0, 0)
 damping_min = 30.000002
 damping_max = 60.000004
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_rj502")
 script = ExtResource("2_ckcgh")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1254666714]
@@ -48,6 +63,9 @@ emission_rect_extents = Vector2(320, 180)
 gravity = Vector2(0, 0)
 damping_min = 30.000002
 damping_max = 60.000004
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_nw878")
 
 [node name="Caution" type="CPUParticles2D" parent="." unique_id=1606875400]
 emitting = false
@@ -62,3 +80,6 @@ emission_rect_extents = Vector2(320, 180)
 gravity = Vector2(0, 0)
 damping_min = 30.000002
 damping_max = 60.000004
+split_scale = true
+scale_curve_x = null
+scale_curve_y = SubResource("Curve_q2s4p")
