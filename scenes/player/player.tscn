@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://kujom1wreabj" path="res://assets/sprites/player.png" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://1q3m5v74w1gk" path="res://scenes/player/gun.gd" id="3_gmlin"]
 [ext_resource type="Texture2D" uid="uid://ctjxjn85mk3tr" path="res://assets/sprites/gun.png" id="3_p47bc"]
-[ext_resource type="Texture2D" uid="uid://c11w0uks0ab07" path="res://scenes/particles/lightning.png" id="4_lvxji"]
 [ext_resource type="Texture2D" uid="uid://m4kqve32c2br" path="res://assets/sprites/timer.png" id="6_75vfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
@@ -45,6 +44,9 @@ animations = [{
 "name": &"run",
 "speed": 12.0
 }]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p47bc"]
+load_path = "res://.godot/imported/shockwave.png-4eb5f49904bb35d48f27afe85d40a51e.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k5ghg"]
 radius = 69.115845
@@ -167,13 +169,14 @@ charge_cost = 3.0
 [node name="BlastParticles" type="CPUParticles2D" parent="." unique_id=890265202]
 emitting = false
 amount = 50
-texture = ExtResource("4_lvxji")
+texture = SubResource("CompressedTexture2D_p47bc")
 lifetime = 0.75
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
 use_fixed_seed = true
 seed = 8
+particle_flag_align_y = true
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
@@ -181,8 +184,6 @@ initial_velocity_min = 100.0
 initial_velocity_max = 100.0
 linear_accel_min = -50.0
 linear_accel_max = -9.68
-angle_min = -720.0
-angle_max = 720.0
 scale_amount_min = 0.75
 scale_amount_max = 0.75
 
