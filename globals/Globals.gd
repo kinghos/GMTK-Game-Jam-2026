@@ -1,6 +1,6 @@
 extends Node
 
-
+var time_elapsed
 var player: Player
 var slider: ChargeBar
 var shader_buffer_material: ShaderMaterial
@@ -56,6 +56,9 @@ enum POWERUPS {ATTACKSPEED, BULLETDMG, BULLETSPEED, ENERGYPACK, BLAST, MOVESPEED
 enum WEAPON_UPGRADES {SHOTGUNSPREAD, SHOTGUNBULLETS, RIFLEPIERCE, RIFLESIZE, SMGHOME, SMGKB}
 enum WEAPONS {PISTOL, SHOTGUN, RIFLE, SMG}
 var chosen_weapon = WEAPONS.PISTOL
+
+var weapon_charge_multipliers
+
 var powerup_counts = {
 	POWERUPS.ATTACKSPEED: 0,
 	POWERUPS.BULLETDMG: 0,
@@ -217,6 +220,13 @@ func _ready() -> void: # reset variables on reload of scene
 	smg_kb = 0.05
 	smg_home_strength = 500
 	chosen_weapon = WEAPONS.PISTOL
+	
+	weapon_charge_multipliers = {
+		WEAPONS.PISTOL: 1,
+		WEAPONS.SHOTGUN: shotgun_bullets / 2,
+		WEAPONS.SMG: 0.5,
+		WEAPONS.RIFLE: 2
+	}
 
 func next_target(num):
 	# uses the quadratic sequence 4x^2 + 4x + 3 to generate the next target

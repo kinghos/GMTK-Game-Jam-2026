@@ -550,28 +550,28 @@ texture_progress = ExtResource("12_8nkf1")
 [node name="Warning1" type="TextureRect" parent="." unique_id=1260630318]
 visible = false
 modulate = Color(1, 1, 1, 0.47843137)
-offset_left = 538.0
-offset_top = 231.0
-offset_right = 666.0
-offset_bottom = 327.0
+offset_left = 456.0
+offset_top = 186.0
+offset_right = 584.0
+offset_bottom = 282.0
 texture = ExtResource("14_567j1")
 
 [node name="Warning2" type="TextureRect" parent="." unique_id=1896666002]
 visible = false
 modulate = Color(1, 1, 1, 0.47843137)
-offset_left = 501.0
-offset_top = 61.0
-offset_right = 629.0
-offset_bottom = 157.0
+offset_left = 140.0
+offset_top = 40.0
+offset_right = 268.0
+offset_bottom = 136.0
 texture = ExtResource("15_nsgyl")
 
 [node name="Warning3" type="TextureRect" parent="." unique_id=1432471057]
 visible = false
 modulate = Color(1, 1, 1, 0.47843137)
-offset_left = 18.0
-offset_top = 44.0
-offset_right = 146.0
-offset_bottom = 140.0
+offset_left = 53.0
+offset_top = 199.0
+offset_right = 181.0
+offset_bottom = 295.0
 texture = ExtResource("16_jjjd2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1591323548]

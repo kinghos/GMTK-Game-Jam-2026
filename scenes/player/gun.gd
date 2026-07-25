@@ -23,6 +23,10 @@ func shoot():
 	var scale = Globals.weapon_bullet_sizes[weapon]
 	bullet.scale = Vector2(scale, scale)
 	fire_rate = Globals.weapon_attack_speeds[weapon]
+	
+	var multiplier = Globals.weapon_charge_multipliers[weapon]
+	var powerup_charge_debuff = Globals.powerup_counts[Globals.POWERUPS.BULLETDMG] + Globals.powerup_counts[Globals.POWERUPS.BULLETSPEED]
+	Globals.player.use_charge(charge_cost * multiplier + powerup_charge_debuff)
 	if weapon == Globals.WEAPONS.PISTOL:
 		bullet.global_position = global_position + offset.rotated(rotation)
 		bullet.rotation = rotation

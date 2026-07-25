@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	var secs = ms / 1000 % 60 
 	var mins = floor((ms / 1000) / 60) 
 	timer.text = "TIME: %02d:%02d" % [mins, secs]
+	Globals.time_elapsed = "%02d:%02d" % [mins, secs]
 	update_powerup_hud()
 	
 	if Globals.enemy_kill_total >= Globals.current_kill_target and not on_powerups and Globals.player:
