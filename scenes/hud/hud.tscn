@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b1mwdx6ymgu1b" path="res://scenes/hud/hud.gd" id="1_0bx4p"]
 [ext_resource type="Script" uid="uid://cwrjmiycyral0" path="res://scenes/hud/charge_bar.gd" id="1_48c2t"]
 [ext_resource type="Theme" uid="uid://cp83ak2e8i8he" path="res://assets/themes/theme.tres" id="2_mgtrf"]
-[ext_resource type="Texture2D" uid="uid://cosotffptsqhn" path="res://icon.svg" id="4_mgtrf"]
 [ext_resource type="Texture2D" uid="uid://ccn14e26jv8tq" path="res://assets/sprites/powerups/bordered/attackspeed.png" id="4_nhd55"]
 [ext_resource type="Shader" uid="uid://dy3er2is0b1tl" path="res://assets/shaders/grayscale.gdshader" id="4_q6mn5"]
 [ext_resource type="Texture2D" uid="uid://bfod8ir5qexb7" path="res://assets/sprites/powerups/bordered/bulletdmg.png" id="5_q6mn5"]
@@ -11,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://x7ie23aovfp8" path="res://assets/sprites/powerups/bordered/energypack.png" id="8_558d4"]
 [ext_resource type="Texture2D" uid="uid://dhjasdo7j0gaw" path="res://assets/sprites/powerups/bordered/blast.png" id="9_4m1a1"]
 [ext_resource type="Texture2D" uid="uid://cbq2a6m2lo2ms" path="res://assets/sprites/powerups/bordered/movespeed.png" id="10_iioc1"]
+[ext_resource type="Texture2D" uid="uid://dvtsxefbl3yc3" path="res://assets/sprites/upgrades/locked.png" id="11_q6mn5"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_126ht"]
 
@@ -305,7 +305,7 @@ custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("4_mgtrf")
+texture = ExtResource("11_q6mn5")
 expand_mode = 1
 stretch_mode = 5
 
@@ -333,7 +333,7 @@ custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource("4_mgtrf")
+texture = ExtResource("11_q6mn5")
 expand_mode = 1
 stretch_mode = 5
 

@@ -92,14 +92,24 @@ var weapon_names = {
 	WEAPONS.SMG: "SMG"
 }
 
-var upgrade_icons = {
-	WEAPON_UPGRADES.SHOTGUNSPREAD: preload("uid://bu27wn30rgpkk"),
-	WEAPON_UPGRADES.SHOTGUNBULLETS: preload("uid://bu27wn30rgpkk"),
-	WEAPON_UPGRADES.RIFLEPIERCE: preload("uid://bu27wn30rgpkk"),
-	WEAPON_UPGRADES.RIFLESIZE: preload("uid://bu27wn30rgpkk"),
-	WEAPON_UPGRADES.SMGHOME: preload("uid://bu27wn30rgpkk"),
-	WEAPON_UPGRADES.SMGKB: preload("uid://bu27wn30rgpkk")
+var upgrade_icons_borderless = {
+	WEAPON_UPGRADES.SHOTGUNSPREAD: preload("uid://be4778c3mjwqd"),
+	WEAPON_UPGRADES.SHOTGUNBULLETS: preload("uid://brgohqmou0xqh"),
+	WEAPON_UPGRADES.RIFLEPIERCE: preload("uid://41j2slimmync"),
+	WEAPON_UPGRADES.RIFLESIZE: preload("uid://comido8v1fjj7"),
+	WEAPON_UPGRADES.SMGHOME: preload("uid://dx4ea6wnr168s"),
+	WEAPON_UPGRADES.SMGKB: preload("uid://p7oxaueh75dg")
 }
+
+var upgrade_icons_bordered = {
+	WEAPON_UPGRADES.SHOTGUNSPREAD: preload("uid://bfeka2okr8xlh"),
+	WEAPON_UPGRADES.SHOTGUNBULLETS: preload("uid://bmobtodtstesf"),
+	WEAPON_UPGRADES.RIFLEPIERCE: preload("uid://5myc3kabyt6t"),
+	WEAPON_UPGRADES.RIFLESIZE: preload("uid://nxsnbars8xdo"),
+	WEAPON_UPGRADES.SMGHOME: preload("uid://67onhknybhgn"),
+	WEAPON_UPGRADES.SMGKB: preload("uid://bubhqrja756tx")
+}
+
 var upgrade_names = {
 	WEAPON_UPGRADES.SHOTGUNSPREAD: "SHOTGUN\nSPREAD",
 	WEAPON_UPGRADES.SHOTGUNBULLETS: "SHOTGUN\nBULLETS",
@@ -146,7 +156,7 @@ var powerup_first_descriptions = {
 }
 
 var powerup_increases = {
-	POWERUPS.ATTACKSPEED: 0.05,
+	POWERUPS.ATTACKSPEED: -0.05,
 	POWERUPS.BULLETDMG: 5,
 	POWERUPS.BULLETSPEED: 50,
 	POWERUPS.ENERGYPACK: 10,

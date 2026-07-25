@@ -51,7 +51,7 @@ func update_powerup_hud():
 		for upgrade in Globals.get_associated_upgrades(Globals.chosen_weapon):
 			var icon = powerup_icons.get_node("WeaponUpgrade" + str(c))
 			var smat = icon.material as ShaderMaterial
-			icon.texture = Globals.upgrade_icons[upgrade]
+			icon.texture = Globals.upgrade_icons_bordered[upgrade]
 			if Globals.upgrade_counts[upgrade] == 0:
 				smat.set_shader_parameter("enabled", true)
 			else:

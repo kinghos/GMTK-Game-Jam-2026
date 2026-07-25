@@ -62,7 +62,7 @@ func _on_hud_show_powerups() -> void:
 			var current_val = Globals.get_powerup_current_value(p_type)
 			var increase_val = Globals.powerup_increases[p_type]
 			
-			value_changes[i].text = "%d -> %d" % [current_val, current_val + increase_val]
+			value_changes[i].text = "%.2f -> %.2f" % [current_val, current_val + increase_val]
 	
 	# Logic for 4th option
 	var weapon = Globals.chosen_weapon
@@ -78,12 +78,12 @@ func _on_hud_show_powerups() -> void:
 		selection = Globals.get_associated_upgrades(weapon)
 		var w_upgrade = selection.pick_random()
 		option_4_opt.set_meta("powerup_type", w_upgrade)
-		option_4_opt.icon = Globals.upgrade_icons[w_upgrade]
+		option_4_opt.icon = Globals.upgrade_icons_borderless[w_upgrade]
 		option_4_opt.text = Globals.upgrade_names[w_upgrade]
 		option_4_desc.text = Globals.upgrade_descriptions[w_upgrade]
 		var current_val = Globals.get_upgrade_current_value(w_upgrade)
 		var increase_val = Globals.powerup_increases[w_upgrade]
-		option_4_val.text = "%d -> %d" % [current_val, current_val + increase_val]
+		option_4_val.text = "%.2f -> %.2f" % [current_val, current_val + increase_val]
 		
 	animation_player.play("powerups")
 
