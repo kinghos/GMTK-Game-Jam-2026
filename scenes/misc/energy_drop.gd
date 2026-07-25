@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var energy_gained = 20
+@export var energy_gained = 30
 @export var pull_speed = 80
 var pulling = false
 

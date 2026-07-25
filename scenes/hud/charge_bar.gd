@@ -1,6 +1,8 @@
 extends HSlider
 class_name ChargeBar
 
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+
 var red_stylebox = StyleBoxFlat.new()
 var flash_timer = 0.0
 
@@ -32,11 +34,19 @@ func _process(delta: float) -> void:
 	
 	var low_charge_ratio = clampf(ratio, 0.0, 0.5)
 	
-	if low_charge_ratio < 0.25:
+	if ratio <= 0.5 and ratio > 0.25:
+		animation_player.play("first_warning")
+	elif ratio <= 0.25 and ratio > 0.1:
+		animation_player.play("second_warning")
+	elif ratio <= 0.1:
+		animation_player.play("third_warning")
+	else:
+		animation_player.stop()
+	
+	if low_charge_ratio <= 0.25:
 		flash_red()
 	else:
 		reset_red()
-		
 	var smat = Globals.shader_buffer_material
 	smat.set_shader_parameter("noise_amount", remap(low_charge_ratio, 0.0, 0.25, 0.2, 0.03))
 	smat.set_shader_parameter("vignette_intensity", remap(low_charge_ratio, 0.0, 0.25, 1.0, 0.4))

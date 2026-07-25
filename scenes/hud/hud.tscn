@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dvtsxefbl3yc3" path="res://assets/sprites/upgrades/locked.png" id="11_q6mn5"]
 [ext_resource type="Texture2D" uid="uid://cm44jhrodkky5" path="res://assets/sprites/powerups/bordered/blast_grey.png" id="12_8nkf1"]
 [ext_resource type="Shader" uid="uid://qxu6uxk30jiv" path="res://assets/shaders/outline.gdshader" id="12_558d4"]
+[ext_resource type="Texture2D" uid="uid://ba7na4p3b21c3" path="res://assets/sprites/warning2.png" id="14_567j1"]
+[ext_resource type="Texture2D" uid="uid://m3a4ukw8bffo" path="res://assets/sprites/caution.png" id="15_nsgyl"]
+[ext_resource type="Texture2D" uid="uid://bqsvm5rxyem6j" path="res://assets/sprites/warning.png" id="16_jjjd2"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_w1xho"]
 
@@ -62,6 +65,176 @@ shader_parameter/enabled = true
 shader = ExtResource("12_558d4")
 shader_parameter/line_color = Color(0.15294118, 0.078431375, 0.44313726, 1)
 shader_parameter/width = 0.0
+
+[sub_resource type="Animation" id="Animation_8vblv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Warning2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Warning3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ccb21"]
+resource_name = "first_warning"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(5.9604645e-08, 0.20000005, 0.40000004, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Warning2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Warning3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_udak2"]
+resource_name = "second_warning"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998, 0.59999996),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Warning1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(5.9604645e-08, 0.20000005, 0.40000004, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Warning3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7pnlf"]
+resource_name = "third_warning"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Warning3:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998, 0.59999996),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Warning1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(5.9604645e-08, 0.20000005, 0.40000004, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Warning2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.39999998, 0.59999996),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a0exy"]
+_data = {
+&"RESET": SubResource("Animation_8vblv"),
+&"first_warning": SubResource("Animation_ccb21"),
+&"second_warning": SubResource("Animation_udak2"),
+&"third_warning": SubResource("Animation_7pnlf")
+}
 
 [node name="HUD" type="CanvasLayer" unique_id=350223319]
 script = ExtResource("1_0bx4p")
@@ -373,3 +546,34 @@ value = 92.0
 fill_mode = 1
 texture_under = ExtResource("9_4m1a1")
 texture_progress = ExtResource("12_8nkf1")
+
+[node name="Warning1" type="TextureRect" parent="." unique_id=1260630318]
+visible = false
+modulate = Color(1, 1, 1, 0.47843137)
+offset_left = 538.0
+offset_top = 231.0
+offset_right = 666.0
+offset_bottom = 327.0
+texture = ExtResource("14_567j1")
+
+[node name="Warning2" type="TextureRect" parent="." unique_id=1896666002]
+visible = false
+modulate = Color(1, 1, 1, 0.47843137)
+offset_left = 501.0
+offset_top = 24.0
+offset_right = 629.0
+offset_bottom = 120.0
+texture = ExtResource("15_nsgyl")
+
+[node name="Warning3" type="TextureRect" parent="." unique_id=1432471057]
+visible = false
+modulate = Color(1, 1, 1, 0.47843137)
+offset_left = 18.0
+offset_top = 44.0
+offset_right = 146.0
+offset_bottom = 140.0
+texture = ExtResource("16_jjjd2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1591323548]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_a0exy")
