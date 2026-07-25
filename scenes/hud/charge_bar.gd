@@ -48,8 +48,9 @@ func _process(delta: float) -> void:
 	else:
 		reset_red()
 	var smat = Globals.shader_buffer_material
-	smat.set_shader_parameter("noise_amount", remap(low_charge_ratio, 0.0, 0.25, 0.2, 0.03))
+	smat.set_shader_parameter("noise_amount", remap(low_charge_ratio, 0.0, 0.25, 0.2, 0.05))
 	smat.set_shader_parameter("vignette_intensity", remap(low_charge_ratio, 0.0, 0.25, 1.0, 0.4))
+	smat.set_shader_parameter("vignette_amount", remap(low_charge_ratio, 0.0, 0.25, 0.8, 0.6))
 
 func flash_red():
 	if flash_timer > 0.5:

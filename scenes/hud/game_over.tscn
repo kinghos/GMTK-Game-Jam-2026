@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ced6s87tl4ckg" path="res://scenes/hud/shader_layer.tscn" id="1_btsas"]
 [ext_resource type="Script" uid="uid://cqitimjxngj8e" path="res://scenes/hud/game_over.gd" id="1_jysi0"]
 
-[node name="Control" type="Control" unique_id=2122742289]
+[node name="GameOver" type="Control" unique_id=2122742289]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

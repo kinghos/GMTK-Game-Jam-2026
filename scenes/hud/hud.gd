@@ -24,7 +24,10 @@ func _process(delta: float) -> void:
 		show_powerups.emit()
 		get_tree().paused = true
 	var perc = (Globals.enemy_kill_total - Globals.prev_target) / (Globals.current_kill_target - Globals.prev_target)
-	progress_bar.value = lerpf(progress_bar.value, perc, delta * 15)
+	if perc == 0:
+		progress_bar.value = 0
+	else:
+		progress_bar.value = lerpf(progress_bar.value, perc, delta * 15)
 	
 	if blast_recharge.visible:
 		var timer = Globals.player.blast_timer

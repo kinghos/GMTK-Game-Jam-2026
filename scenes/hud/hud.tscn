@@ -560,9 +560,9 @@ texture = ExtResource("14_567j1")
 visible = false
 modulate = Color(1, 1, 1, 0.47843137)
 offset_left = 501.0
-offset_top = 24.0
+offset_top = 61.0
 offset_right = 629.0
-offset_bottom = 120.0
+offset_bottom = 157.0
 texture = ExtResource("15_nsgyl")
 
 [node name="Warning3" type="TextureRect" parent="." unique_id=1432471057]
