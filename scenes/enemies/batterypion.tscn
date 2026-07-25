@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dxrfr1il2fdvy"]
+
+[ext_resource type="PackedScene" uid="uid://hqm0xru0ae3j" path="res://scenes/enemies/base_enemy.tscn" id="1_k631h"]
+[ext_resource type="Script" uid="uid://deoyc11k2xb58" path="res://scenes/enemies/batterypion.gd" id="2_rk3ye"]
+[ext_resource type="Texture2D" uid="uid://dlliaeqvp617o" path="res://assets/sprites/batterypion.png" id="2_v2bi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fimud"]
+size = Vector2(21, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk3ye"]
+atlas = ExtResource("2_v2bi2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tmoy"]
+atlas = ExtResource("2_v2bi2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8sfv"]
+atlas = ExtResource("2_v2bi2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvmwi"]
+atlas = ExtResource("2_v2bi2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p47bc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk3ye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tmoy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8sfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvmwi")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jraaw"]
+size = Vector2(26, 14)
+
+[node name="Batterypion" unique_id=1193687902 instance=ExtResource("1_k631h")]
+script = ExtResource("2_rk3ye")
+hp = 10
+speed = 200
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1150660543]
+position = Vector2(-2.5, 2)
+shape = SubResource("RectangleShape2D_fimud")
+
+[node name="Sprite2D" parent="." index="1" unique_id=162748549]
+sprite_frames = SubResource("SpriteFrames_p47bc")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.4603739
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(737481144) index="0" unique_id=841296864]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_jraaw")

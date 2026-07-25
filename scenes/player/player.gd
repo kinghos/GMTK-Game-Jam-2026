@@ -16,8 +16,12 @@ var MAX_CHARGE = 150
 @onready var blast_particles: CPUParticles2D = $BlastParticles
 @onready var blast_timer: Timer = $BlastTimer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var debuff_timer: Timer = $DebuffTimer
+@onready var timer_circle: TextureProgressBar = $TimerCircle
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
+var debuffed = false
 var charge = MAX_CHARGE
 var charge_spent_since_expend = 0.0
 var dead = false
@@ -45,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Blast"):
 		blast()
 	
-	var current_speed = WALK_SPEED if direction else 0
+	var current_speed = WALK_SPEED if direction else 0.0
 	if sprinting:
 		current_speed = SPRINT_SPEED
 		if direction != Vector2.ZERO:
@@ -70,10 +74,14 @@ func _physics_process(delta: float) -> void:
 	var speed_percent = current_speed / SPRINT_SPEED
 	var drain = (IDLE_DRAIN + MOVING_DRAIN * speed_percent) * delta
 	use_charge(drain)
-	
+
+func _process(delta: float) -> void:
 	if charge <= 0 and not dead:
 		die()
 		dead = true
+	
+	if not debuff_timer.is_stopped():
+		timer_circle.value = (debuff_timer.time_left / debuff_timer.wait_time) * 100
 
 func spawn_sprint_trail_image():
 	var ghost = Sprite2D.new()
@@ -131,3 +139,24 @@ func _on_blast_radius_body_entered(body: Node2D) -> void:
 func _on_blast_radius_body_exited(body: Node2D) -> void:
 	if body is Enemy:
 		enemies_in_blast_radius.erase(body)
+
+func disable_drops():
+	debuffed = true
+	debuff_timer.start()
+	timer_circle.show()
+	
+func _on_debuff_timer_timeout() -> void:
+	timer_circle.hide()
+	animation_player.stop()
+	collision_shape_2d.disabled = true # allows for the powerups to be pulled in on timer end
+	collision_shape_2d.disabled = false
+	debuffed = false
+
+func play_anim(animation: String):
+	if not animation_player.is_playing():
+		animation_player.play(animation)
+	elif animation_player.current_animation == "debuffed" and animation != "debuffed":
+		animation_player.play(animation)
+		await animation_player.animation_finished
+		if not debuff_timer.is_stopped():
+			animation_player.play("debuffed")

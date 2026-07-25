@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://d3mr5m3v4gl00" path="res://scenes/enemies/base_enemy.gd" id="1_qf3h2"]
 [ext_resource type="Texture2D" uid="uid://c11w0uks0ab07" path="res://scenes/particles/lightning.png" id="3_lkvl6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5ghg"]
-size = Vector2(32, 32)
-
 [sub_resource type="Animation" id="Animation_lkvl6"]
 length = 0.001
 tracks/0/type = "value"
@@ -124,7 +121,6 @@ motion_mode = 1
 script = ExtResource("1_qf3h2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1150660543]
-shape = SubResource("RectangleShape2D_k5ghg")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=162748549]
 

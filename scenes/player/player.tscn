@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://1q3m5v74w1gk" path="res://scenes/player/gun.gd" id="3_gmlin"]
 [ext_resource type="Texture2D" uid="uid://ctjxjn85mk3tr" path="res://assets/sprites/gun.png" id="3_p47bc"]
 [ext_resource type="Texture2D" uid="uid://c11w0uks0ab07" path="res://scenes/particles/lightning.png" id="4_lvxji"]
+[ext_resource type="Texture2D" uid="uid://m4kqve32c2br" path="res://assets/sprites/timer.png" id="6_75vfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(31, 32)
@@ -104,10 +105,41 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_0owmy"]
+resource_name = "debuffed"
+length = 5.0
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5),
+"transitions": PackedFloat32Array(2.6390157, 2.9281707, 2.6390157, 2.9281707, 2.6390157, 2.6390157, 2.6390157, 2.9281707, 2.6390157, 2.9281707, 2.6390157),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.19236434, 0.42222843, 1, 1), Color(1, 1, 1, 1), Color(0.19236434, 0.42222843, 1, 1), Color(1, 1, 1, 1), Color(0.19236434, 0.42222843, 1, 1), Color(1, 1, 1, 1), Color(0.19236434, 0.42222843, 1, 1), Color(1, 1, 1, 1), Color(0.19236434, 0.42222843, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.010000229, 0.52000046, 1, 1.5100002, 2, 2.5100002, 3.01, 3.5200002, 4.01, 4.51, 4.5200005, 5),
+"transitions": PackedFloat32Array(2.46229, 0.615, 2.46229, 0.6155725, 2.46229, 0.6155725, 2.46229, 0.6155725, 2.46229, 0.6155725, 2.46229, 2.46229),
+"update": 0,
+"values": [0.0, 0.17453292519943295, -0.17453292519943295, 0.17453292519943295, -0.17453292519943295, 0.17453292519943295, -0.17453292519943295, 0.17453292519943295, -0.17453292519943295, 0.17453292519943295, 0.17453292519943295, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0owmy"]
 _data = {
 &"RESET": SubResource("Animation_p47bc"),
-&"damage": SubResource("Animation_75vfm")
+&"damage": SubResource("Animation_75vfm"),
+&"debuffed": SubResource("Animation_0owmy")
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=181589956]
@@ -128,6 +160,7 @@ frame_progress = 0.631933
 texture = ExtResource("3_p47bc")
 offset = Vector2(30, 0)
 script = ExtResource("3_gmlin")
+charge_cost = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1946561460]
 
@@ -157,6 +190,19 @@ scale_amount_max = 0.75
 wait_time = 10.0
 one_shot = true
 
+[node name="DebuffTimer" type="Timer" parent="." unique_id=1636390606]
+wait_time = 5.0
+
+[node name="TimerCircle" type="TextureProgressBar" parent="." unique_id=1404685668]
+visible = false
+offset_left = -8.0
+offset_top = -39.0
+offset_right = 8.0
+offset_bottom = -23.0
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("6_75vfm")
+
 [node name="BlastRadius" type="Area2D" parent="." unique_id=1695964441]
 collision_layer = 128
 collision_mask = 2
@@ -167,5 +213,6 @@ shape = SubResource("CircleShape2D_k5ghg")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=610981516]
 libraries/ = SubResource("AnimationLibrary_0owmy")
 
+[connection signal="timeout" from="DebuffTimer" to="." method="_on_debuff_timer_timeout"]
 [connection signal="body_entered" from="BlastRadius" to="." method="_on_blast_radius_body_entered"]
 [connection signal="body_exited" from="BlastRadius" to="." method="_on_blast_radius_body_exited"]

@@ -28,13 +28,15 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		body.energy_gain(energy_gained)
-		queue_free()
+		if not body.debuffed:
+			body.energy_gain(energy_gained)
+			queue_free()
 
 
 func _on_pull_radius_body_entered(body: Node2D) -> void:
 	if body is Player:
-		pulling = true
+		if not body.debuffed:
+			pulling = true
 
 
 func _on_pull_radius_body_exited(body: Node2D) -> void:

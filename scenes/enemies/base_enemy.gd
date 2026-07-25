@@ -65,7 +65,7 @@ func attack_player():
 		return
 
 	Globals.player.use_charge(damage)
-	Globals.player.animation_player.play("damage")
+	Globals.player.play_anim("damage")
 
 	attack_cooldown = 0.5
 

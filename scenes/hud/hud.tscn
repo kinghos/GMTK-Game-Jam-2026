@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cbq2a6m2lo2ms" path="res://assets/sprites/powerups/bordered/movespeed.png" id="10_iioc1"]
 [ext_resource type="Texture2D" uid="uid://dvtsxefbl3yc3" path="res://assets/sprites/upgrades/locked.png" id="11_q6mn5"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_126ht"]
+[sub_resource type="ImageTexture" id="ImageTexture_w1xho"]
 
-[sub_resource type="ImageTexture" id="ImageTexture_d2rsb"]
+[sub_resource type="ImageTexture" id="ImageTexture_fm80t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6mn5"]
 shader = ExtResource("4_q6mn5")
@@ -81,8 +81,9 @@ offset_right = 200.0
 offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_icons/grabber_disabled = SubResource("ImageTexture_126ht")
-theme_override_icons/tick = SubResource("ImageTexture_d2rsb")
+theme = ExtResource("2_mgtrf")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_w1xho")
+theme_override_icons/tick = SubResource("ImageTexture_fm80t")
 editable = false
 scrollable = false
 script = ExtResource("1_48c2t")

@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://c8y8ny6agevnm" path="res://scenes/enemies/fodder.gd" id="2_cll0f"]
 [ext_resource type="Texture2D" uid="uid://13045l2jrm4u" path="res://assets/sprites/fodder.png" id="3_fimud"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpfdf"]
+size = Vector2(28, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jraaw"]
 atlas = ExtResource("3_fimud")
 region = Rect2(0, 0, 32, 32)
@@ -48,6 +51,10 @@ script = ExtResource("2_cll0f")
 hp = 20
 damage = 10
 speed = 100
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1150660543]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_rpfdf")
 
 [node name="Sprite2D" parent="." index="1" unique_id=162748549]
 sprite_frames = SubResource("SpriteFrames_qf3h2")

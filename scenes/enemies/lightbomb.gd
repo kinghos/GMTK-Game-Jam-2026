@@ -12,7 +12,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		asp.play()
 		sprite_2d.hide() 
 		body.use_charge(damage)
-		body.animation_player.play("damage")
+		body.play_anim("damage")
 		$CollisionShape2D.set_deferred("disabled", true)
 		await explosion_sprite.animation_finished
 		queue_free()

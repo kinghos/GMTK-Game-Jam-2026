@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://chs8kc530yhvk" path="res://scenes/enemies/toaster.gd" id="2_dq6hp"]
 [ext_resource type="Texture2D" uid="uid://ceucltdirwhmc" path="res://assets/sprites/toaster.png" id="2_gxi2f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qf3h2"]
+size = Vector2(28, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_dq6hp"]
 atlas = ExtResource("2_gxi2f")
 region = Rect2(0, 0, 32, 32)
@@ -70,6 +73,10 @@ hp = 25
 damage = 15
 speed = 80
 
+[node name="CollisionShape2D" parent="." index="0" unique_id=1150660543]
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_qf3h2")
+
 [node name="Sprite2D" parent="." index="1" unique_id=162748549]
 sprite_frames = SubResource("SpriteFrames_vhxij")
 animation = &"run"
@@ -77,6 +84,7 @@ autoplay = "run"
 frame_progress = 0.94711953
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(737481144) index="0" unique_id=841296864]
+visible = false
 position = Vector2(-2, 1)
 shape = SubResource("RectangleShape2D_rpfdf")
 

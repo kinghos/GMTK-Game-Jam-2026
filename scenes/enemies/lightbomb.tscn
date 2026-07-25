@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cw3kebnpb8n63" path="res://assets/sprites/explosion.png" id="4_kbc8m"]
 [ext_resource type="AudioStream" uid="uid://ec7i0m11focs" path="res://assets/audio/deltarune-explosion.mp3" id="5_rpfdf"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi2f"]
+size = Vector2(26, 25)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpfdf"]
 atlas = ExtResource("2_w7kay")
 region = Rect2(0, 0, 32, 32)
@@ -261,6 +264,10 @@ script = ExtResource("2_c2wah")
 hp = 15
 damage = 30
 speed = 150
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1150660543]
+position = Vector2(-3, -2.5)
+shape = SubResource("RectangleShape2D_gxi2f")
 
 [node name="Sprite2D" parent="." index="1" unique_id=162748549]
 sprite_frames = SubResource("SpriteFrames_c2wah")
