@@ -121,7 +121,6 @@ func energy_gain(energy_gained):
 	
 func blast():
 	if blast_timer.is_stopped() and Globals.powerup_counts[Globals.POWERUPS.BLAST] > 0:
-		print("kablow!")
 		blast_timer.start()
 		blast_particles.emitting = true
 		for enemy in enemies_in_blast_radius:

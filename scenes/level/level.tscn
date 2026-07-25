@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b87hq2kmyp5ee" path="res://scenes/player/player.tscn" id="2_qkmgm"]
 [ext_resource type="Texture2D" uid="uid://dpeoepumbjrtg" path="res://assets/tileset.png" id="2_wcngd"]
 [ext_resource type="PackedScene" uid="uid://dmlqu105ltwt4" path="res://scenes/hud/hud.tscn" id="3_hnne4"]
-[ext_resource type="PackedScene" uid="uid://dxrfr1il2fdvy" path="res://scenes/enemies/batterypion.tscn" id="3_wcngd"]
 [ext_resource type="PackedScene" uid="uid://bcbqmimxm08ek" path="res://scenes/hud/overlay.tscn" id="5_hnne4"]
 [ext_resource type="PackedScene" uid="uid://ced6s87tl4ckg" path="res://scenes/hud/shader_layer.tscn" id="6_vpf64"]
 
@@ -88,9 +87,6 @@ tile_set = SubResource("TileSet_vpf64")
 [node name="Drops" type="Node" parent="." unique_id=392054925]
 
 [node name="Enemies" type="Node" parent="." unique_id=1218197294]
-
-[node name="Batterypion" parent="Enemies" unique_id=1193687902 instance=ExtResource("3_wcngd")]
-position = Vector2(2080, 1053)
 
 [node name="CharacterBody2D" parent="." unique_id=181589956 instance=ExtResource("2_qkmgm")]
 z_index = 1

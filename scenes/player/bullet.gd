@@ -15,7 +15,6 @@ func _physics_process(delta: float) -> void:
 		homing_offset = homing_offset.normalized()
 	else:
 		homing_offset = Vector2.ZERO
-	print(homing_offset, " ", Globals.smg_home_strength)
 	global_position += (direction * (Globals.bullet_speed + speed_increase) + homing_offset * Globals.smg_home_strength) * delta 
 
  

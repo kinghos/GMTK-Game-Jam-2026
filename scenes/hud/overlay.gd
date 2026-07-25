@@ -95,7 +95,6 @@ func _on_powerup_pressed(button_num: int) -> void:
 	
 	if not weapon_select:
 		var powerup_selected = options[button_num].get_meta("powerup_type")
-		print(options[button_num] == option_4_opt)
 		if options[button_num] != option_4_opt:
 			Globals.powerup_counts[powerup_selected] += 1
 			Globals.apply_powerup(powerup_selected)

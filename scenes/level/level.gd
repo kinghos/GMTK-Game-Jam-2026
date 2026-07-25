@@ -27,6 +27,13 @@ const ENEMIES = {
 		"cost": 5,
 		"base_weight": 10,
 		"growth": 4,
+		"start_wave": 3
+	},
+	"batterypion": {
+		"scene": preload("uid://dxrfr1il2fdvy"),
+		"cost": 3,
+		"base_weight": 5,
+		"growth": 4,
 		"start_wave": 4
 	}
 }
@@ -55,6 +62,7 @@ func _process(delta: float) -> void:
 func start_wave():
 	print("starting wave")
 	wave_number += 1
+	spawn_group_size = floori(3 * pow(1 + 0.1/100, 100 * wave_number)) # magic formula
 	spawning_wave = true
 	build_wave()
 	print("spawning this number: %d" % spawn_queue.size())
@@ -73,22 +81,25 @@ func build_wave():
 			budget -= enemy.cost
 
 func get_wave_budget():
-	return 9 + (wave_number - 1) * 10 #i dunno yet
-
+	return 9 + pow(10, wave_number/5) #i dunno yet
+	
 func choose_enemy():
 	var total_weight = 0.0
 	var current_weights = {}
 	
 	for key in ENEMIES.keys():
 		var enemy = ENEMIES[key]
-		var weight = enemy.base_weight
+		var weight = 0
+		
+		if !enemy.has("start_wave") or wave_number >= enemy.start_wave:
+			weight = enemy.base_weight
 		
 		if enemy.has("growth"):
-			if wave_number >= enemy.start_wave:
+			if wave_number > enemy.start_wave:
 				weight += (wave_number - enemy.start_wave + 1) * enemy.growth
 		
 		if enemy.has("decay"):
-			weight = max(10, weight - wave_number * enemy.decay)
+			weight = max(20, weight - wave_number * enemy.decay)
 		
 		current_weights[key] = weight
 		total_weight += weight
