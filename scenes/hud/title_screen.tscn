@@ -27,7 +27,7 @@ offset_left = 52.0
 offset_top = 184.0
 offset_right = 298.0
 offset_bottom = 351.0
-theme_override_constants/separation = 27
+theme_override_constants/separation = 14
 
 [node name="Play" type="Button" parent="VBoxContainer" unique_id=750007479]
 layout_mode = 2
