@@ -9,6 +9,10 @@ var frames = [
 	preload("res://assets/cutscenes/06.png"),
 	preload("res://assets/cutscenes/07.png"),
 	preload("res://assets/cutscenes/08.png"),
+<<<<<<< HEAD
+=======
+	preload("res://assets/cutscenes/09.png")
+>>>>>>> 5e5e4da0717404b5d714a4580c8962b870de5967
 ]
 const CUTSCENE_MUSIC = preload("uid://bc0qys5dqdaqs")
 var current_frame: int = 0
