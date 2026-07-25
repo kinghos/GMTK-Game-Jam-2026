@@ -180,6 +180,14 @@ var upgrade_increases = {
 	WEAPON_UPGRADES.SMGKB: 0.05,
 }
 
+var seen_enemies = {}
+
+func has_seen(enemy_type) -> bool:
+	return seen_enemies.has(enemy_type)
+
+func mark_seen(enemy_type):
+	seen_enemies[enemy_type] = true
+
 func _ready() -> void: # reset variables on reload of scene
 	game_over = false
 	enemy_kill_total = 0.0

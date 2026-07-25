@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bji0klwyigxau"]
+
+[ext_resource type="Shader" uid="uid://440ihculah8g" path="res://scenes/hud/enemy_intro.gdshader" id="1_dnc8m"]
+[ext_resource type="Script" uid="uid://cd4ur3bnlgs8e" path="res://scenes/hud/enemy_intro.gd" id="1_xblin"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_126ht"]
+shader = ExtResource("1_dnc8m")
+shader_parameter/radius = 3.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/blur_amount = 0.50000002375
+shader_parameter/darken_amount = 0.75
+
+[node name="EnemyIntro" type="CanvasLayer" unique_id=1907050126]
+process_mode = 3
+script = ExtResource("1_xblin")
+
+[node name="Mask" type="ColorRect" parent="." unique_id=131750804]
+material = SubResource("ShaderMaterial_126ht")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1210445526]
+offset_left = 71.0
+offset_top = 15.0
+offset_right = 483.0
+offset_bottom = 241.0
+theme_override_font_sizes/normal_font_size = 60
+text = "ENEMY
+NAME"
+
+[node name="Tagline" type="Label" parent="Title" unique_id=1895168050]
+layout_mode = 0
+offset_right = 559.0
+offset_bottom = 151.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(8, 0)
+offset_transform_position_ratio = Vector2(0, 1)
+theme_override_font_sizes/font_size = 18
+text = "ENEMY TAGLINE"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1527688057]
+enabled = false

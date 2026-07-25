@@ -9,6 +9,11 @@ const ENERGY_DROP = preload("res://scenes/misc/energy_drop.tscn")
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
+@export_multiline var intro_name: String = "ENEMY NAME"
+@export var intro_name_font_size: int = 75
+@export_multiline var intro_tagline: String = "ENEMY TAGLINE"
+@export var intro_tagline_position_ratio_y = 1.0
+
 var enemy_type
 var dead = false
 @export var hp = 0
@@ -67,7 +72,10 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if hp == 0 and !dead:
 		die()
-
+		
+	if is_fully_on_screen_with_margins() and not Globals.has_seen(enemy_type) and not Globals.level.enemy_intro.in_progress:
+		Globals.mark_seen(enemy_type)
+		trigger_intro()
 
 func attack_player():
 	if !Globals.player:
@@ -122,3 +130,26 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 func _on_hitbox_body_exited(body: Node2D) -> void:
 	if body == Globals.player:
 		player_in_range = false
+
+
+var margin_top := 0.0
+var margin_sides := 0.0
+var margin_bottom := 0.0
+
+func is_fully_on_screen_with_margins() -> bool:
+	var cam = get_viewport().get_camera_2d()
+	if not cam: return false
+	
+	var vp_size = get_viewport_rect().size
+	var cam_pos = cam.global_position
+	
+	var left_bound = cam_pos.x - (vp_size.x / 2.0)
+	var right_bound = cam_pos.x + (vp_size.x / 2.0)
+	var top_bound = cam_pos.y - (vp_size.y / 2.0)
+	var bottom_bound = cam_pos.y + (vp_size.y / 2.0)
+	
+	return global_position.x > left_bound and global_position.x < right_bound \
+	   and global_position.y > top_bound and global_position.y < bottom_bound
+
+func trigger_intro():
+	Globals.level.enemy_intro.play_intro(self, intro_name, intro_tagline)

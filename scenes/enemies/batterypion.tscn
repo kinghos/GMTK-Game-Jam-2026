@@ -48,6 +48,11 @@ size = Vector2(26, 14)
 
 [node name="Batterypion" unique_id=1193687902 instance=ExtResource("1_k631h")]
 script = ExtResource("2_rk3ye")
+intro_name = "Parasite"
+intro_name_font_size = 60
+intro_tagline = "Its sting temporarily
+disables recharging."
+intro_tagline_position_ratio_y = 0.5
 hp = 10
 speed = 200
 

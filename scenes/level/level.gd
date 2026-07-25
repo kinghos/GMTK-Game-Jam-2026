@@ -3,6 +3,7 @@ class_name Level
 
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var floor: TileMapLayer = $TileMap/Floor
+@onready var enemy_intro: CanvasLayer = $EnemyIntro
 
 var spawn_group_size = 3
 var spawn_radius_min = 350

@@ -48,6 +48,11 @@ radius = 21.095022
 
 [node name="Fodder" unique_id=1193687902 instance=ExtResource("1_2nr0v")]
 script = ExtResource("2_cll0f")
+intro_name = "Innocent
+Mouse"
+intro_name_font_size = 50
+intro_tagline = "This mouse has a family."
+intro_tagline_position_ratio_y = 0.7
 hp = 20
 damage = 10
 speed = 100

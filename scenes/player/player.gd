@@ -19,6 +19,7 @@ var MAX_CHARGE: float = 125.0
 @onready var debuff_timer: Timer = $DebuffTimer
 @onready var timer_circle: TextureProgressBar = $TimerCircle
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 
 var debuffed = false
