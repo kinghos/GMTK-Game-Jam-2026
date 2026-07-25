@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bd37xjgrl4rdm" path="res://assets/themes/EuropeanTeletext.ttf" id="1_7egdk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdjgs"]
-bg_color = Color(0.023529412, 0.03137255, 0.09411765, 0.5372549)
+bg_color = Color(0.023529412, 0.03137255, 0.09411765, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -54,6 +54,19 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hooha"]
+bg_color = Color(0.023529412, 0.03137255, 0.09411765, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.06605817, 0.32672632, 0.589619, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7mo4"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 7
@@ -93,6 +106,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_p0u25")
 Button/styles/normal = SubResource("StyleBoxFlat_7egdk")
 Button/styles/pressed = SubResource("StyleBoxFlat_51ufp")
 Label/fonts/font = ExtResource("1_7egdk")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_hooha")
 ProgressBar/fonts/font = ExtResource("1_7egdk")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_v7mo4")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_mgtrf")

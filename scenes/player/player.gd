@@ -3,13 +3,13 @@ class_name Player
 
 const DEATH_ANIMATION = preload("res://scenes/player/death_animation.tscn")
 
-const IDLE_DRAIN = 1.0
-const MOVING_DRAIN = 10.0
+const IDLE_DRAIN = 2.0
+const MOVING_DRAIN = 15.0
 const CHARGE_PER_EXPEND = 2.0
 
 var WALK_SPEED = 150.0
 var SPRINT_SPEED = 400.0
-var MAX_CHARGE = 150
+var MAX_CHARGE = 100
 
 @onready var gun: Sprite2D = $Gun
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D

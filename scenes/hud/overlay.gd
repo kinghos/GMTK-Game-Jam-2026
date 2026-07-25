@@ -14,7 +14,7 @@ extends CanvasLayer
 
 @onready var option_4_opt: Button = $PowerupScreen/PowerupsMenu/Options/Option4
 @onready var option_4_desc: Button = $PowerupScreen/PowerupsMenu/Descriptions/Option4
-@onready var option_4_val: Button = $PowerupScreen/PowerupsMenu/ValueChanges/Option4
+@onready var option_4_val: Label = $PowerupScreen/PowerupsMenu/ValueChanges/PanelContainer4/Option4
 
 signal powerups_gone
 
@@ -62,7 +62,7 @@ func _on_hud_show_powerups() -> void:
 			var current_val = Globals.get_powerup_current_value(p_type)
 			var increase_val = Globals.powerup_increases[p_type]
 			
-			value_changes[i].text = "%.2f -> %.2f" % [current_val, current_val + increase_val]
+			value_changes[i].get_child(0).text = "%.2f -> %.2f" % [current_val, current_val + increase_val]
 	
 	# Logic for 4th option
 	var weapon = Globals.chosen_weapon
@@ -105,6 +105,7 @@ func _on_powerup_pressed(button_num: int) -> void:
 		var weapon_selected = options[button_num].get_meta("powerup_type")
 		Globals.chosen_weapon = weapon_selected
 		weapon_select = false
+	animation_player.stop()
 	animation_player.play("fade")
 	await animation_player.animation_finished
 	get_tree().paused = false
@@ -112,3 +113,6 @@ func _on_powerup_pressed(button_num: int) -> void:
 	Globals.update_targets()
 	Globals.start_time += floori(paused_time_ms)
 	Globals.print_powerup_values()
+	
+func play_bob():
+	animation_player.play("bob")

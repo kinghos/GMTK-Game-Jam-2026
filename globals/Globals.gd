@@ -179,7 +179,7 @@ var upgrade_increases = {
 
 func _ready() -> void: # reset variables on reload of scene
 	game_over = false
-	enemy_kill_total = 0
+	enemy_kill_total = 0.0
 	prev_target = 0.0
 	current_kill_target = next_target(1)
 	wave = 1

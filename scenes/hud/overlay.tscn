@@ -78,6 +78,35 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PowerupsMenu:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(59.19998, 72)]
+}
+
+[sub_resource type="Animation" id="Animation_bm4bk"]
+resource_name = "bob"
+loop_mode = 2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PowerupsMenu:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 5.4641614),
+"update": 0,
+"values": [Vector2(59.2, 72), Vector2(59.2, 85)]
+}
 
 [sub_resource type="Animation" id="Animation_vhxij"]
 resource_name = "fade"
@@ -184,10 +213,37 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PowerupsMenu:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(59.199997, 72)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("..")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_bob"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vhxij"]
 _data = {
 &"RESET": SubResource("Animation_0bx4p"),
+&"bob": SubResource("Animation_bm4bk"),
 &"fade": SubResource("Animation_vhxij"),
 &"powerups": SubResource("Animation_mgtrf")
 }
@@ -230,9 +286,9 @@ anchor_top = 0.5
 anchor_right = 0.65
 anchor_bottom = 0.5
 offset_left = -164.80002
-offset_top = -108.0
-offset_right = 164.80002
-offset_bottom = 108.0
+offset_top = 72.0
+offset_right = 164.80005
+offset_bottom = 288.00006
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -328,41 +384,53 @@ metadata/powerup_type = 0
 [node name="ValueChanges" type="HBoxContainer" parent="PowerupScreen/PowerupsMenu" unique_id=1145176082]
 layout_mode = 2
 
-[node name="Option1" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=1124201878]
+[node name="PanelContainer" type="PanelContainer" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=373652179]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 14
-disabled = true
-text = "X -> X"
-metadata/powerup_type = 0
 
-[node name="Option2" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=1477063536]
+[node name="Option1" type="Label" parent="PowerupScreen/PowerupsMenu/ValueChanges/PanelContainer" unique_id=201024163]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 14
-disabled = true
+theme_override_font_sizes/font_size = 10
 text = "X -> X"
+horizontal_alignment = 1
 metadata/powerup_type = 0
 
-[node name="Option3" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=751693931]
+[node name="PanelContainer2" type="PanelContainer" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=1999125040]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 14
-disabled = true
+
+[node name="Option2" type="Label" parent="PowerupScreen/PowerupsMenu/ValueChanges/PanelContainer2" unique_id=724464569]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
 text = "X -> X"
+horizontal_alignment = 1
 metadata/powerup_type = 0
 
-[node name="Option4" type="Button" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=2095951584]
+[node name="PanelContainer3" type="PanelContainer" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=144828371]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Option3" type="Label" parent="PowerupScreen/PowerupsMenu/ValueChanges/PanelContainer3" unique_id=1220678744]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "X -> X"
+horizontal_alignment = 1
+metadata/powerup_type = 0
+
+[node name="PanelContainer4" type="PanelContainer" parent="PowerupScreen/PowerupsMenu/ValueChanges" unique_id=361216242]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_font_sizes/font_size = 14
-disabled = true
+
+[node name="Option4" type="Label" parent="PowerupScreen/PowerupsMenu/ValueChanges/PanelContainer4" unique_id=198658945]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
 text = "X -> X"
+horizontal_alignment = 1
 metadata/powerup_type = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PowerupScreen" unique_id=2062139556]
