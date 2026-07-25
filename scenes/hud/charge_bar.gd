@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 	elif ratio <= 0.1:
 		animation_player.play("third_warning")
 	else:
+		animation_player.play("RESET")
 		animation_player.stop()
 	
 	if low_charge_ratio <= 0.25:
