@@ -90,7 +90,6 @@ func die():
 	await animation_player.animation_finished
 
 	Globals.enemy_kill_total += 1
-	Globals.current_kills_to_target += 1
 
 	var drop = ENERGY_DROP.instantiate()
 	drop.global_position = global_position

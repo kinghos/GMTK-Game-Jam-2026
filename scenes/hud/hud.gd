@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		on_powerups = true
 		show_powerups.emit()
 		get_tree().paused = true
-	var perc = Globals.current_kills_to_target / Globals.current_kill_target
+	var perc = (Globals.enemy_kill_total - Globals.prev_target) / (Globals.current_kill_target - Globals.prev_target)
 	progress_bar.value = lerpf(progress_bar.value, perc, delta * 15)
 
 func all_values_zero(dict: Dictionary) -> bool:

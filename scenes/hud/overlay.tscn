@@ -371,4 +371,4 @@ libraries/ = SubResource("AnimationLibrary_vhxij")
 [connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option1" to="." method="_on_powerup_pressed" binds= [0]]
 [connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option2" to="." method="_on_powerup_pressed" binds= [1]]
 [connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option3" to="." method="_on_powerup_pressed" binds= [2]]
-[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option4" to="." method="_on_powerup_pressed" binds= [2]]
+[connection signal="pressed" from="PowerupScreen/PowerupsMenu/Options/Option4" to="." method="_on_powerup_pressed" binds= [3]]

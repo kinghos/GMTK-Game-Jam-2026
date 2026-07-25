@@ -8,5 +8,5 @@ func _ready():
 	$Caution.emitting = true
 	audio_stream_player_2d.play()
 	await get_tree().create_timer(lifetime).timeout
+	Globals._ready()
 	get_tree().change_scene_to_file("res://scenes/hud/game_over.tscn")
-	get_parent().queue_free()

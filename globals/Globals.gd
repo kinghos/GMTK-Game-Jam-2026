@@ -6,8 +6,8 @@ var slider: ChargeBar
 var shader_buffer_material: ShaderMaterial
 var level: Level
 var game_over = false
-var enemy_kill_total = 0
-var current_kills_to_target = 0.0
+var enemy_kill_total = 0.0
+var prev_target = 0.0
 var current_kill_target = 11.0
 var wave = 1
 var powerups_gained = 0
@@ -166,7 +166,7 @@ var upgrade_increases = {
 func _ready() -> void: # reset variables on reload of scene
 	game_over = false
 	enemy_kill_total = 0
-	current_kills_to_target = 0.0
+	prev_target = 0.0
 	current_kill_target = next_target(1)
 	wave = 1
 	start_time = Time.get_ticks_msec()
@@ -201,8 +201,8 @@ func next_target(num):
 func update_targets() -> void:
 	if enemy_kill_total >= current_kill_target:
 		wave += 1.0
+		prev_target = current_kill_target
 		current_kill_target =  next_target(wave)
-		current_kills_to_target = 0.0
 		
 func apply_powerup(powerup: int):
 	var increase = powerup_increases[powerup]
