@@ -118,12 +118,31 @@ func spawn_enemy(scene: PackedScene):
 	if not Globals.player: return
 	
 	var enemy = scene.instantiate()
-	
-	var angle = randf() * TAU
-	var distance = randf_range(spawn_radius_min, spawn_radius_max)
-	
-	enemy.global_position = Globals.player.global_position + Vector2.RIGHT.rotated(angle) * distance
+	var spawn_pos = Vector2.ZERO
+	var valid_spawn = false
+	var attempts = 0
+	var max_attempts = 100
 
+	while not valid_spawn and attempts < max_attempts:
+		attempts += 1
+		var angle = randf() * TAU
+		var distance = randf_range(spawn_radius_min, spawn_radius_max)
+		spawn_pos = Globals.player.global_position + Vector2.RIGHT.rotated(angle) * distance
+		
+		var local_pos = floor.to_local(spawn_pos)
+		var map_pos = floor.local_to_map(local_pos)
+		
+		var tile_data = floor.get_cell_tile_data(map_pos)
+		
+		if tile_data:
+			var is_spawnable = tile_data.get_custom_data("spawnable")
+			if is_spawnable != false:
+				valid_spawn = true
+	
+	if not valid_spawn:
+		print("We avoided a crash :)")
+
+	enemy.global_position = spawn_pos
 	$Enemies.add_child(enemy)
 
 func _on_spawn_timer_timeout() -> void:
