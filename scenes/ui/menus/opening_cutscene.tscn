@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://icogg5kotchh"]
+
+[ext_resource type="Script" uid="uid://xuca27go47fd" path="res://scenes/ui/menus/opening_cutscene.gd" id="1_wvlx2"]
+[ext_resource type="Texture2D" uid="uid://ry5selyb8rq7" path="res://assets/cutscenes/01.png" id="2_w8jpm"]
+[ext_resource type="Texture2D" uid="uid://x5mn4us2ebfs" path="res://assets/sprites/menu_arrow.png" id="3_ph6ex"]
+[ext_resource type="Texture2D" uid="uid://b6ib6f57nhyv1" path="res://assets/sprites/menu_arrow_hovering.png" id="4_idjhy"]
+[ext_resource type="Texture2D" uid="uid://ba6ttncl5wf5t" path="res://assets/sprites/skip_button.png" id="5_rf216"]
+[ext_resource type="Texture2D" uid="uid://decm2hr2ntejc" path="res://assets/sprites/skip_button_hovering.png" id="6_f02wm"]
+[ext_resource type="Texture2D" uid="uid://bk3g558hhs3tp" path="res://assets/sprites/play_button.png" id="7_vpwk5"]
+[ext_resource type="Texture2D" uid="uid://ig77y4u17ub" path="res://assets/sprites/play_button_hovering.png" id="8_drrom"]
+
+[node name="OpeningCutscene" type="CanvasLayer" unique_id=1255543087]
+script = ExtResource("1_wvlx2")
+
+[node name="Frame" type="TextureRect" parent="." unique_id=1843803231]
+offset_top = 90.0
+offset_right = 480.0
+offset_bottom = 270.0
+scale = Vector2(1.333, 1)
+texture = ExtResource("2_w8jpm")
+
+[node name="BlackBar1" type="ColorRect" parent="." unique_id=705896714]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BlackBar2" type="ColorRect" parent="." unique_id=687783418]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="NextArrow" type="TextureButton" parent="." unique_id=786330007]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -77.0
+offset_right = -48.0
+offset_bottom = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_ph6ex")
+texture_hover = ExtResource("4_idjhy")
+
+[node name="BackArrow" type="TextureButton" parent="." unique_id=1089584051]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -77.0
+offset_right = 52.0
+offset_bottom = -45.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_ph6ex")
+texture_hover = ExtResource("4_idjhy")
+flip_h = true
+
+[node name="SkipButton" type="TextureButton" parent="." unique_id=342380834]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 13.0
+offset_right = -48.0
+offset_bottom = 45.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_rf216")
+texture_hover = ExtResource("6_f02wm")
+
+[node name="PlayButton" type="TextureButton" parent="." unique_id=1733866949]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 13.0
+offset_right = -48.0
+offset_bottom = 45.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("7_vpwk5")
+texture_hover = ExtResource("8_drrom")
+
+[connection signal="pressed" from="NextArrow" to="." method="_on_next_arrow_pressed"]
+[connection signal="pressed" from="BackArrow" to="." method="_on_back_arrow_pressed"]
+[connection signal="pressed" from="SkipButton" to="." method="_go_to_game"]
+[connection signal="pressed" from="PlayButton" to="." method="_go_to_game"]
