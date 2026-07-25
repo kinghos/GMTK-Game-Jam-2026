@@ -32,7 +32,7 @@ func shoot():
 		Globals.player.use_charge(charge_cost)
 	elif Globals.chosen_weapon == Globals.WEAPONS.SHOTGUN:
 		for i in range(Globals.shotgun_bullets):
-			var rotation_offset = randf_range(-PI/12, PI/12)
+			var rotation_offset = randf_range(-Globals.shotgun_spread, Globals.shotgun_spread)
 			var position_offset = Vector2(randf_range(-10, 10), randf_range(-10, 10))
 			
 			bullet = BULLET.instantiate()

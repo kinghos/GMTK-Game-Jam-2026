@@ -44,8 +44,12 @@ var weapon_sprites = {
 	WEAPONS.RIFLE: preload("uid://ym68aq313xlq"),
 	WEAPONS.SMG: preload("uid://br1xjya22rtki")
 }
-var blast_kb: float = 0.5
-var shotgun_bullets = 4
+var blast_kb: float
+var smg_kb: float
+var smg_home_strength
+var shotgun_bullets
+var shotgun_spread
+var rifle_pierce
 enum ENEMY_TYPES {FODDER, CHARGELESS, PARASITE, RANGED}
 
 enum POWERUPS {ATTACKSPEED, BULLETDMG, BULLETSPEED, ENERGYPACK, BLAST, MOVESPEED}
@@ -165,12 +169,12 @@ var powerup_increases = {
 }
 
 var upgrade_increases = {
-	WEAPON_UPGRADES.SHOTGUNSPREAD: 5,
+	WEAPON_UPGRADES.SHOTGUNSPREAD: 0.05,
 	WEAPON_UPGRADES.SHOTGUNBULLETS: 1,
 	WEAPON_UPGRADES.RIFLEPIERCE: 1,
 	WEAPON_UPGRADES.RIFLESIZE: 0.2,
 	WEAPON_UPGRADES.SMGHOME: 5,
-	WEAPON_UPGRADES.SMGKB: 0.1,
+	WEAPON_UPGRADES.SMGKB: 0.05,
 }
 
 func _ready() -> void: # reset variables on reload of scene
@@ -188,6 +192,12 @@ func _ready() -> void: # reset variables on reload of scene
 		POWERUPS.BLAST: 0,
 		POWERUPS.MOVESPEED: 0,
 	}
+	weapon_bullet_sizes = {
+		WEAPONS.PISTOL: 1.0,
+		WEAPONS.SHOTGUN: 0.8,
+		WEAPONS.RIFLE: 1.3,
+		WEAPONS.SMG: 0.5
+	}
 	upgrade_counts = {
 		WEAPON_UPGRADES.SHOTGUNSPREAD: 0,
 		WEAPON_UPGRADES.SHOTGUNBULLETS: 0,
@@ -202,6 +212,10 @@ func _ready() -> void: # reset variables on reload of scene
 	bullet_speed = 800.0
 	blast_kb = 0.5
 	shotgun_bullets = 4
+	shotgun_spread = PI/12
+	rifle_pierce = 0
+	smg_kb = 0.05
+	smg_home_strength = 500
 	chosen_weapon = WEAPONS.PISTOL
 
 func next_target(num):
@@ -237,17 +251,17 @@ func apply_upgrade(upgrade: int):
 	powerups_gained += 1
 	match upgrade:
 		WEAPON_UPGRADES.SHOTGUNSPREAD:
-			pass
+			shotgun_spread += increase
 		WEAPON_UPGRADES.SHOTGUNBULLETS:
-			pass
+			shotgun_bullets += increase
 		WEAPON_UPGRADES.RIFLEPIERCE:
-			pass
+			rifle_pierce += increase
 		WEAPON_UPGRADES.RIFLESIZE:
-			pass
+			weapon_bullet_sizes[WEAPONS.RIFLE] += increase
 		WEAPON_UPGRADES.SMGHOME:
-			pass
+			smg_home_strength += increase
 		WEAPON_UPGRADES.SMGKB:
-			pass
+			smg_kb += increase
 
 func calc_powerup_effect(powerup: int):
 	return powerup_counts[powerup] * powerup_increases[powerup]
@@ -271,17 +285,17 @@ func get_powerup_current_value(powerup: int) -> float:
 func get_upgrade_current_value(powerup: int) -> float:
 	match powerup:
 		WEAPON_UPGRADES.SHOTGUNSPREAD:
-			pass
+			return shotgun_spread
 		WEAPON_UPGRADES.SHOTGUNBULLETS:
-			pass
+			return shotgun_bullets
 		WEAPON_UPGRADES.RIFLEPIERCE:
-			pass
+			return rifle_pierce
 		WEAPON_UPGRADES.RIFLESIZE:
-			pass
+			return weapon_bullet_sizes[WEAPONS.RIFLE]
 		WEAPON_UPGRADES.SMGHOME:
-			pass
+			return smg_home_strength
 		WEAPON_UPGRADES.SMGKB:
-			pass
+			return smg_kb
 	return 0.0
 
 func print_powerup_values(): # for debugging
