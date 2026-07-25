@@ -4,7 +4,7 @@ class_name Enemy
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 const ENERGY_DROP = preload("res://scenes/misc/energy_drop.tscn")
-@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var death_particles: CPUParticles2D = $DeathParticles
 @onready var hitbox: Area2D = $Hitbox
 
 var enemy_type
@@ -95,12 +95,13 @@ func die():
 	drop.global_position = global_position
 	Globals.level.get_node("Drops").add_child(drop)
 
-	await cpu_particles_2d.finished
+	await death_particles.finished
 	queue_free()
 
 
 func take_damage(bullet_damage):
 	var bullet_damage_increase = Globals.calc_powerup_effect(Globals.POWERUPS.BULLETDMG)
+	animation_player.play("damage")
 	hp = move_toward(hp, 0, bullet_damage)
 
 
