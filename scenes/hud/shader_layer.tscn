@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bau0g6xtnbfji" path="res://scenes/hud/shader_layer.gd" id="1_ar8ce"]
 [ext_resource type="Shader" uid="uid://cqhx0vrhkfegb" path="res://assets/shaders/crt.gdshader" id="1_kreoy"]
-[ext_resource type="Texture2D" uid="uid://bvtipi6jfcn8x" path="res://assets/sprint.png" id="3_r0mxh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ar8ce"]
 shader = ExtResource("1_kreoy")
@@ -32,30 +31,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Instructions" type="ColorRect" parent="." unique_id=1075722369]
-z_index = 2
-offset_left = 523.0
-offset_top = 48.0
-offset_right = 617.0
-offset_bottom = 72.0
-color = Color(0.13725491, 0.13725491, 0.13725491, 0.48235294)
-
-[node name="TextureRect" type="TextureRect" parent="Instructions" unique_id=622878917]
-layout_mode = 0
-offset_left = 10.0
-offset_top = -3.0
-offset_right = 50.0
-offset_bottom = 25.0
-texture = ExtResource("3_r0mxh")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="Instructions" unique_id=844556842]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 5.0
-offset_right = 113.0
-offset_bottom = 19.0
-theme_override_font_sizes/font_size = 11
-text = "SPRINT"

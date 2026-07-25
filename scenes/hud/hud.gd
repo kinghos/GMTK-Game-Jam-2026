@@ -5,12 +5,15 @@ extends CanvasLayer
 @onready var timer: Label = $Control/TopBar/HBoxContainer/Timer
 @onready var powerup_icons: HBoxContainer = $Control/TopBar/PowerupIcons
 @onready var blast_recharge: TextureProgressBar = $Control/BlastRecharge
+@onready var instructions: ColorRect = $Control/Instructions
+
 var on_powerups = false
 signal show_powerups
 
 func _ready() -> void:
 	Globals.start_time = Time.get_ticks_msec()
 	blast_recharge.hide()
+	instructions.visible = not get_tree().current_scene.name == "GameOver"
 
 func _process(delta: float) -> void:
 	var ms = Time.get_ticks_msec() - Globals.start_time
