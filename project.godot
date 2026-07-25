@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GMTK Game Jam 2026"
+config/name="Battery Blitz"
 run/main_scene="uid://cc7gqs5oj7agq"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
