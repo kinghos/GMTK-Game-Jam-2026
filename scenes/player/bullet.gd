@@ -22,10 +22,14 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy:
 		body.take_damage(Globals.bullet_damage + Globals.calc_powerup_effect(Globals.POWERUPS.BULLETDMG))
-	if Globals.chosen_weapon == Globals.WEAPONS.RIFLE and pierced != Globals.rifle_pierce:
-		pierced += 1
-	else:
-		queue_free()
+		if Globals.chosen_weapon == Globals.WEAPONS.SMG:
+			body.knockback_time = Globals.smg_kb
+			body.knockback_velocity = global_position.direction_to(body.global_position) * 200
+		if Globals.chosen_weapon == Globals.WEAPONS.RIFLE and pierced != Globals.rifle_pierce:
+			pierced += 1
+		else:
+			queue_free()
+	queue_free()
 
 
 func _on_timer_timeout() -> void:
@@ -39,5 +43,5 @@ func _on_homing_radius_body_entered(body: Node2D) -> void:
 func _on_homing_radius_body_exited(body: Node2D) -> void:
 	if body == targeted_enemy and Globals.chosen_weapon == Globals.WEAPONS.SMG:
 		targeted_enemy = null
-		collision_shape_2d.disabled = true
-		collision_shape_2d.disabled = false
+		collision_shape_2d.set_deferred("disabled", true)
+		collision_shape_2d.set_deferred("disabled", false)
