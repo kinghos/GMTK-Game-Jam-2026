@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dhjasdo7j0gaw" path="res://assets/sprites/powerups/bordered/blast.png" id="9_4m1a1"]
 [ext_resource type="Texture2D" uid="uid://cbq2a6m2lo2ms" path="res://assets/sprites/powerups/bordered/movespeed.png" id="10_iioc1"]
 [ext_resource type="Texture2D" uid="uid://dvtsxefbl3yc3" path="res://assets/sprites/upgrades/locked.png" id="11_q6mn5"]
+[ext_resource type="Texture2D" uid="uid://cm44jhrodkky5" path="res://assets/sprites/powerups/bordered/blast_grey.png" id="12_8nkf1"]
+[ext_resource type="Shader" uid="uid://qxu6uxk30jiv" path="res://assets/shaders/outline.gdshader" id="12_558d4"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_w1xho"]
 
@@ -55,6 +57,11 @@ shader_parameter/enabled = true
 shader = ExtResource("4_q6mn5")
 shader_parameter/weighted = true
 shader_parameter/enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vblv"]
+shader = ExtResource("12_558d4")
+shader_parameter/line_color = Color(0.15294118, 0.078431375, 0.44313726, 1)
+shader_parameter/width = 0.0
 
 [node name="HUD" type="CanvasLayer" unique_id=350223319]
 script = ExtResource("1_0bx4p")
@@ -354,3 +361,15 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 10
 text = "0"
 horizontal_alignment = 1
+
+[node name="BlastRecharge" type="TextureProgressBar" parent="Control" unique_id=411821956]
+material = SubResource("ShaderMaterial_8vblv")
+layout_mode = 0
+offset_left = 62.0
+offset_top = 312.0
+offset_right = 94.0
+offset_bottom = 344.0
+value = 92.0
+fill_mode = 1
+texture_under = ExtResource("9_4m1a1")
+texture_progress = ExtResource("12_8nkf1")

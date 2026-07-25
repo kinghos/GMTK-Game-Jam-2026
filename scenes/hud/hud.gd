@@ -4,11 +4,13 @@ extends CanvasLayer
 @onready var progress_bar: ProgressBar = $Control/TopBar/HBoxContainer/ProgressBar
 @onready var timer: Label = $Control/TopBar/HBoxContainer/Timer
 @onready var powerup_icons: HBoxContainer = $Control/TopBar/PowerupIcons
+@onready var blast_recharge: TextureProgressBar = $Control/BlastRecharge
 var on_powerups = false
 signal show_powerups
 
 func _ready() -> void:
 	Globals.start_time = Time.get_ticks_msec()
+	blast_recharge.hide()
 
 func _process(delta: float) -> void:
 	var ms = Time.get_ticks_msec() - Globals.start_time
@@ -23,6 +25,15 @@ func _process(delta: float) -> void:
 		get_tree().paused = true
 	var perc = (Globals.enemy_kill_total - Globals.prev_target) / (Globals.current_kill_target - Globals.prev_target)
 	progress_bar.value = lerpf(progress_bar.value, perc, delta * 15)
+	
+	if blast_recharge.visible:
+		var timer = Globals.player.blast_timer
+		blast_recharge.value = timer.time_left / timer.wait_time * 100
+		if blast_recharge.value == 0:
+			blast_recharge.material.set_shader_parameter("width", 1.0)
+		else:
+			blast_recharge.material.set_shader_parameter("width", 0.0)
+			
 
 func all_values_zero(dict: Dictionary) -> bool:
 	for value in dict.values():
@@ -58,6 +69,9 @@ func update_powerup_hud():
 				icon.get_child(0).text = str(Globals.upgrade_counts[upgrade])
 				smat.set_shader_parameter("enabled", false)
 			c += 1
+	
+	if Globals.powerup_counts[Globals.POWERUPS.BLAST] > 0:
+		blast_recharge.show()
 
 
 func _on_overlay_powerups_gone() -> void:
