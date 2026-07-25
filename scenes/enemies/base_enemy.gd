@@ -7,6 +7,8 @@ const ENERGY_DROP = preload("res://scenes/misc/energy_drop.tscn")
 @onready var death_particles: CPUParticles2D = $DeathParticles
 @onready var hitbox: Area2D = $Hitbox
 
+@onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+
 var enemy_type
 var dead = false
 @export var hp = 0
@@ -20,9 +22,16 @@ var player_in_range := false
 
 var knockback_propagated := false
 
+func _ready():
+	navigation_agent_2d.set_navigation_map(Globals.level.floor)
+
 func move_towards_player():
 	if Globals.player:
-		velocity = global_position.direction_to(Globals.player.global_position) * speed
+		if navigation_agent_2d.target_position != Globals.player.global_position:
+			navigation_agent_2d.target_position = Globals.player.global_position
+			
+		var next_pos = navigation_agent_2d.get_next_path_position()
+		velocity = global_position.direction_to(next_pos) * speed
 		sprite_2d.flip_h = velocity.x > 0
 
 

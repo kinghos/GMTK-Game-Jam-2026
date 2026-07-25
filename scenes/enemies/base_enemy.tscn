@@ -185,6 +185,7 @@ z_index = 1
 collision_layer = 2
 collision_mask = 702
 motion_mode = 1
+safe_margin = 1.0
 script = ExtResource("1_qf3h2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1150660543]
@@ -241,6 +242,13 @@ libraries/ = SubResource("AnimationLibrary_ylyo2")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=841296864]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=293691159]
+path_desired_distance = 8.0
+target_desired_distance = 16.0
+path_max_distance = 1000.0
+path_postprocessing = 1
+avoidance_enabled = true
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

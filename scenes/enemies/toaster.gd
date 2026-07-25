@@ -8,7 +8,10 @@ func _ready() -> void:
 	
 func move_towards_player():
 	if Globals.player:
-		velocity = global_position.direction_to(Globals.player.global_position) * speed
+		if navigation_agent_2d.target_position != Globals.player.global_position:
+			navigation_agent_2d.target_position = Globals.player.global_position
+		var next_pos = navigation_agent_2d.get_next_path_position()
+		velocity = global_position.direction_to(next_pos) * speed
 		sprite_2d.flip_h = velocity.x > 0
 		
 		var direction = Globals.player.global_position - global_position
