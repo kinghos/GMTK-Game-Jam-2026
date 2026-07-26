@@ -116,7 +116,7 @@ func expend_charge():
 
 func die():
 	var death_anim = DEATH_ANIMATION.instantiate()
-	get_tree().current_scene.get_node("DeathAnimLayer/Control").add_child(death_anim)
+	get_tree().current_scene.add_child(death_anim)
 	Globals.game_over = true
 
 func energy_gain(energy_gained):
