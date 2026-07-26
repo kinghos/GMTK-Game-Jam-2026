@@ -34,7 +34,6 @@ func _on_body_entered(body: Node2D) -> void:
 			body.knockback_velocity = global_position.direction_to(body.global_position) * 200
 		if Globals.chosen_weapon != Globals.WEAPONS.RIFLE:
 			queue_free()
-		print(body != last_enemy_entered)
 		if Globals.chosen_weapon == Globals.WEAPONS.RIFLE and not is_equal_approx(pierced, Globals.rifle_pierce) and body != last_enemy_entered:
 			pierced += 1
 			last_enemy_entered = body

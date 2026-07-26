@@ -16,7 +16,7 @@ var bullet_damage: int = 10
 var weapon_damages = {
 	WEAPONS.PISTOL: 10,
 	WEAPONS.SHOTGUN: 7,
-	WEAPONS.RIFLE: 15,
+	WEAPONS.RIFLE: 20,
 	WEAPONS.SMG: 5
 }
 var bullet_speed: float = 800.0
@@ -29,7 +29,7 @@ var weapon_bullet_speeds = {
 var weapon_attack_speeds = {
 	WEAPONS.PISTOL: 0.5,
 	WEAPONS.SHOTGUN: 0.65,
-	WEAPONS.RIFLE: 1.0,
+	WEAPONS.RIFLE: 0.9,
 	WEAPONS.SMG: 0.2
 }
 var weapon_bullet_sizes = {

@@ -42,7 +42,6 @@ func die():
 	explosion_sprite.play("kaboom")
 	asp.play()
 	sprite_2d.hide() 
-	print(enemies_in_range)
 	for enemy: Enemy in enemies_in_range:
 		enemy.take_damage(damage)
 		enemy.animation_player.play("damage")

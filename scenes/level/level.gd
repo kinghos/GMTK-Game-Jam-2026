@@ -1,42 +1,43 @@
 extends Node2D
 class_name Level
 
+@onready var wave_timer: Timer = $WaveTimer
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var floor: TileMapLayer = $TileMap/Floor
 @onready var enemy_intro: CanvasLayer = $EnemyIntro
 
 var spawn_group_size = 3
-var spawn_radius_min = 350
-var spawn_radius_max = 550
+var spawn_radius_min = 300
+var spawn_radius_max = 600
 
 const ENEMIES = {
 	"fodder": {
 		"scene": preload("res://scenes/enemies/fodder.tscn"),
 		"cost": 1,
-		"base_weight": 80,
-		"decay": 5
+		"base_weight": 75,
+		"decay": 7
 	},
 	"lightbomb": {
 		"scene": preload("res://scenes/enemies/lightbomb.tscn"),
-		"cost": 3,
+		"cost": 4,
 		"base_weight": 20,
 		"growth": 5,
-		"start_wave": 2
+		"start_wave": 3
 	},
 	"toaster": {
 		"scene": preload("res://scenes/enemies/toaster.tscn"),
-		"cost": 5,
+		"cost": 6,
 		"base_weight": 10,
-		"growth": 4,
-		"start_wave": 3,
+		"growth": 5,
+		"start_wave": 7,
 		"requires_seen": "lightbomb"
 	},
 	"batterypion": {
 		"scene": preload("uid://dxrfr1il2fdvy"),
-		"cost": 3,
-		"base_weight": 5,
+		"cost": 4,
+		"base_weight": 4,
 		"growth": 4,
-		"start_wave": 5,
+		"start_wave": 12,
 		"requires_seen": "toaster"
 	}
 }
@@ -67,7 +68,7 @@ func _process(delta: float) -> void:
 	if spawning_wave: return
 	if Globals.game_over: return
 	
-	if enemy_count <= min(5, int(last_amount_spawned * 0.25)):
+	if enemy_count <= last_amount_spawned * 0.1:
 		start_wave()
 
 func start_wave():
@@ -86,14 +87,21 @@ func build_wave():
 	
 	var budget = get_wave_budget()
 	while budget > 0:
-		var enemy = choose_enemy()
+		var result = choose_enemy()
+		var enemy = ENEMIES[result]
+
+		if !Globals.has_seen(result) and spawn_queue.has(enemy.scene) and result != "fodder":
+			continue
+
 		if enemy.cost <= budget:
 			spawn_queue.append(enemy.scene)
 			budget -= enemy.cost
 
 func get_wave_budget():
-	return 6 + pow(10, wave_number/5)
-	
+	var budget = round(3 + wave_number * 1.5 + floor(wave_number / 5) * 2)
+	print("Budget:" + str(budget))
+	return budget
+
 func choose_enemy():
 	var total_weight = 0.0
 	var current_weights = {}
@@ -110,7 +118,7 @@ func choose_enemy():
 				weight += (wave_number - enemy.start_wave + 1) * enemy.growth
 		
 		if enemy.has("decay"):
-			weight = max(20, weight - wave_number * enemy.decay)
+			weight = max(25, weight - wave_number * enemy.decay)
 		
 		if enemy.has("requires_seen") and !Globals.has_seen(enemy.requires_seen):
 			weight = 0
@@ -124,15 +132,16 @@ func choose_enemy():
 		pick -= current_weights[key]
 		
 		if pick <= 0:
-			return ENEMIES[key]
+			return key
 	
-	return ENEMIES["fodder"]
+	return "fodder"
 
 func spawn_enemy(scene: PackedScene):
 	if not Globals.player: return
 	
 	var enemy = scene.instantiate()
-	enemy.speed *= 1 + (wave_number / 50.0)
+	enemy.speed = enemy.speed + ( 5 * wave_number / 20.0)
+	enemy.hp = enemy.hp + (10 * Globals.powerups_gained / 5)
 	var spawn_pos = Vector2.ZERO
 	var valid_spawn = false
 	var attempts = 0
@@ -168,5 +177,10 @@ func _on_spawn_timer_timeout() -> void:
 			return
 		var scene = spawn_queue.pop_front()
 		spawn_enemy(scene)
-		await get_tree().create_timer(0.35).timeout
+		await get_tree().create_timer(0.4).timeout
 	spawn_timer.start()
+
+
+#func _on_wave_timer_timeout() -> void:
+	#print("forced by timer:")
+	#start_wave()

@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 	Globals.time_elapsed = "%02d:%02d" % [mins, secs]
 	update_powerup_hud()
 	
-	if Globals.enemy_kill_total >= Globals.current_kill_target and not on_powerups and Globals.player:
+	if Globals.enemy_kill_total >= Globals.current_kill_target and not on_powerups and Globals.player and not Globals.level.enemy_intro.in_progress:
 		on_powerups = true
 		show_powerups.emit()
 		get_tree().paused = true
