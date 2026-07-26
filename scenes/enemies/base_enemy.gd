@@ -74,7 +74,7 @@ func _process(delta: float) -> void:
 	if hp == 0 and !dead:
 		die()
 		
-	if is_fully_on_screen_with_margins() and not Globals.has_seen(enemy_type) and not Globals.level.enemy_intro.in_progress:
+	if is_fully_on_screen() and not Globals.has_seen(enemy_type) and not Globals.level.enemy_intro.in_progress:
 		Globals.mark_seen(enemy_type)
 		trigger_intro()
 
@@ -134,12 +134,7 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 	if body == Globals.player:
 		player_in_range = false
 
-
-var margin_top := 0.0
-var margin_sides := 0.0
-var margin_bottom := 0.0
-
-func is_fully_on_screen_with_margins() -> bool:
+func is_fully_on_screen() -> bool:
 	var cam = get_viewport().get_camera_2d()
 	if not cam: return false
 	
