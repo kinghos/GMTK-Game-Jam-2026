@@ -567,10 +567,10 @@ horizontal_alignment = 1
 [node name="BlastRecharge" type="TextureProgressBar" parent="Control" unique_id=411821956]
 material = SubResource("ShaderMaterial_8vblv")
 layout_mode = 0
-offset_left = 62.0
-offset_top = 312.0
-offset_right = 94.0
-offset_bottom = 344.0
+offset_left = 567.0
+offset_top = 75.0
+offset_right = 599.0
+offset_bottom = 107.0
 value = 92.0
 fill_mode = 1
 texture_under = ExtResource("9_4m1a1")

@@ -163,7 +163,7 @@ var weapon_descriptions = {
 }
 
 var powerup_first_descriptions = {
-	POWERUPS.BLAST: "UNLOCKS ABILITY TO KNOCK BACK ENEMIES"
+	POWERUPS.BLAST: "UNLOCKS ABILITY TO KNOCK BACK ENEMIES ON RMB"
 }
 
 var powerup_increases = {
