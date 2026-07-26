@@ -19,7 +19,7 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 		$CollisionShape2D.set_deferred("disabled", true)
 		await explosion_sprite.animation_finished
 		queue_free()
-	if body is Enemy and not dead:
+	if body is Enemy:
 		enemies_in_range.append(body)
 
 func _on_hitbox_body_exited(body: Node2D) -> void:
@@ -34,7 +34,7 @@ func die():
 	animation_player.play("death")
 	death_asp.play()
 	await animation_player.animation_finished
-	
+	$Hitbox/CollisionShape2D.disabled = false
 	explosion_sprite.show()
 	explosion_sprite.play("kaboom")
 	asp.play()

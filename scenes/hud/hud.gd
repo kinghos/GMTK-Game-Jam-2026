@@ -34,8 +34,8 @@ func _process(delta: float) -> void:
 		progress_bar.value = lerpf(progress_bar.value, perc, delta * 15)
 	
 	if blast_recharge.visible:
-		var timer = Globals.player.blast_timer
-		blast_recharge.value = timer.time_left / timer.wait_time * 100
+		var b_timer = Globals.player.blast_timer
+		blast_recharge.value = b_timer.time_left / b_timer.wait_time * 100
 		if blast_recharge.value == 0:
 			blast_recharge.material.set_shader_parameter("width", 1.0)
 		else:
