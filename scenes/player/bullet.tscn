@@ -6,9 +6,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_q6mn5"]
 radius = 7.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k5ghg"]
-radius = 78.025635
-
 [node name="Bullet" type="Area2D" unique_id=182901196]
 collision_layer = 16
 collision_mask = 14
@@ -29,7 +26,7 @@ collision_layer = 512
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HomingRadius" unique_id=925214107]
-shape = SubResource("CircleShape2D_k5ghg")
+rotation = -0.22654553
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
