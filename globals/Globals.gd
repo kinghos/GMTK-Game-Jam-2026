@@ -243,7 +243,7 @@ func _ready() -> void: # reset variables on reload of scene
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause") and not prevent_pause:
-		toggle_pause_menu()
+		pause_menu._on_resume_button_pressed()
 
 func toggle_pause_menu():
 	if pause_menu:

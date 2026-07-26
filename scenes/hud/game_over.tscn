@@ -43,21 +43,32 @@ text = "FINAL TIME: "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="." unique_id=1363540330]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=821023149]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -154.0
-offset_right = 20.0
-offset_bottom = -114.0
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = 31.0
+offset_right = 102.0
+offset_bottom = 123.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+theme_override_constants/separation = 11
+
+[node name="PlayAgain" type="Button" parent="VBoxContainer" unique_id=1363540330]
+layout_mode = 2
+size_flags_vertical = 3
 text = "PLAY AGAIN?"
+
+[node name="Title" type="Button" parent="VBoxContainer" unique_id=350934569]
+layout_mode = 2
+size_flags_vertical = 3
+text = "RETURN TO TITLE"
 
 [node name="ShaderLayer" parent="." unique_id=2126238738 instance=ExtResource("1_btsas")]
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/Title" to="." method="_on_title_pressed"]
