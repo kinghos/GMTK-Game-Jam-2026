@@ -22,6 +22,7 @@ var blast_energy: float = 20.0
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var asp: AudioStreamPlayer = $AudioStreamPlayer
+@onready var death_asp: AudioStreamPlayer = $DeathASP
 
 
 var debuffed = false

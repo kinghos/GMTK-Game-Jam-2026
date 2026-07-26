@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bqsvm5rxyem6j" path="res://assets/sprites/warning.png" id="1_1mvow"]
 [ext_resource type="Script" uid="uid://ddo80kb0nhhvg" path="res://scenes/player/death_animation.gd" id="2_ckcgh"]
-[ext_resource type="AudioStream" uid="uid://cadys7lqhlvqe" path="res://assets/audio/player_death.ogg" id="3_1mvow"]
 [ext_resource type="Texture2D" uid="uid://ba7na4p3b21c3" path="res://assets/sprites/warning2.png" id="4_nw878"]
 [ext_resource type="Texture2D" uid="uid://m3a4ukw8bffo" path="res://assets/sprites/caution.png" id="5_rj502"]
 
@@ -45,10 +44,6 @@ split_scale = true
 scale_curve_x = null
 scale_curve_y = SubResource("Curve_rj502")
 script = ExtResource("2_ckcgh")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1254666714]
-stream = ExtResource("3_1mvow")
-bus = &"SFX"
 
 [node name="Warning2" type="CPUParticles2D" parent="." unique_id=617965983]
 emitting = false
