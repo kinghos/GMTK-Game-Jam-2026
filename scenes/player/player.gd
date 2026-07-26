@@ -9,7 +9,7 @@ const CHARGE_PER_EXPEND = 2.0
 
 var WALK_SPEED: float = 150.0
 var SPRINT_SPEED: float = 400.0
-var MAX_CHARGE: float = 125.0
+var MAX_CHARGE: float = 150.0
 
 @onready var gun: Sprite2D = $Gun
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D

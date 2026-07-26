@@ -24,6 +24,6 @@ func move_towards_player():
 				toast.bullet_damage = damage
 				toast.direction = direction.normalized()
 				get_tree().current_scene.get_node("Bullets").add_child(toast, true)
-				animation_player.play("attack")
+				sprite_2d.animation = "attack"
 		else:
-			animation_player.play("run")
+			sprite_2d.animation = "run"

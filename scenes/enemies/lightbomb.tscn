@@ -262,7 +262,7 @@ radius = 29.15476
 [node name="Lightbomb" unique_id=1193687902 instance=ExtResource("1_n8o0g")]
 script = ExtResource("2_c2wah")
 intro_name = "Light Bomb"
-intro_tagline = "Explodes on contact."
+intro_tagline = "Kaboom."
 hp = 15
 damage = 30
 speed = 150

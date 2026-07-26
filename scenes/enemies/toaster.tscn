@@ -133,10 +133,8 @@ shape = SubResource("RectangleShape2D_qf3h2")
 
 [node name="Sprite2D" parent="." index="1" unique_id=162748549]
 sprite_frames = SubResource("SpriteFrames_vhxij")
-animation = &"attack"
+animation = &"run"
 autoplay = "run"
-frame = 5
-frame_progress = 1.0
 
 [node name="ToastCooldown" type="Timer" parent="." index="5" unique_id=644694101]
 wait_time = 1.5
