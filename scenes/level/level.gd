@@ -90,7 +90,7 @@ func build_wave():
 			budget -= enemy.cost
 
 func get_wave_budget():
-	return 3 + pow(10, wave_number/5)
+	return 6 + pow(10, wave_number/5)
 	
 func choose_enemy():
 	var total_weight = 0.0
