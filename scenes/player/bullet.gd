@@ -3,6 +3,7 @@ class_name Bullet
 
 var direction = Vector2.ZERO
 @onready var pierced = 0
+var last_enemy_entered: Enemy
 
 var homing_offset: Vector2
 var targeted_enemy: Enemy
@@ -27,11 +28,14 @@ func _on_body_entered(body: Node2D) -> void:
 		if Globals.chosen_weapon == Globals.WEAPONS.SMG:
 			body.knockback_time = Globals.smg_kb
 			body.knockback_velocity = global_position.direction_to(body.global_position) * 200
-		if Globals.chosen_weapon == Globals.WEAPONS.RIFLE and pierced != Globals.rifle_pierce:
+		if Globals.chosen_weapon != Globals.WEAPONS.RIFLE:
+			queue_free()
+		print(body != last_enemy_entered)
+		if Globals.chosen_weapon == Globals.WEAPONS.RIFLE and not is_equal_approx(pierced, Globals.rifle_pierce) and body != last_enemy_entered:
 			pierced += 1
+			last_enemy_entered = body
 		else:
 			queue_free()
-	queue_free()
 
 
 func _on_timer_timeout() -> void:
