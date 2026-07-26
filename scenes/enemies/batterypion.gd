@@ -1,6 +1,7 @@
 extends Enemy
 
 func _ready() -> void:
+	super()
 	enemy_type = "batterypion"
 
 func _on_hitbox_body_entered(body: Node2D) -> void:

@@ -30,6 +30,8 @@ var knockback_propagated := false
 
 func _ready():
 	navigation_agent_2d.set_navigation_map(Globals.level.floor)
+	damage_asp.bus = "SFX"
+	death_asp.bus = "SFX"
 
 func move_towards_player():
 	if Globals.player:

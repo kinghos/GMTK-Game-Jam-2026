@@ -4,6 +4,7 @@ extends Enemy
 const TOAST = preload("uid://dafocwk1p0q1u")
 
 func _ready() -> void:
+	super()
 	enemy_type = "toaster"
 	
 func move_towards_player():

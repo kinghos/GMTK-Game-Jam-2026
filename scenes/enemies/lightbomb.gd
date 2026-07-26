@@ -5,8 +5,10 @@ extends Enemy
 var enemies_in_range = []
 
 func _ready() -> void:
+	super()
 	enemy_type = "lightbomb"
 	dead = false
+	asp.bus = "SFX"
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Player and not dead:

@@ -40,6 +40,8 @@ var enemies_in_blast_radius = []
 
 func _ready():
 	Globals.player = self
+	asp.bus = "SFX"
+	death_asp.bus = "SFX"
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
