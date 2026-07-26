@@ -89,7 +89,7 @@ func _on_hud_show_powerups() -> void:
 		option_4_opt.text = Globals.upgrade_names[w_upgrade]
 		option_4_desc.text = Globals.upgrade_descriptions[w_upgrade]
 		var current_val = Globals.get_upgrade_current_value(w_upgrade)
-		var increase_val = Globals.powerup_increases[w_upgrade]
+		var increase_val = Globals.upgrade_increases[w_upgrade]
 		option_4_val.text = "%s -> %s" % [
 			format_value(current_val),
 			format_value(current_val + increase_val)
