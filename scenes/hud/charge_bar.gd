@@ -2,6 +2,7 @@ extends HSlider
 class_name ChargeBar
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var label: Label = $Label
 
 var red_stylebox = StyleBoxFlat.new()
 var flash_timer = 0.0
@@ -57,6 +58,7 @@ func _process(delta: float) -> void:
 	smat.set_shader_parameter("noise_amount", remap(low_charge_ratio, 0.0, 0.25, 0.2, 0.05))
 	smat.set_shader_parameter("vignette_intensity", remap(low_charge_ratio, 0.0, 0.25, 1.0, 0.4))
 	smat.set_shader_parameter("vignette_amount", remap(low_charge_ratio, 0.0, 0.25, 0.8, 0.6))
+	label.text = str(roundi(Globals.player.charge))
 
 func flash_red():
 	if flash_timer > 0.5:
