@@ -34,9 +34,9 @@ func _process(delta: float) -> void:
 	
 	var low_charge_ratio = clampf(ratio, 0.0, 0.5)
 	
-	if ratio <= 0.5 and ratio > 0.25:
+	if ratio <= 0.3 and ratio > 0.2:
 		animation_player.play("first_warning")
-	elif ratio <= 0.25 and ratio > 0.1:
+	elif ratio <= 0.2 and ratio > 0.1:
 		animation_player.play("second_warning")
 	elif ratio <= 0.1:
 		animation_player.play("third_warning")
