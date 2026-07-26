@@ -225,7 +225,7 @@ wait_time = 10.0
 one_shot = true
 
 [node name="DebuffTimer" type="Timer" parent="." unique_id=1636390606]
-wait_time = 5.0
+wait_time = 4.0
 
 [node name="TimerCircle" type="TextureProgressBar" parent="." unique_id=1404685668]
 visible = false
@@ -253,7 +253,6 @@ max_polyphony = 3
 
 [node name="DeathASP" type="AudioStreamPlayer" parent="." unique_id=878440325]
 stream = ExtResource("7_0owmy")
-bus = &"SFX"
 
 [connection signal="timeout" from="DebuffTimer" to="." method="_on_debuff_timer_timeout"]
 [connection signal="body_entered" from="BlastRadius" to="." method="_on_blast_radius_body_entered"]
