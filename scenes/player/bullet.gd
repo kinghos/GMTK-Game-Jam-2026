@@ -36,6 +36,8 @@ func _on_body_entered(body: Node2D) -> void:
 			last_enemy_entered = body
 		else:
 			queue_free()
+	else:
+		queue_free()
 
 
 func _on_timer_timeout() -> void:
