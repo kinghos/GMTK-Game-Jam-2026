@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d3mr5m3v4gl00" path="res://scenes/enemies/base_enemy.gd" id="1_qf3h2"]
 [ext_resource type="Texture2D" uid="uid://dtq6d577h5w5q" path="res://assets/sprites/nutsnbolts.png" id="2_qf3h2"]
+[ext_resource type="AudioStream" uid="uid://twjigjp2mtf8" path="res://assets/audio/damage.ogg" id="3_n763p"]
+[ext_resource type="AudioStream" uid="uid://dvutuj6aah47e" path="res://assets/audio/death.ogg" id="4_ylyo2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7egdk"]
 particles_animation = true
@@ -249,6 +251,13 @@ target_desired_distance = 16.0
 path_max_distance = 1000.0
 path_postprocessing = 1
 avoidance_enabled = true
+
+[node name="DamageASP" type="AudioStreamPlayer" parent="." unique_id=637728264]
+stream = ExtResource("3_n763p")
+
+[node name="DeathASP" type="AudioStreamPlayer" parent="." unique_id=983286342]
+stream = ExtResource("4_ylyo2")
+volume_db = -14.22
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

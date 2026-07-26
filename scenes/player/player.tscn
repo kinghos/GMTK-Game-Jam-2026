@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://kujom1wreabj" path="res://assets/sprites/player.png" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://1q3m5v74w1gk" path="res://scenes/player/gun.gd" id="3_gmlin"]
 [ext_resource type="Texture2D" uid="uid://ctjxjn85mk3tr" path="res://assets/sprites/gun.png" id="3_p47bc"]
+[ext_resource type="AudioStream" uid="uid://bsfiu17rmnpdb" path="res://assets/audio/shoot.ogg" id="6_0owmy"]
 [ext_resource type="Texture2D" uid="uid://m4kqve32c2br" path="res://assets/sprites/timer.png" id="6_75vfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
@@ -184,7 +185,7 @@ shape = SubResource("RectangleShape2D_dqkch")
 sprite_frames = SubResource("SpriteFrames_k5ghg")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.9404264
+frame_progress = 0.34261853
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=185035677]
 texture = ExtResource("3_p47bc")
@@ -245,6 +246,10 @@ shape = SubResource("CircleShape2D_k5ghg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=610981516]
 libraries/ = SubResource("AnimationLibrary_0owmy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=326699661]
+stream = ExtResource("6_0owmy")
+max_polyphony = 3
 
 [connection signal="timeout" from="DebuffTimer" to="." method="_on_debuff_timer_timeout"]
 [connection signal="body_entered" from="BlastRadius" to="." method="_on_blast_radius_body_entered"]

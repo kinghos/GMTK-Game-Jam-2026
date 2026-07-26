@@ -6,7 +6,8 @@ class_name Enemy
 const ENERGY_DROP = preload("res://scenes/misc/energy_drop.tscn")
 @onready var death_particles: CPUParticles2D = $DeathParticles
 @onready var hitbox: Area2D = $Hitbox
-
+@onready var damage_asp: AudioStreamPlayer = $DamageASP
+@onready var death_asp: AudioStreamPlayer = $DeathASP
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
 @export_multiline var intro_name: String = "ENEMY NAME"
@@ -104,6 +105,7 @@ func die():
 
 	dead = true
 	animation_player.play("death")
+	death_asp.play()
 	await animation_player.animation_finished
 
 	Globals.enemy_kill_total += 1
@@ -119,6 +121,7 @@ func die():
 func take_damage(bullet_damage):
 	var bullet_damage_increase = Globals.calc_powerup_effect(Globals.POWERUPS.BULLETDMG)
 	animation_player.play("damage")
+	damage_asp.play()
 	hp = move_toward(hp, 0, bullet_damage)
 
 

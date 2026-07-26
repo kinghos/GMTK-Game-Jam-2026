@@ -20,6 +20,7 @@ var MAX_CHARGE: float = 125.0
 @onready var timer_circle: TextureProgressBar = $TimerCircle
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var camera_2d: Camera2D = $Camera2D
+@onready var asp: AudioStreamPlayer = $AudioStreamPlayer
 
 
 var debuffed = false
@@ -71,6 +72,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Shoot") and shoot_cooldown <= 0:
 		gun.shoot()
 		shoot_cooldown = gun.fire_rate - fire_rate_reduction
+		asp.play()
 	
 	var speed_percent = current_speed / SPRINT_SPEED
 	var drain = (IDLE_DRAIN + MOVING_DRAIN * speed_percent) * delta
@@ -114,8 +116,7 @@ func expend_charge():
 
 func die():
 	var death_anim = DEATH_ANIMATION.instantiate()
-	death_anim.global_position = Globals.player.camera_2d.get_screen_center_position()
-	get_tree().current_scene.add_child(death_anim)
+	get_tree().current_scene.get_node("DeathAnimLayer/Control").add_child(death_anim)
 	Globals.game_over = true
 
 func energy_gain(energy_gained):
