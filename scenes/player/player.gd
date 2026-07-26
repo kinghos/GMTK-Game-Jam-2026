@@ -10,6 +10,7 @@ const CHARGE_PER_EXPEND = 2.0
 var WALK_SPEED: float = 150.0
 var SPRINT_SPEED: float = 400.0
 var MAX_CHARGE: float = 150.0
+var blast_energy: float = 20.0
 
 @onready var gun: Sprite2D = $Gun
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
@@ -126,6 +127,7 @@ func blast():
 	if blast_timer.is_stopped() and Globals.powerup_counts[Globals.POWERUPS.BLAST] > 0:
 		blast_timer.start()
 		blast_particles.emitting = true
+		use_charge(blast_energy)
 		for enemy in enemies_in_blast_radius:
 			enemy.attack_cooldown = 0.75
 			enemy.knockback_time = Globals.blast_kb

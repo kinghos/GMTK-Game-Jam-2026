@@ -286,7 +286,7 @@ autoplay = "kaboom"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5" unique_id=473423202]
 stream = ExtResource("5_rpfdf")
-volume_db = -1.93
+volume_db = -5.592
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(737481144) index="0" unique_id=841296864]
 shape = SubResource("CircleShape2D_rpfdf")
