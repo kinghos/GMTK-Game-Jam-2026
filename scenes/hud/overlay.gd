@@ -25,6 +25,7 @@ func _on_hud_show_powerups() -> void:
 	var selection
 	if Globals.powerups_gained == 2:
 		weapon_select = true
+		value_changes_container.hide()
 		select_label.text = "SELECT A WEAPON\n(FOR THE REST OF THE RUN)"
 		selection = Globals.WEAPONS.values()
 		selection = selection.slice(1, 4)
@@ -36,7 +37,6 @@ func _on_hud_show_powerups() -> void:
 			
 			var description = Globals.weapon_descriptions[p_type]
 			descriptions[i].text = description
-			value_changes_container.hide()
 		Globals.powerups_gained += 1
 	else:
 		option_4_opt.hide()
@@ -63,14 +63,17 @@ func _on_hud_show_powerups() -> void:
 			var current_val = Globals.get_powerup_current_value(p_type)
 			var increase_val = Globals.powerup_increases[p_type]
 			
-			value_changes[i].get_child(0).text = "%s -> %s" % [
-				format_value(current_val),
-				format_value(current_val + increase_val)
-			]
+			if Globals.powerup_counts[p_type] == 0 and Globals.powerup_first_descriptions.has(p_type):
+				value_changes[i].get_child(0).text = "N/A"
+			else:
+				value_changes[i].get_child(0).text = "%s -> %s" % [
+					format_value(current_val),
+					format_value(current_val + increase_val)
+				]
 	
 	# Logic for 4th option
 	var weapon = Globals.chosen_weapon
-	if Globals.chosen_weapon != Globals.WEAPONS.PISTOL:
+	if not weapon_select and Globals.chosen_weapon != Globals.WEAPONS.PISTOL:
 		select_label.text = "SELECT A POWERUP"
 		option_4_opt.show()
 		option_4_desc.show()
@@ -85,14 +88,16 @@ func _on_hud_show_powerups() -> void:
 		option_4_opt.icon = Globals.upgrade_icons_borderless[w_upgrade]
 		option_4_opt.text = Globals.upgrade_names[w_upgrade]
 		option_4_desc.text = Globals.upgrade_descriptions[w_upgrade]
-		if Globals.upgrade_counts[w_upgrade] == 0 and Globals.upgrade_first_descriptions.has(w_upgrade):
-			option_4_desc.text = Globals.upgrade_first_descriptions[w_upgrade]
 		var current_val = Globals.get_upgrade_current_value(w_upgrade)
 		var increase_val = Globals.powerup_increases[w_upgrade]
 		option_4_val.text = "%s -> %s" % [
 			format_value(current_val),
 			format_value(current_val + increase_val)
 		]
+		if Globals.upgrade_counts[w_upgrade] == 0 and Globals.upgrade_first_descriptions.has(w_upgrade):
+			option_4_desc.text = Globals.upgrade_first_descriptions[w_upgrade]
+			option_4_val.text = "N/A"
+		option_4_val.get_parent().show()
 		
 	animation_player.play("powerups")
 
