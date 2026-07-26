@@ -114,7 +114,8 @@ func expend_charge():
 
 func die():
 	var death_anim = DEATH_ANIMATION.instantiate()
-	add_child(death_anim)
+	death_anim.global_position = Globals.player.camera_2d.get_screen_center_position()
+	get_tree().current_scene.add_child(death_anim)
 	Globals.game_over = true
 
 func energy_gain(energy_gained):
