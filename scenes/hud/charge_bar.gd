@@ -36,16 +36,18 @@ func _process(delta: float) -> void:
 	
 	if ratio <= 0.3 and ratio > 0.2:
 		animation_player.play("first_warning")
+		Globals.player.death_asp.stop()
 	elif ratio <= 0.2 and ratio > 0.1:
 		animation_player.play("second_warning")
+		Globals.player.death_asp.stop()
 	elif ratio <= 0.1:
 		animation_player.play("third_warning")
 		if not Globals.player.death_asp.playing:
 			Globals.player.death_asp.play()
 	else:
+		Globals.player.death_asp.stop()
 		animation_player.play("RESET")
 		animation_player.stop()
-		Globals.player.death_asp.stop()
 	
 	if low_charge_ratio <= 0.25:
 		flash_red()

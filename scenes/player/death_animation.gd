@@ -6,7 +6,6 @@ func _ready():
 	$Warning2.emitting = true
 	$Caution.emitting = true
 	await get_tree().create_timer(lifetime).timeout
-	Globals._ready()
 	Music.save_position()
 	Music.play_music(Music.STATIC)
 	get_tree().change_scene_to_file("res://scenes/hud/game_over.tscn")

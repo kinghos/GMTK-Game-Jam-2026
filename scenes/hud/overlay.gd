@@ -21,6 +21,8 @@ signal powerups_gone
 func _on_hud_show_powerups() -> void:
 	Globals.prevent_pause = true
 	paused_time_ms = 0
+	
+	AudioServer.set_bus_effect_enabled(AudioServer.get_bus_index("Music"), 0, true)
 
 	var selection
 	if Globals.powerups_gained == 2:
@@ -132,6 +134,7 @@ func _on_powerup_pressed(button_num: int) -> void:
 	Globals.update_targets()
 	Globals.start_time += floori(paused_time_ms)
 	Globals.print_powerup_values()
+	AudioServer.set_bus_effect_enabled(AudioServer.get_bus_index("Music"), 0, false)
 	Globals.prevent_pause = false
 	
 func play_bob():
