@@ -10,7 +10,7 @@ var targeted_enemy: Enemy
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
-	collision_shape_2d.shape.radius *= Globals.smg_home_strength
+	collision_shape_2d.shape.radius *=  1 + (Globals.smg_home_strength / 5)
 
 func _physics_process(delta: float) -> void:
 	var speed_increase = Globals.calc_powerup_effect(Globals.POWERUPS.BULLETSPEED)
