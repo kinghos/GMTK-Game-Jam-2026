@@ -256,7 +256,7 @@ func toggle_pause_menu():
 
 func next_target(num):
 	# uses the quadratic sequence 4x^2 + 4x + 3 to generate the next target
-	return 4 * num * num + 4 * num + 3
+	return 2 * num * num + 4 * num + 3
 
 func update_targets() -> void:
 	if enemy_kill_total >= current_kill_target:
