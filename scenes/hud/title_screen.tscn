@@ -18,7 +18,7 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvvm2"]
 bg_color = Color(0.0063474686, 0.009521385, 0.034996323, 1)
-skew = Vector2(1, 0)
+skew = Vector2(0.75, 0)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1

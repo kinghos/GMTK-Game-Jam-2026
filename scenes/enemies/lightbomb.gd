@@ -27,6 +27,7 @@ func _on_hitbox_body_exited(body: Node2D) -> void:
 		enemies_in_range.erase(body)
 
 func die():
+	# THIS IS FOR THE KNOCKBACK BLAST
 	if Globals.player and self in Globals.player.enemies_in_blast_radius:
 		Globals.player.enemies_in_blast_radius.erase(self)
 

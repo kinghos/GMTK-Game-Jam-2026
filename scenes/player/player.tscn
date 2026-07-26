@@ -194,7 +194,7 @@ script = ExtResource("3_gmlin")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1946561460]
 limit_left = 0
-limit_top = 0
+limit_top = -46
 limit_right = 2592
 limit_bottom = 1056
 
