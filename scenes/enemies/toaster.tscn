@@ -3,9 +3,34 @@
 [ext_resource type="PackedScene" uid="uid://hqm0xru0ae3j" path="res://scenes/enemies/base_enemy.tscn" id="1_ww1mm"]
 [ext_resource type="Script" uid="uid://chs8kc530yhvk" path="res://scenes/enemies/toaster.gd" id="2_dq6hp"]
 [ext_resource type="Texture2D" uid="uid://ceucltdirwhmc" path="res://assets/sprites/toaster.png" id="2_gxi2f"]
+[ext_resource type="Texture2D" uid="uid://ctcvchu8h5rcc" path="res://assets/sprites/toaster_attack.png" id="3_dq6hp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qf3h2"]
 size = Vector2(28, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk66b"]
+atlas = ExtResource("3_dq6hp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2yhr"]
+atlas = ExtResource("3_dq6hp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhiyc"]
+atlas = ExtResource("3_dq6hp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mjcx"]
+atlas = ExtResource("3_dq6hp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rffyt"]
+atlas = ExtResource("3_dq6hp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqq6b"]
+atlas = ExtResource("3_dq6hp")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dq6hp"]
 atlas = ExtResource("2_gxi2f")
@@ -37,6 +62,29 @@ region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vhxij"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk66b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2yhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhiyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mjcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rffyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqq6b")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dq6hp")
@@ -85,9 +133,10 @@ shape = SubResource("RectangleShape2D_qf3h2")
 
 [node name="Sprite2D" parent="." index="1" unique_id=162748549]
 sprite_frames = SubResource("SpriteFrames_vhxij")
-animation = &"run"
+animation = &"attack"
 autoplay = "run"
-frame_progress = 0.94711953
+frame = 5
+frame_progress = 1.0
 
 [node name="ToastCooldown" type="Timer" parent="." index="5" unique_id=644694101]
 wait_time = 1.5

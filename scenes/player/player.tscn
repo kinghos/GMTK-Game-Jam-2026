@@ -184,7 +184,7 @@ shape = SubResource("RectangleShape2D_dqkch")
 sprite_frames = SubResource("SpriteFrames_k5ghg")
 animation = &"run"
 autoplay = "run"
-frame_progress = 0.05207767
+frame_progress = 0.9404264
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=185035677]
 texture = ExtResource("3_p47bc")
@@ -193,6 +193,10 @@ script = ExtResource("3_gmlin")
 charge_cost = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1946561460]
+limit_left = 0
+limit_top = 0
+limit_right = 2592
+limit_bottom = 1056
 
 [node name="BlastParticles" type="CPUParticles2D" parent="." unique_id=890265202]
 emitting = false
