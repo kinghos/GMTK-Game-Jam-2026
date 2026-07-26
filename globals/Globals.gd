@@ -133,6 +133,9 @@ var upgrade_descriptions = {
 	WEAPON_UPGRADES.SMGHOME: "INCREASES HOMING OF BULLETS",
 	WEAPON_UPGRADES.SMGKB: "INCREASES KNOCKBACK OF BULLETS"
 }
+var upgrade_first_descriptions = {
+	WEAPON_UPGRADES.SMGHOME: "BULLETS GAIN HOMING"
+}
 
 var powerup_names = {
 	POWERUPS.ATTACKSPEED: "ATTACK\nSPEED",
@@ -146,8 +149,8 @@ var powerup_names = {
 var powerup_descriptions = {
 	POWERUPS.ATTACKSPEED: "INCREASES THE FIRE RATE OF YOUR WEAPON",
 	POWERUPS.BULLETDMG: "INCREASES BULLET DAMAGE",
-	POWERUPS.BULLETSPEED: "INCREASE BULLET SPEED",
-	POWERUPS.ENERGYPACK: "INCREASE THE MAXIMUM AMOUNT OF CHARGE YOU CAN HOLD",
+	POWERUPS.BULLETSPEED: "INCREASES BULLET SPEED",
+	POWERUPS.ENERGYPACK: "INCREASES THE MAXIMUM AMOUNT OF CHARGE YOU CAN HOLD",
 	POWERUPS.BLAST: "INCREASES HOW FAR ENEMIES ARE KNOCKED BACK BY YOUR BLAST ABILITY",
 	POWERUPS.MOVESPEED: "INCREASES MOVEMENT SPEED"
 }
@@ -176,7 +179,7 @@ var upgrade_increases = {
 	WEAPON_UPGRADES.SHOTGUNBULLETS: 1,
 	WEAPON_UPGRADES.RIFLEPIERCE: 1,
 	WEAPON_UPGRADES.RIFLESIZE: 0.2,
-	WEAPON_UPGRADES.SMGHOME: 100,
+	WEAPON_UPGRADES.SMGHOME: 0.05,
 	WEAPON_UPGRADES.SMGKB: 0.05,
 }
 
@@ -231,7 +234,7 @@ func _ready() -> void: # reset variables on reload of scene
 	shotgun_spread = PI/12
 	rifle_pierce = 0
 	smg_kb = 0.05
-	smg_home_strength = 500
+	smg_home_strength = 0
 	chosen_weapon = WEAPONS.PISTOL
 	
 	weapon_charge_multipliers = {
@@ -292,7 +295,7 @@ func apply_upgrade(upgrade: int):
 		WEAPON_UPGRADES.RIFLESIZE:
 			weapon_bullet_sizes[WEAPONS.RIFLE] += increase
 		WEAPON_UPGRADES.SMGHOME:
-			smg_home_strength += increase
+			smg_home_strength = 1 + (Globals.upgrade_counts[upgrade] * increase)
 		WEAPON_UPGRADES.SMGKB:
 			smg_kb += increase
 

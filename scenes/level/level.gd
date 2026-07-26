@@ -19,7 +19,7 @@ const ENEMIES = {
 	"lightbomb": {
 		"scene": preload("res://scenes/enemies/lightbomb.tscn"),
 		"cost": 3,
-		"base_weight": 10,
+		"base_weight": 20,
 		"growth": 5,
 		"start_wave": 2
 	},
@@ -28,14 +28,16 @@ const ENEMIES = {
 		"cost": 5,
 		"base_weight": 10,
 		"growth": 4,
-		"start_wave": 3
+		"start_wave": 3,
+		"requires_seen": "lightbomb"
 	},
 	"batterypion": {
 		"scene": preload("uid://dxrfr1il2fdvy"),
 		"cost": 3,
 		"base_weight": 5,
 		"growth": 4,
-		"start_wave": 5
+		"start_wave": 5,
+		"requires_seen": "toaster"
 	}
 }
 
@@ -88,7 +90,7 @@ func build_wave():
 			budget -= enemy.cost
 
 func get_wave_budget():
-	return 9 + pow(10, wave_number/5) #i dunno yet
+	return 3 + pow(10, wave_number/5)
 	
 func choose_enemy():
 	var total_weight = 0.0
@@ -108,6 +110,9 @@ func choose_enemy():
 		if enemy.has("decay"):
 			weight = max(20, weight - wave_number * enemy.decay)
 		
+		if enemy.has("requires_seen") and !Globals.has_seen(enemy.requires_seen):
+			weight = 0
+		
 		current_weights[key] = weight
 		total_weight += weight
 	
@@ -125,6 +130,7 @@ func spawn_enemy(scene: PackedScene):
 	if not Globals.player: return
 	
 	var enemy = scene.instantiate()
+	enemy.speed *= 1 + (wave_number / 50.0)
 	var spawn_pos = Vector2.ZERO
 	var valid_spawn = false
 	var attempts = 0

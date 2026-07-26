@@ -8,14 +8,17 @@ var homing_offset: Vector2
 var targeted_enemy: Enemy
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+func _ready() -> void:
+	collision_shape_2d.shape.radius *= Globals.smg_home_strength
+
 func _physics_process(delta: float) -> void:
 	var speed_increase = Globals.calc_powerup_effect(Globals.POWERUPS.BULLETSPEED)
-	if Globals.chosen_weapon == Globals.WEAPONS.SMG and targeted_enemy:
-		homing_offset = targeted_enemy.global_position - global_position
-		homing_offset = homing_offset.normalized()
-	else:
-		homing_offset = Vector2.ZERO
-	global_position += (direction * (Globals.bullet_speed + speed_increase) + homing_offset * Globals.smg_home_strength) * delta 
+	var speed = Globals.bullet_speed + speed_increase
+	
+	if Globals.chosen_weapon == Globals.WEAPONS.SMG and targeted_enemy and Globals.smg_home_strength != 0:
+		direction = global_position.direction_to(targeted_enemy.global_position)
+
+	global_position += direction * speed * delta 
 
  
 func _on_body_entered(body: Node2D) -> void:

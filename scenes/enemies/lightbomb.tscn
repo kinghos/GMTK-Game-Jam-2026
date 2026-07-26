@@ -265,7 +265,7 @@ intro_name = "Light Bomb"
 intro_tagline = "Kaboom."
 hp = 15
 damage = 30
-speed = 150
+speed = 125
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1150660543]
 position = Vector2(-3, -2.5)

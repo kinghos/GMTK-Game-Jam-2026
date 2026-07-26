@@ -63,7 +63,10 @@ func _on_hud_show_powerups() -> void:
 			var current_val = Globals.get_powerup_current_value(p_type)
 			var increase_val = Globals.powerup_increases[p_type]
 			
-			value_changes[i].get_child(0).text = "%.2f -> %.2f" % [current_val, current_val + increase_val]
+			value_changes[i].get_child(0).text = "%s -> %s" % [
+				format_value(current_val),
+				format_value(current_val + increase_val)
+			]
 	
 	# Logic for 4th option
 	var weapon = Globals.chosen_weapon
@@ -82,11 +85,21 @@ func _on_hud_show_powerups() -> void:
 		option_4_opt.icon = Globals.upgrade_icons_borderless[w_upgrade]
 		option_4_opt.text = Globals.upgrade_names[w_upgrade]
 		option_4_desc.text = Globals.upgrade_descriptions[w_upgrade]
+		if Globals.upgrade_counts[w_upgrade] == 0 and Globals.upgrade_first_descriptions.has(w_upgrade):
+			option_4_desc.text = Globals.upgrade_first_descriptions[w_upgrade]
 		var current_val = Globals.get_upgrade_current_value(w_upgrade)
 		var increase_val = Globals.powerup_increases[w_upgrade]
-		option_4_val.text = "%.2f -> %.2f" % [current_val, current_val + increase_val]
+		option_4_val.text = "%s -> %s" % [
+			format_value(current_val),
+			format_value(current_val + increase_val)
+		]
 		
 	animation_player.play("powerups")
+
+func format_value(value: float) -> String:
+	if is_equal_approx(value, round(value)):
+		return str(int(round(value)))
+	return "%.2f" % value
 
 func _process(delta: float) -> void:
 	paused_time_ms += delta*1000
