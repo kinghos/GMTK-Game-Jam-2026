@@ -4,4 +4,5 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=493011207]
 process_mode = 3
+playback_type = 1
 script = ExtResource("1_q3wc6")
