@@ -13,6 +13,8 @@ config_version=5
 config/name="Battery Blitz"
 run/main_scene="uid://df0ntvsqg4llv"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0.5019608, 0.2901961, 0.2901961, 1)
+boot_splash/image="uid://cfcrfn406sgd3"
 config/icon="res://icon.svg"
 
 [audio]

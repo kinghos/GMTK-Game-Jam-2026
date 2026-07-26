@@ -12,19 +12,23 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if pulling:
-		var direction = Globals.player.global_position - global_position
-		direction = direction.normalized()
-		var tween = get_tree().create_tween()
-		var angle = PI / 6
-		if direction.x < 0:
-			angle = -PI / 6
-		tween.tween_property(self, "rotation", angle, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-		global_position += direction * pull_speed * delta
+		var to_player = Globals.player.global_position - global_position
+		var distance = to_player.length()
+		
+		if distance > 1.0:
+			var direction = to_player / distance
+			
+			# x/distance, x is cap, needs tweaking
+			var distance_multiplier = 1.0 + (50.0 / distance)
+			
+			var current_speed = pull_speed * distance_multiplier
+			global_position += direction * current_speed * delta
+			
+		var target_angle = PI / 6 if to_player.x > 0 else -PI / 6
+		rotation = lerp_angle(rotation, target_angle, 10.0 * delta)
 	else:
-		if rotation != 0:
-			var tween = get_tree().create_tween()
-			tween.tween_property(self, "rotation", 0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-
+		if not is_equal_approx(rotation, 0.0):
+			rotation = lerp_angle(rotation, 0.0, 10.0 * delta)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:

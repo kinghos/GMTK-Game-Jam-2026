@@ -51,6 +51,7 @@ func _ready() -> void:
 	Globals.pause_menu = $PauseMenu
 	Globals.prevent_pause = false
 	Music.play_music(Music.MAIN_THEME)
+	Music.volume_db = 0
 	start_wave()
 
 func _exit_tree() -> void:

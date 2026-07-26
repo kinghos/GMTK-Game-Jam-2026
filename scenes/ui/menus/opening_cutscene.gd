@@ -18,6 +18,7 @@ var transitioning: bool = false
 
 func _ready() -> void:
 	Music.play_music(CUTSCENE_MUSIC)
+	Music.volume_db = -4.0
 	update_current_frame()
 
 func update_current_frame():

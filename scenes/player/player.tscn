@@ -191,7 +191,6 @@ frame_progress = 0.34261853
 texture = ExtResource("3_p47bc")
 offset = Vector2(30, 0)
 script = ExtResource("3_gmlin")
-charge_cost = 3.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1946561460]
 limit_left = 0

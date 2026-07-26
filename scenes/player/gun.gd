@@ -3,7 +3,7 @@ extends Sprite2D
 const BULLET = preload("res://scenes/player/bullet.tscn")
 
 @export var fire_rate = 0.5 # Seconds between shots
-@export var charge_cost = 2.5
+@export var charge_cost = 2.0
 
 var mouse_direction: Vector2
 
