@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cm44jhrodkky5" path="res://assets/sprites/powerups/bordered/blast_grey.png" id="12_8nkf1"]
 [ext_resource type="Shader" uid="uid://qxu6uxk30jiv" path="res://assets/shaders/outline.gdshader" id="12_558d4"]
 [ext_resource type="Texture2D" uid="uid://ba7na4p3b21c3" path="res://assets/sprites/warning2.png" id="14_567j1"]
+[ext_resource type="Texture2D" uid="uid://bcfhak3wwnoa8" path="res://assets/sprites/right_click.png" id="14_jjjd2"]
 [ext_resource type="Texture2D" uid="uid://bvtipi6jfcn8x" path="res://assets/sprint.png" id="14_nsgyl"]
 [ext_resource type="Texture2D" uid="uid://m3a4ukw8bffo" path="res://assets/sprites/caution.png" id="15_nsgyl"]
 [ext_resource type="Texture2D" uid="uid://bqsvm5rxyem6j" path="res://assets/sprites/warning.png" id="16_jjjd2"]
@@ -574,6 +575,14 @@ value = 92.0
 fill_mode = 1
 texture_under = ExtResource("9_4m1a1")
 texture_progress = ExtResource("12_8nkf1")
+
+[node name="TextureRect" type="TextureRect" parent="Control/BlastRecharge" unique_id=1986351383]
+layout_mode = 0
+offset_left = -35.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 33.0
+texture = ExtResource("14_jjjd2")
 
 [node name="Instructions" type="ColorRect" parent="Control" unique_id=2063590900]
 z_index = 2

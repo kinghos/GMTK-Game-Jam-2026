@@ -27,7 +27,7 @@ var weapon_bullet_speeds = {
 	WEAPONS.SMG: 900
 }
 var weapon_attack_speeds = {
-	WEAPONS.PISTOL: 0.6,
+	WEAPONS.PISTOL: 0.5,
 	WEAPONS.SHOTGUN: 0.65,
 	WEAPONS.RIFLE: 1.0,
 	WEAPONS.SMG: 0.2
