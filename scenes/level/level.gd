@@ -35,7 +35,7 @@ const ENEMIES = {
 		"cost": 3,
 		"base_weight": 5,
 		"growth": 4,
-		"start_wave": 4
+		"start_wave": 5
 	}
 }
 
@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
 	if spawning_wave: return
 	if Globals.game_over: return
 	
-	if enemy_count <= max(5, int(last_amount_spawned * 0.25)):
+	if enemy_count <= min(5, int(last_amount_spawned * 0.25)):
 		start_wave()
 
 func start_wave():
@@ -160,3 +160,4 @@ func _on_spawn_timer_timeout() -> void:
 		var scene = spawn_queue.pop_front()
 		spawn_enemy(scene)
 		await get_tree().create_timer(0.35).timeout
+	spawn_timer.start()

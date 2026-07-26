@@ -3,6 +3,83 @@
 [ext_resource type="Texture2D" uid="uid://crv0lrsnos3ng" path="res://assets/sprites/title_screen.png" id="1_47bpt"]
 [ext_resource type="Script" uid="uid://cohrjhkwaj7l1" path="res://scenes/hud/title_screen.gd" id="1_vodrh"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vodrh"]
+bg_color = Color(0.02199186, 0.03298193, 0.09573481, 1)
+skew = Vector2(0.75, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.06605817, 0.32672632, 0.589619, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvvm2"]
+bg_color = Color(0.0063474686, 0.009521385, 0.034996323, 1)
+skew = Vector2(1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.06605817, 0.32672632, 0.589619, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4q4ww"]
+bg_color = Color(0.04694707, 0.08100966, 0.16241944, 1)
+skew = Vector2(0.75, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.06605817, 0.32672632, 0.589619, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jau1"]
+bg_color = Color(0.023529412, 0.03137255, 0.09411765, 1)
+skew = Vector2(0.75, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.06605817, 0.32672632, 0.589619, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfbox"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+skew = Vector2(0.75, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [node name="TitleScreen" type="Control" unique_id=1390976931]
 layout_mode = 3
 anchors_preset = 15
@@ -33,24 +110,44 @@ theme_override_constants/separation = 14
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_vodrh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvvm2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4q4ww")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3jau1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sfbox")
 text = "PLAY"
 
 [node name="Settings" type="Button" parent="VBoxContainer" unique_id=316401229]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_vodrh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvvm2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4q4ww")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3jau1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sfbox")
 text = "SETTINGS"
 
 [node name="Credits" type="Button" parent="VBoxContainer" unique_id=2052331876]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_vodrh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvvm2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4q4ww")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3jau1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sfbox")
 text = "CREDITS"
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=245739415]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_vodrh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wvvm2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4q4ww")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3jau1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sfbox")
 text = "QUIT"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

@@ -104,15 +104,13 @@ func start_return() -> void:
 	fade_out.set_parallel(true)
 	fade_out.tween_property(title, "modulate:a", 0.0, 0.15)
 	fade_out.tween_property(tagline, "modulate:a", 0.0, 0.15)
-	fade_out.chain().tween_callback(unpause_and_return)
+	fade_out.chain().tween_callback(return_to_player)
 
-func unpause_and_return() -> void:
-	get_tree().paused = false
-
+func return_to_player() -> void:
 	var start_pos = cinematic_cam.global_position
 	var start_zoom = cinematic_cam.zoom
 	var start_radius = mask.material.get("shader_parameter/radius")
-	var return_duration := 1.0
+	var return_duration := 0.5
 
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
@@ -128,6 +126,7 @@ func unpause_and_return() -> void:
 
 
 func finish_intro() -> void:
+	get_tree().paused = false
 	visible = false
 	player_cam.enabled = true
 	cinematic_cam.enabled = false
