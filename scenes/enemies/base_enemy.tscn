@@ -185,7 +185,7 @@ _data = {
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1193687902 groups=["Enemies"]]
 z_index = 1
 collision_layer = 2
-collision_mask = 702
+collision_mask = 1726
 motion_mode = 1
 safe_margin = 1.0
 script = ExtResource("1_qf3h2")
@@ -241,7 +241,8 @@ anim_offset_max = 1.0
 libraries/ = SubResource("AnimationLibrary_ylyo2")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=737481144]
-collision_layer = 2
+collision_layer = 1024
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=841296864]
 

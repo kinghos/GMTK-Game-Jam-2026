@@ -6,6 +6,7 @@ var enemies_in_range = []
 
 func _ready() -> void:
 	enemy_type = "lightbomb"
+	dead = false
 
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if body is Player and not dead:

@@ -119,7 +119,6 @@ func die():
 
 
 func take_damage(bullet_damage):
-	var bullet_damage_increase = Globals.calc_powerup_effect(Globals.POWERUPS.BULLETDMG)
 	animation_player.play("damage")
 	damage_asp.play()
 	hp = move_toward(hp, 0, bullet_damage)

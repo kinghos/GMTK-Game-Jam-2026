@@ -101,6 +101,7 @@ Pause={
 2d_physics/layer_8="Blast Area"
 2d_physics/layer_9="Enemy projectiles"
 2d_physics/layer_10="Homing area"
+2d_physics/layer_11="Enemy Hurtbox"
 
 [physics]
 
