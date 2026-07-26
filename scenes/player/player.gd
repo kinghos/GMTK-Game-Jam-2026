@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	var fire_rate_reduction = Globals.calc_powerup_effect(Globals.POWERUPS.ATTACKSPEED)
 	if Input.is_action_pressed("Shoot") and shoot_cooldown <= 0:
 		gun.shoot()
-		shoot_cooldown = gun.fire_rate - fire_rate_reduction
+		shoot_cooldown = gun.fire_rate + fire_rate_reduction
 		asp.play()
 	
 	var speed_percent = current_speed / SPRINT_SPEED

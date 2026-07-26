@@ -302,11 +302,11 @@ func calc_powerup_effect(powerup: int):
 func get_powerup_current_value(powerup: int) -> float:
 	match powerup:
 		POWERUPS.ATTACKSPEED:
-			return player.gun.fire_rate
+			return player.gun.fire_rate + calc_powerup_effect(POWERUPS.ATTACKSPEED)
 		POWERUPS.BULLETDMG:
-			return float(bullet_damage)
+			return float(bullet_damage) + calc_powerup_effect(POWERUPS.BULLETDMG)
 		POWERUPS.BULLETSPEED:
-			return bullet_speed
+			return bullet_speed + calc_powerup_effect(POWERUPS.BULLETSPEED)
 		POWERUPS.ENERGYPACK:
 			return player.MAX_CHARGE
 		POWERUPS.BLAST:

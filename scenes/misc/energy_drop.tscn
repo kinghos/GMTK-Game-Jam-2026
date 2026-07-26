@@ -12,6 +12,7 @@ radius = 73.00685
 [node name="EnergyDrop" type="Area2D" unique_id=867742181]
 collision_layer = 32
 script = ExtResource("1_moigf")
+pull_speed = 120
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1849676986]
 texture = ExtResource("1_rt2x3")
